@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="styles/layout.css" />
+<link type="text/css" rel="stylesheet" href="styles/right.css" />
+
+<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+<script type="text/javascript" src="lib/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="lib/jquery.slide.js"></script>
+<script language="javascript">
+	$(document).ready(function (){
+				$("#slideimg").PikaChoose({carousel:true, carouselVertical:true});
+			});
+</script>
+        
+<title>S4I - Srta.Biju</title>
+</head>
+
+<body>
+<form>
+
+<div id="topo">
+	<div id="dentrotopo">
+    	<img src="img/Logo.png" alt="Logo" />
+        <input type="image" src="img/botaopesq.png" alt="Buscar..." id="botaoBusca"/>
+        <input type="text" name="pesquisa" placeholder="Digite sua pesquisa..." style="border:none; background-color: none" />
+	</div>
+</div>
+
+<div id="menu">
+	<div id="dentromenu">
+    	<ul>
+    	<li><a href="" class="links"> Home</a></li>
+		<li><a href="" class="links"> Produtos</a></li>
+		<li><a href="" class="links"> Minha Conta</a></li>
+		<li><a href="" class="links"> A Empresa</a></li>
+		<li><a href="" class="links"> Contato</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="conteudo">
+
+	<div id="barramenu">
+    	<div id="login">
+        	<b>Minha Conta</b>
+        </div>
+    </div>
+    
+	<div class="slide">
+	<h1>Bem-Vindo!</h1>
+		<ul class="jcarousel-skin" id="slideimg" name="slideimg">
+			<li><a href=""><img src="img/Slide/1.jpg"/></a><span>Pulseira trançada com pedrinhas.</span></li>
+			<li><a href=""><img src="img/Slide/2.jpg"></a><span>Lançamento! Pulseiras com cores variadas</span></li>
+			<li><a href=""><img src="img/Slide/3.jpg"/></a><span>Conheça nossos pordutos!</span></li>
+			<li><a href=""><img src="img/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
+			<li><a href=""><img src="img/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
+		</ul>
+	</div>
+     
+	<h3>Conheça nossa</h3>
+	<h1>Vitrine !</h1>
+
+	<div id="barra">
+    </div>
+       
+</div>
+
+<div id="rodape">
+	<b>© 2013 - S4Info. Todos os Direitos Reservados.</b>
+</div>
+
+
+</form>
+</body>
+</html>
