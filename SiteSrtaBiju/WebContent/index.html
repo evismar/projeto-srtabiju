@@ -15,17 +15,29 @@
 				$("#slideimg").PikaChoose({carousel:true, carouselVertical:true});
 			});
 </script>
+<script type="text/javascript">
+	function submeterPesquisa(pAcao) {
+		
+		alert("Função ainda não implementada.");
+		
+	//	document.index.acao.value = pAcao;
+
+	//	document.index.submit();
+	}
+</script>
         
 <title>S4I - Srta.Biju</title>
 </head>
 
 <body>
-<form>
+	<form id="index" name="index"
+		action="servletLogin" method="post">
+		<input type="hidden" id="acao" name="acao" value="" />
 
 <div id="topo">
 	<div id="dentrotopo">
     	<img src="img/Logo.png" alt="Logo" />
-        <input type="image" src="img/botaopesq.png" alt="Buscar..." id="botaoBusca"/>
+        <input type="image" src="img/botaopesq.png" alt="Buscar..." id="botaoBusca" onclick="submeterPesquisa('pesquisa')"/>
         <input type="text" name="pesquisa" placeholder="Digite sua pesquisa..." style="border:none; background-color: none" />
 	</div>
 </div>
