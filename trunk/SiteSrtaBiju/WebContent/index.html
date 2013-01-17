@@ -18,27 +18,22 @@
 <script type="text/javascript">
 	function submeter(pAcao) {
 		
-		alert(pAcao);
-
-		if (pAcao =="pesquisa")
-			alert("Função 'Pesquisa' ainda não implementada.");
+		if (pAcao =="produto")
+			alert("Função 'Produtos' ainda não implementada.")
 			
-		
-		if (pAcao =="produtos")
-		alert("Função 'Produtos' ainda não implementada.");
-		
-		
-		if (pAcao =="minha Conta")
-		alert("Função 'Minha Conta' ainda não implementada.");
-		
-		
-		
+		if (pAcao =="minhaConta")
+			alert("Função 'Minha Conta' ainda não implementada.")
+				
+		if (pAcao =="empresa")
+			alert("Função 'Empresa' ainda não implementada.")		
+				
 		if (pAcao =="contato")
-		alert("Função 'Contato' ainda não implementada.");
+			alert("Função 'Contato' ainda não implementada.")
+			
+		if (pAcao =="pesquisa")
+			alert("Função 'Pesquisa' ainda não implementada.")	
 		
 		
-		
-
 	}
 </script>
         
@@ -62,10 +57,10 @@
 	<div id="dentromenu">
     	<ul>
     	<li><a href="" class="links"> Home</a></li>
-		<li><a href="" class="links" onclick = "submeter('produtos')" > Produtos</a></li>
-		<li><a href="" class="links"> Minha Conta</a></li>
-		<li><a href="" class="links"> A Empresa</a></li>
-		<li><a href="" class="links"> Contato</a></li>
+		<li><a href="" class="links" onclick = "submeter('produto')" > Produtos</a></li>
+		<li><a href="" class="links" onclick = "submeter('minhaConta')"> Minha Conta</a></li>
+		<li><a href="" class="links" onclick = "submeter('empresa')"> A Empresa</a></li>
+		<li><a href="" class="links" onclick = "submeter('contato')"> Contato</a></li>
         </ul>
     </div>
 </div>
