@@ -16,13 +16,29 @@
 			});
 </script>
 <script type="text/javascript">
-	function submeterPesquisa(pAcao) {
+	function submeter(pAcao) {
 		
-		alert("Função ainda não implementada.");
-		
-	//	document.index.acao.value = pAcao;
+		alert(pAcao);
 
-	//	document.index.submit();
+		if (pAcao =="pesquisa")
+			alert("Função 'Pesquisa' ainda não implementada.");
+			
+		
+		if (pAcao =="produtos")
+		alert("Função 'Produtos' ainda não implementada.");
+		
+		
+		if (pAcao =="minha Conta")
+		alert("Função 'Minha Conta' ainda não implementada.");
+		
+		
+		
+		if (pAcao =="contato")
+		alert("Função 'Contato' ainda não implementada.");
+		
+		
+		
+
 	}
 </script>
         
@@ -37,7 +53,7 @@
 <div id="topo">
 	<div id="dentrotopo">
     	<img src="img/Logo.png" alt="Logo" />
-        <input type="image" src="img/botaopesq.png" alt="Buscar..." id="botaoBusca" onclick="submeterPesquisa('pesquisa')"/>
+        <input type="image" src="img/botaopesq.png" alt="Buscar..." id="botaoBusca" onclick="submeter('pesquisa')"/>
         <input type="text" name="pesquisa" placeholder="Digite sua pesquisa..." style="border:none; background-color: none" />
 	</div>
 </div>
@@ -46,7 +62,7 @@
 	<div id="dentromenu">
     	<ul>
     	<li><a href="" class="links"> Home</a></li>
-		<li><a href="" class="links"> Produtos</a></li>
+		<li><a href="" class="links" onclick = "submeter('produtos')" > Produtos</a></li>
 		<li><a href="" class="links"> Minha Conta</a></li>
 		<li><a href="" class="links"> A Empresa</a></li>
 		<li><a href="" class="links"> Contato</a></li>
