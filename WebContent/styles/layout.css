@@ -1,0 +1,39 @@
+* {padding:0; margin:0;}
+
+#topo {width:100%; height: 150px; background-image:url(../img/topobg.png); background-repeat:repeat-x;}
+
+#dentrotopo {width:1000px; height:150px; margin:0 auto;}
+
+#dentrotopo input[type="text"] {width:240px; height:30px; margin-top:80px; border:none; border-radius:5px; -webkit-border-radius:5px 0 0 5px; -moz-border-radius:5px 0 0 5px; -o-border-radius:5px 0 0 5px; float:right; outline:none; padding-left:4px;}
+
+#dentrotopo #botaoBusca {float:right; margin-top:80px; background:#FFF; -webkit-border-radius:0 8px 8px 0; -moz-border-radius:8px 0 0 8px; -o-border-radius:8px 0 0 8px; float:right; padding-left:2px;}
+
+#menu {width:100%; height:30px; background-image:url(../img/menubg.png); background-repeat:repeat-x;}
+
+#dentromenu {width:1000px; height:26px; padding-top:2px; margin:0 auto;}
+
+	#dentromenu ul{list-style: none; float: left; position: relative; left: 30%;}
+
+	#dentromenu ul li{float: left; position: relative; right: 50%; margin: 0 1px; background:url(../img/divisorbg.png) right no-repeat;}
+
+	.links {font-family:Arial, Helvetica, sans-serif; color:#381E12; text-decoration:none; font-size:20px; font-weight:bold; padding:2px 18px; border-right:#FFF}
+
+	.links:hover {text-shadow: 0 0 14px #630;}
+
+#conteudo {width:1000px; height:712px; margin:0 auto;}
+
+	#barramenu{width:250px; height:686px; background:#FFE09F; float:right; padding:10px;}
+
+		#login{width:230px; height:220px; background:url(../img/loginbg.png); background-repeat:repeat-x; text-align:center; padding:10px; 			   		font-size:18px;}
+
+	#conteudo .slide{ margin: 30px 0;}
+
+	#barra{width:120px; height:275px; background:#FFE09F;}
+
+#rodape {width:100%; height:90px; background-image:url(../img/rodapebg.png); background-repeat:repeat-x; text-align:center;}
+
+	#rodape b{font-family:Arial, Helvetica, sans-serif 12px; color:#FFF;}
+
+
+
+
