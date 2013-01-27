@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro' /}
+
+<h1>Cadastro</h1>
+
+#{form @salvarCadastro()}
+    #{field 'cliente.login'}
+        <p class="${field.errorClass}">
+            <strong>Login:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.login}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    #{field 'cliente.nome'}
+        <p class="${field.errorClass}">
+            <strong>Nome Completo:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.nome}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    #{field 'cliente.senha'}
+        <p class="${field.errorClass}">
+            <strong>Senha:</strong> <input type="senha" name="${field.name}" size="16" value="${cliente?.senha}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    #{field 'confirmaSenha'}
+        <p class="${field.errorClass}">
+            <strong>Confirme sua Senha:</strong> <input type="password" name="${field.name}" size="16" value="${confirmaSenha}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}    
+    <p class="buttons">
+        <input type="submit" value="Cadastrar"> <a href="@{index()}">Cancelar</a>    
+    </p>
+#{/form}
+    

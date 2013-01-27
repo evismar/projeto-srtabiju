@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro' /}
+
+<h1>Cadastro de Produto</h1>
+
+#{form @salvarCadastro()}
+    #{field 'produto.nome'}
+        <p class="${field.errorClass}">
+            <strong>Nome:</strong> <input type="text" name="${field.name}" size="16" value="${produto?.nome}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    #{field 'produto.descricao'}
+        <p class="${field.errorClass}">
+            <strong>Descrição:</strong> <input type="text" name="${field.name}" size="16" value="${produto?.descricao}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+
+
+    #{field 'produto.imagem'}
+          <p class="${field.errorClass}">  
+    	  <strong>Imagem:</strong> <input type="file" name="${field.name}" size=16 value="${produto?.foto}"> *
+          <span class="error">${field.error}</span>
+          </p>
+    #{/field}
+    
+    <p class="buttons">
+        <input type="submit" value="Cadastrar"> <a href="@{index()}">Cancelar</a>    
+    </p>
+#{/form}
