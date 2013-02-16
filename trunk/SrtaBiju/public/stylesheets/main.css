@@ -82,6 +82,7 @@ a {
     width: 300px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 #formLogin label {
@@ -129,8 +130,9 @@ form p {
 }
 
 form p.field {
-    text-align: left;
+    text-align: right;
     margin: 0 0 5px 0;
+    color:red;
 }
 
 form strong {
@@ -172,4 +174,5 @@ form .buttons {
     font-size: 70%;
     border-top: 1px dotted #ccc;
     text-align: center;
+    
 }

@@ -2,23 +2,113 @@
 #{set title:'Cadastro' /}
 
 <h1>Cadastro</h1>
-
+<h2>Dados pessoais</h2>
 #{form @salvarCadastro()}
-    #{field 'cliente.login'}
-        <p class="${field.errorClass}">
-            <strong>Login:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.login}"> *
-            <span class="error">${field.error}</span>
-        </p>
-    #{/field}
+
     #{field 'cliente.nome'}
         <p class="${field.errorClass}">
-            <strong>Nome Completo:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.nome}"> *
+            <strong>Nome:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.nome}"> *
             <span class="error">${field.error}</span>
         </p>
     #{/field}
-    #{field 'cliente.senha'}
+    
+    #{field 'cliente.email'}
         <p class="${field.errorClass}">
-            <strong>Senha:</strong> <input type="senha" name="${field.name}" size="16" value="${cliente?.senha}"> *
+            <strong>Email:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.email}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.telefone1'}
+        <p class="${field.errorClass}">
+            <strong>Telefone 1:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.telefone1}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.telefone2'}
+        <p class="${field.errorClass}">
+            <strong>Telefone 2:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.telefone2}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.dataNascimento'}
+        <p class="${field.errorClass}">
+            <strong>Data de Nascimento:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.dataNascimento}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.facebook'}
+        <p class="${field.errorClass}">
+            <strong>Facebook:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.facebook}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}   
+    
+    <h2>Endereço</h2>
+    
+    #{field 'endereco.cep'}
+        <p class="${field.errorClass}">
+            <strong>Cep:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.cep}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+	#{field 'endereco.estado'}
+        <p class="${field.errorClass}">
+            <strong>Estado:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.estado}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}  
+    
+    #{field 'endereco.cidade'}
+        <p class="${field.errorClass}">
+            <strong>Cidade:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.cidade}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}  
+    
+    #{field 'endereco.bairro'}
+        <p class="${field.errorClass}">
+            <strong>Bairro:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.bairro}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'endereco.rua'}
+        <p class="${field.errorClass}">
+            <strong>Rua:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.rua}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'endereco.numero'}
+        <p class="${field.errorClass}">
+            <strong>Número:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.numero}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'endereco.complemento'}
+        <p class="${field.errorClass}">
+            <strong>Complemento:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.complemento}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    <h2>Login e Senha</h2>
+    #{field 'login.login'}
+        <p class="${field.errorClass}">
+            <strong>Login:</strong> <input type="text" name="${field.name}" size="16" value="${login?.login}"> *
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+
+
+    #{field 'login.senha'}
+        <p class="${field.errorClass}">
+            <strong>Senha:</strong> <input type="senha" name="${field.name}" size="16" value="${login?.senha}"> *
             <span class="error">${field.error}</span>
         </p>
     #{/field}
@@ -27,9 +117,13 @@
             <strong>Confirme sua Senha:</strong> <input type="password" name="${field.name}" size="16" value="${confirmaSenha}"> *
             <span class="error">${field.error}</span>
         </p>
-    #{/field}    
+    #{/field}  
     <p class="buttons">
         <input type="submit" value="Cadastrar"> <a href="@{index()}">Cancelar</a>    
     </p>
+    
+
+    
+    
 #{/form}
     
