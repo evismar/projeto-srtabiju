@@ -44,14 +44,15 @@
 
 
     #{field 'produto.imagem'}
-          <p class="${field.errorClass}">  
-    	  <strong>Imagem:</strong> <input type="file"name="${field.name}" size=16 value="${produto?.imagem}"> *
-          <span class="error">${field.error}</span>
-          </p>
+	<strong>Foto:</strong> 
+    <input type="file" id="imagem" name="imagem" />
+
     #{/field}
     
     <p class="buttons">
         <input type="submit" value="Cadastrar"> <a href="@{index()}">Cancelar</a>    
     </p>
 #{/form}
+
+
 

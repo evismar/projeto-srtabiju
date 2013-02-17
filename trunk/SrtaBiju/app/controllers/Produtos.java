@@ -26,15 +26,11 @@ public class Produtos extends Application{
     	Date data = new Date();
     	produto.dataCadastro = data;
     	produto.categoria = categoria;
-    	
-    	System.out.println(imagem);
-    	System.out.println(produto.imagem);
-    	System.out.println(imagem.getName());
-    	System.out.println(produto.imagem.getName());
-    	
-      //  produto.create();
+   	
+        produto.create();
         flash.success("Produto cadastrado!");
         Application.index();
     }
+
 
 }
