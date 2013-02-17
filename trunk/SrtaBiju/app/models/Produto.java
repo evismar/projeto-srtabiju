@@ -13,7 +13,16 @@ public class Produto extends Model{
     
 
     
-    @Required
+    @Override
+	public String toString() {
+		return "Produto [nome=" + nome + ", descricao=" + descricao
+				+ ", imagem=" + imagem + ", dataCadastro=" + dataCadastro
+				+ ", quantidadeEmEstoque=" + quantidadeEmEstoque + ", valor="
+				+ valor + ", numVisualizacoes=" + numVisualizacoes
+				+ ", categoria=" + categoria + "]";
+	}
+
+	@Required
     @MaxSize(100)
     public String nome;
     

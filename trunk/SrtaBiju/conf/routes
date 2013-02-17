@@ -6,16 +6,24 @@
 
 # Home page
 GET     /                                       Application.index
-GET     /cadastro/cliente                       ContCliente.cadCliente
-POST    /cadastro/cliente                       ContCliente.salvarCadastro
-GET     /cadastro/produto                       ContProduto.cadProduto
-POST    /cadastro/produto                       ContProduto.salvarCadastro
+GET     /cadastro/cliente                       Clientes.cadCliente
+POST    /cadastro/cliente                       Clientes.salvarCadastro
+
 
 
 # Adminstration
+GET     /cadastro/produto                       Produtos.cadProduto
+POST    /cadastro/produto                       Produtos.salvarCadastro
+
+GET     /cadastro/categoria                     Categorias.cadCategoria
+POST    /cadastro/categoria                     Categorias.salvarCadastro
 
 
-*       /admin                                  module:crud
+
+
+
+
+#*       /admin                                  module:crud
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

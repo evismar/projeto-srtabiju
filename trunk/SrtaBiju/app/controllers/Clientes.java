@@ -7,7 +7,7 @@ import play.data.validation.*;
 import java.util.*;
 
 import models.*;
-public class ContCliente extends Application{
+public class Clientes extends Application{
 
     public static void cadCliente() {
         render();
@@ -20,11 +20,12 @@ public class ContCliente extends Application{
         if(validation.hasErrors()) {
             render("@cadCliente", cliente, login, confirmaSenha);
         }
-        
+    	Date data = new Date();
         endereco.create();
         login.create();        
         cliente.endereco = endereco;
         cliente.login = login;
+        cliente.dataCadastro = data;
         cliente.create();
 
         session.put("cliente", login.login);
