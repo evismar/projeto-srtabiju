@@ -39,7 +39,7 @@ public class Cliente extends Model{
     public String facebook;
     
     @Required
-    public Date dataNascimento ;
+    public String dataNascimento ;
     
     @Required
     public Date dataCadastro;
@@ -54,7 +54,7 @@ public class Cliente extends Model{
     public Login login;
    
     public Cliente(String nome, String email, String telefone1, String telefone2, 
-    		String facebook, Date dataNascimento) {
+    		String facebook, String dataNascimento) {
         this.nome = nome;
         this.email = email;
         this.telefone1 = telefone1;

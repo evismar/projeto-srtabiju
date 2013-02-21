@@ -32,5 +32,9 @@ public class Produtos extends Application{
         Application.index();
     }
 
+    public static void listaProdutos() {
+        List<Produto> produtos = Produto.findAll();
+        render(produtos);
+    }
 
 }

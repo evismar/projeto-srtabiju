@@ -14,9 +14,12 @@ POST    /cadastro/cliente                       Clientes.salvarCadastro
 # Adminstration
 GET     /cadastro/produto                       Produtos.cadProduto
 POST    /cadastro/produto                       Produtos.salvarCadastro
+GET     /relatorio/produto                      Produtos.listaProdutos
 
 GET     /cadastro/categoria                     Categorias.cadCategoria
 POST    /cadastro/categoria                     Categorias.salvarCadastro
+
+GET		/relatorio/cliente						Clientes.listaClientes
 
 
 
