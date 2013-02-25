@@ -1,13 +1,12 @@
-#summary One-sentence summary of this page.
+= Equipe =
 
-= Introduction =
+||*Evismar Andrade||Eng.SW||Back end||
+||*Ítalo Juan||Eng.SW||Front end||
+||*Rafael Douglas||Eng.SW||Back end||
+||*Thiago Valentim||Eng.SW||Testes||
 
-Add your content here.
 
+= Professores =
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+||*Wylliams Barbosa||Análise de projetos||
+||*Maria Conceição Moraes||Projeto de Banco de dados||
