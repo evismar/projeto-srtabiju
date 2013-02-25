@@ -1,4 +1,4 @@
-||[https://code.google.com/p/projeto-srtabiju/ Home]||[Equipe]||[Descricao_Sistema Descrição do Sistema]||[Diagramas]||
+||[https://code.google.com/p/projeto-srtabiju/ Home]||[Equipe]||[Descricao_Sistema Descrição do Sistema]||[Requisitos]||[Diagramas]||
 
 = Equipe =
 
