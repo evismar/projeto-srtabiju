@@ -1,12 +1,12 @@
 = Equipe =
 
-||*Evismar Andrade||Eng.SW||Back end||
-||*Ítalo Juan||Eng.SW||Front end||
-||*Rafael Douglas||Eng.SW||Back end||
-||*Thiago Valentim||Eng.SW||Testes||
+||*Evismar Andrade *||Eng.SW||Back end||
+||*Ítalo Juan *||Eng.SW||Front end||
+||*Rafael Douglas *||Eng.SW||Back end||
+||*Thiago Valentim *||Eng.SW||Testes||
 
 
 = Professores =
 
-||*Wylliams Barbosa||Análise de projetos||
-||*Maria Conceição Moraes||Projeto de Banco de dados||
+||*Wylliams Barbosa *||Análise de projetos||
+||*Maria Conceição Moraes *||Projeto de Banco de dados||
