@@ -33,7 +33,7 @@ public class Pedido extends Model{
     public Double valorTotal ;
     
        
-    @OneToMany
+    @ManyToOne
     public Cliente cliente;
     
    

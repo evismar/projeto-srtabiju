@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import play.db.jpa.*;
 import play.data.validation.*;
@@ -52,6 +53,9 @@ public class Cliente extends Model{
     
     @OneToOne
     public Login login;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    public List<Pedido> pedido;
    
     public Cliente(String nome, String email, String telefone1, String telefone2, 
     		String facebook, String dataNascimento) {

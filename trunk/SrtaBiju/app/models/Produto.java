@@ -2,6 +2,7 @@ package models;
 
 import java.io.File;
 import java.util.Date;
+import java.util.List;
 
 import play.db.jpa.*;
 import play.data.validation.*;
@@ -47,6 +48,9 @@ public class Produto extends Model{
     
     @ManyToOne
     public Categoria categoria;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produto")
+    public List<Produto> produto;
     
     
     

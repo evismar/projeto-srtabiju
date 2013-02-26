@@ -39,17 +39,17 @@ public class Fornecedor extends Model{
     public String site;
     
 //Evismar nao sei como colocar de (0,1) para (1,1)    
-    @ManyToOne
+    @OneToOne
     public Endereco endereco;
     
    
     public Fornecedor(String nome, String email, String telefone1, String telefone2, 
-    		String Site) {
+    		String site) {
         this.nome = nome;
         this.email = email;
         this.telefone1 = telefone1;
         this.telefone2 = telefone2;
-        this.Site = Site;
+        this.site = site;
     }
 
     

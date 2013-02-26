@@ -27,7 +27,7 @@ public class ItemDesejado extends Model{
     
     
        
-    @ManyToOne
+    @OneToOne
     public Pedido pedido;
     
     @ManyToOne
