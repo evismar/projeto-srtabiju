@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+
+<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/layout.css'}" />
+<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/right.css'}" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+<script src="@{'/public/javascripts/jquery.jcarousel.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/jquery.slide.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script language="javascript">
+	$(document).ready(function (){
+				$("#slideimg").PikaChoose({carousel:true, carouselVertical:true});
+			});
+</script>
+
+
+<div id="conteudo">
+
+	<div id="barramenu">
+    	<div id="login">
+        	<p>Minha Conta</p>
+            <br />
+            <b>Login:</b>
+            <input type="text" name="pesquisa"  style="border:none; background-color: none" />
+  
+            <b>Senha:</b>
+            <input type="text" name="pesquisa" style="border:none; background-color: none" />        
+            <a href="" id="entrar"></a>
+            <a href="" id="novocad">Cadastre-se</a>           	
+        </div>
+        <h1>Compartilhe</h1>
+        <a href="www.facebook.com" id="curtirpag"><img src="../../../public/images/curta-no-facebook.png" /></a>      
+    </div>
+    
+    <h1>Bem-Vindo!</h1>
+    
+	<div class="slide">
+		<ul class="jcarousel-skin" id="slideimg" name="slideimg">
+			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira trançada com pedrinhas.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lançamento! Pulseiras com cores variadas</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conheça nossos pordutos!</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
+		</ul>
+	</div>
+     
+    <h6>___________________________________________________________________________________________________________________</h6> 
+	<h4>Conheça nossa</h4>
+	<h2>Vitrine !</h2>
+
+	<div id="barra">
+    </div>
+       
+</div>
