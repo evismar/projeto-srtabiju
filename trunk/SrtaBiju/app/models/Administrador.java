@@ -11,7 +11,7 @@ import org.h2.store.Data;
 
 @Entity
 @Table(name="Administrador")
-public class Administrador extends Pessoa{
+public class Administrador{
 
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
