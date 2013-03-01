@@ -9,8 +9,8 @@ import javax.persistence.*;
 
 import org.h2.store.Data;
 
-@Entity
-@Table(name="Administrador")
+/*@Entity
+@Table(name="Administrador")*/
 public class Administrador{
 
 //	@Id
