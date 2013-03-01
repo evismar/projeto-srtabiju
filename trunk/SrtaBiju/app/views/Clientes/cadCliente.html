@@ -47,7 +47,7 @@
         </p>
     #{/field}   
     
-    <h2>Endereço</h2>
+ <!--    <h2>Endereï¿½o</h2>
     
     #{field 'endereco.cep'}
         <p class="${field.errorClass}">
@@ -86,7 +86,7 @@
     
     #{field 'endereco.numero'}
         <p class="${field.errorClass}">
-            <strong>Número:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.numero}"> 
+            <strong>Nï¿½mero:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.numero}"> 
             <span class="error">${field.error}</span>
         </p>
     #{/field}
@@ -96,19 +96,19 @@
             <strong>Complemento:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.complemento}"> 
             <span class="error">${field.error}</span>
         </p>
-    #{/field}
+    #{/field} -->
     <h2>Login e Senha</h2>
-    #{field 'login.login'}
+    #{field 'cliente.login'}
         <p class="${field.errorClass}">
-            <strong>Login:</strong> <input type="text" name="${field.name}" size="16" value="${login?.login}"> *
+            <strong>Login:</strong> <input type="text" name="${field.name}" size="16" value="${cliente?.login}"> *
             <span class="error">${field.error}</span>
         </p>
     #{/field}
 
 
-    #{field 'login.senha'}
+    #{field 'cliente.senha'}
         <p class="${field.errorClass}">
-            <strong>Senha:</strong> <input type="senha" name="${field.name}" size="16" value="${login?.senha}"> *
+            <strong>Senha:</strong> <input type="senha" name="${field.name}" size="16" value="${cliente?.senha}"> *
             <span class="error">${field.error}</span>
         </p>
     #{/field}

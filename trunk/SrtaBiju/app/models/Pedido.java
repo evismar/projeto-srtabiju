@@ -12,7 +12,7 @@ import org.h2.store.Data;
 @Table(name="Pedido")
 public class Pedido extends Model{
 
-//	@Id
+/*//	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	public Integer id = 0;
     
@@ -44,6 +44,6 @@ public class Pedido extends Model{
         this.valorTotal = valorTotal;
     }
 
-    
+    */
 
 }

@@ -12,7 +12,7 @@ import org.h2.store.Data;
 @Entity
 @Table(name="Endereco")
 public class Endereco extends Model{
-	
+/*	
 
 	
 
@@ -45,6 +45,6 @@ public class Endereco extends Model{
 	public String complemento;
 	
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
-    public List<Cliente> cliente;
+    public List<Cliente> cliente;*/
 
 }

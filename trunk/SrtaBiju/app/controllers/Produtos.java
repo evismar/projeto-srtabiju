@@ -13,7 +13,7 @@ import models.*;
 
 public class Produtos extends Application{
 	
-
+/*
     public static void cadProduto() {
         List<Categoria> categorias = Categoria.findAll();
         render(categorias);
@@ -36,5 +36,5 @@ public class Produtos extends Application{
         List<Produto> produtos = Produto.findAll();
         render(produtos);
     }
-
+*/
 }

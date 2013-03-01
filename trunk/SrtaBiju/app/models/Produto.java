@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name="Produto")
 public class Produto extends Model{
     
-
+/*
     
     @Override
 	public String toString() {
@@ -62,5 +62,5 @@ public class Produto extends Model{
 //        this.foto = foto;
 //    }
 
-
+*/
 }

@@ -12,7 +12,7 @@ import org.h2.store.Data;
 @Table(name="Fornecedor")
 public class Fornecedor extends Model{
 
-//	@Id
+/*//	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	public Integer id = 0;
     
@@ -52,7 +52,7 @@ public class Fornecedor extends Model{
         this.site = site;
     }
 
-    
+    */
 
 }
 
