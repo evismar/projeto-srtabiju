@@ -10,8 +10,8 @@ import javax.persistence.*;
 import org.h2.store.Data;
 
 @Entity
-@Table(name="Cliente")
-public class Cliente extends Model{
+@Table(name="Administrador")
+public class Administrador extends Model{
 
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,23 +30,19 @@ public class Cliente extends Model{
     @MinSize(10)
     public String telefone1;
     
-    @Required
     @MaxSize(10)
     @MinSize(10)
     public String telefone2;
     
     
-    @MaxSize(50)
-    public String facebook;
-    
     @Required
     public String dataNascimento ;
     
     @Required
-    public Date dataCadastro;
+    public String cpf;
     
     @Required
-    public int quantidadeDeAcessos;
+    public String tipo;
     
     @Required
     @MaxSize(15)
@@ -60,11 +56,8 @@ public class Cliente extends Model{
     @Match(value="^\\w*$", message="Senha Inválida!")
     public String senha;
     
-    
-    //Nao ta criando uma tabela com o endereço e cliente junto
-    @ManyToMany
-    public Endereco endereco;
-    
+    @OneToOne
+    public Login login;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     public List<Pedido> pedido;
@@ -84,4 +77,5 @@ public class Cliente extends Model{
     
 
 }
+
 
