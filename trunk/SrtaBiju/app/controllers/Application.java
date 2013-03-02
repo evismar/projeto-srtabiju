@@ -9,9 +9,13 @@ import models.*;
 
 public class Application extends Controller {
 
-    public static void index() {
-        render();
-    }
+	 public static void index_cliente() {
+	        render();
+	    }
+	    
+	    public static void index_adm() {
+	        render();
+	    }
     
 
 }
