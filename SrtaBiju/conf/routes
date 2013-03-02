@@ -1,0 +1,39 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+
+# Home page
+GET     /                                       Application.index_cliente
+GET     /cadastro/cliente                       Clientes.cadCliente
+POST    /cadastro/cliente                       Clientes.salvarCadastro
+
+
+
+# Adminstration
+GET     /adm                                    Application.index_adm
+GET     /cadastro/produto                       Produtos.cadProduto
+POST    /cadastro/produto                       Produtos.salvarCadastro
+GET     /relatorio/produto                      Produtos.listaProdutos
+
+GET     /cadastro/categoria                     Categorias.cadCategoria
+POST    /cadastro/categoria                     Categorias.salvarCadastro
+
+GET		/relatorio/cliente						Clientes.listaClientes
+
+
+
+
+
+
+#*       /admin                                  module:crud
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
