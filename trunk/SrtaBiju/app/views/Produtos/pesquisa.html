@@ -1,13 +1,6 @@
-#{extends 'main_adm.html' /}
-#{set title:'ListaProdutos' /}
-
-<h1>Produtos cadastrados</h1>
-
-#{form @listaProdutos()}
-
 #{ifnot produtos}
     <p>
-        N�o h� produtos cadastrados
+        Não há produtos cadastrados
     </p>
 #{/ifnot}
 #{else}
@@ -15,9 +8,9 @@
        <thead>
            <tr>
                <th>Produto</th>
-               <th>Valor em R$</th>
+               <th>Valor em R$   </th>
                <th>Data de Cadastro</th>
-               <th>N�mero de Visualiza��es</th>
+               <th>Visualizações</th>
            </tr>
        </thead>
        <tbody>
@@ -34,4 +27,3 @@
        </tbody>
    </table> 
 #{/else}
-#{/form}

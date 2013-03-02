@@ -14,22 +14,22 @@ public class Clientes extends Application{
     }
 
 
-    public static void salvarCadastro(@Valid Cliente cliente,/*Endereco endereco*/ String confirmaSenha){
-/*        validation.required(confirmaSenha);
+    public static void salvarCadastro(@Valid Cliente cliente, String confirmaSenha){
+        validation.required(confirmaSenha);
         validation.equals(confirmaSenha, cliente.senha).message("Suas senhas não estão combinado");
         
-        if(validation.hasErrors()) {
-            render("@cadCliente", cliente, confirmaSenha);
-*/
+/*        if(validation.hasErrors()) {
+            render("@cadCliente", cliente, confirmaSenha);*/
+
     	Date data = new Date();
         /*endereco.create();*/       
         /*cliente.endereco = endereco;*/
         cliente.dataCadastro = data;
         cliente.create();
 
-/*        session.put("cliente");
+        session.put("cliente", cliente.nome);
         flash.success("Bem vindo, " + cliente.nome);
-        Application.index();*/
+        Application.index_cliente();
         
         
     }
