@@ -12,15 +12,15 @@ POST    /cadastro/cliente                       Clientes.salvarCadastro
 
 
 # Adminstration
-GET     /adm                                    Application.index_adm
-GET     /cadastro/produto                       Produtos.cadProduto
-POST    /cadastro/produto                       Produtos.salvarCadastro
-GET     /relatorio/produto                      Produtos.listaProdutos
+GET     /adm                                   Application.index_adm
+GET     /adm/cadastro/produto                  Produtos.cadProduto
+POST    /adm/cadastro/produto                  Produtos.salvarCadastro
+GET     /adm/relatorio/produto                 Produtos.index
 
-GET     /cadastro/categoria                     Categorias.cadCategoria
-POST    /cadastro/categoria                     Categorias.salvarCadastro
+GET     /adm/cadastro/categoria                Categorias.cadCategoria
+POST    /adm/cadastro/categoria                Categorias.salvarCadastro
 
-GET		/relatorio/cliente						Clientes.listaClientes
+GET		/adm/relatorio/cliente				   Clientes.listaClientes
 
 
 
