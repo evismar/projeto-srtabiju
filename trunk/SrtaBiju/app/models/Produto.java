@@ -12,16 +12,7 @@ import javax.persistence.*;
 @Table(name="Produto")
 public class Produto extends Model{
     
-/*
-    
-    @Override
-	public String toString() {
-		return "Produto [nome=" + nome + ", descricao=" + descricao
-				+ ", imagem=" + imagem + ", dataCadastro=" + dataCadastro
-				+ ", quantidadeEmEstoque=" + quantidadeEmEstoque + ", valor="
-				+ valor + ", numVisualizacoes=" + numVisualizacoes
-				+ ", categoria=" + categoria + "]";
-	}
+
 
 	@Required
     @MaxSize(100)
@@ -56,11 +47,12 @@ public class Produto extends Model{
     
     
    
-//    public Produto(String nome, String descricao, File foto) {
-//        this.nome = nome;
-//        this.descricao = descricao;
-//        this.foto = foto;
-//    }
+    public Produto(String nome, String descricao, File imagem, float valor) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.imagem = imagem;
+        this.valor = valor;
+    }
 
-*/
+
 }

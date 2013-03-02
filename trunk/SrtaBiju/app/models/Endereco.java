@@ -1,5 +1,6 @@
 package models;
 
+import java.util.HashSet;
 import java.util.List;
 
 import play.db.jpa.*;
@@ -9,10 +10,12 @@ import javax.persistence.*;
 
 import org.h2.store.Data;
 
+import java.util.Set;
+
 @Entity
 @Table(name="Endereco")
 public class Endereco extends Model{
-/*	
+	
 
 	
 
@@ -44,7 +47,6 @@ public class Endereco extends Model{
     @MaxSize(150)
 	public String complemento;
 	
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "endereco")
-    public List<Cliente> cliente;*/
-
+    @ManyToMany(mappedBy="enderecos")
+    private Set<Cliente> clientes = new HashSet<Cliente>();
 }

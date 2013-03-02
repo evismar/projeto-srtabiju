@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name="Categoria")
 public class Categoria extends Model{
 	
-/*    @Required
+    @Required
     @MaxSize(20)
 	public String nome;
 	
@@ -18,6 +18,6 @@ public class Categoria extends Model{
     @MaxSize(150)
 	public String descricao;
     
-    */
+ 
 
 }

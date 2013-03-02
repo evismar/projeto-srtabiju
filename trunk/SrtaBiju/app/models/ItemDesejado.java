@@ -11,10 +11,7 @@ import org.h2.store.Data;
 @Entity
 @Table(name="ItemDesejado")
 public class ItemDesejado extends Model{
-/*
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	public Integer id = 0;
+
     
     
     @Required
@@ -39,6 +36,4 @@ public class ItemDesejado extends Model{
         this.valorNaHoraPedido = valorNaHoraPedido;
     }
 
-    
-*/
 }

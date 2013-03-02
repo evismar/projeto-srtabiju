@@ -9,16 +9,11 @@ import javax.persistence.*;
 
 import org.h2.store.Data;
 
-/*@Entity
-@Table(name="Administrador")*/
-public class Administrador{
+@Entity
+@Table(name="Pessoa")
+@DiscriminatorValue("A")
+public class Administrador extends Pessoa{
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	public Integer id = 0;
-    
-
-    
     @Required
     public String cpf;
     

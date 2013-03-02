@@ -12,9 +12,7 @@ import org.h2.store.Data;
 @Table(name="Fornecedor")
 public class Fornecedor extends Model{
 
-/*//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	public Integer id = 0;
+
     
     @Required
     @MaxSize(50)
@@ -37,8 +35,7 @@ public class Fornecedor extends Model{
     
     @MaxSize(50)
     public String site;
-    
-//Evismar nao sei como colocar de (0,1) para (1,1)    
+       
     @OneToOne
     public Endereco endereco;
     
@@ -52,7 +49,6 @@ public class Fornecedor extends Model{
         this.site = site;
     }
 
-    */
 
 }
 
