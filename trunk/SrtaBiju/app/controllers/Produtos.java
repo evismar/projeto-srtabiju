@@ -12,8 +12,12 @@ import java.util.*;
 import models.*;
 
 public class Produtos extends Application{
-	
-/*
+
+    public static void index() {
+        List<Produto> produtos = Produto.findAll();
+        render(produtos);
+    } 	
+
     public static void cadProduto() {
         List<Categoria> categorias = Categoria.findAll();
         render(categorias);
@@ -32,9 +36,25 @@ public class Produtos extends Application{
         Application.index();
     }
 
-    public static void listaProdutos() {
-        List<Produto> produtos = Produto.findAll();
-        render(produtos);
+    public static void pesquisa(String search, Integer size, Integer page) {
+    	
+    	System.out.println("Entrou!!!!!!!!!!!!!!!!!");
+
+        List<Produto> produtos = null;
+        page = page != null ? page : 1;
+        if(search.trim().length() == 0) {
+            produtos = Produto.all().fetch(page, size);
+        } else {
+            search = search.toLowerCase();
+            produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
+        }
+        render(produtos, search, size, page);
     }
-*/
+
+    	
+    	
+    
+
+
+
 }

@@ -48,5 +48,5 @@ public class Endereco extends Model{
 	public String complemento;
 	
     @ManyToMany(mappedBy="enderecos")
-    private Set<Cliente> clientes = new HashSet<Cliente>();
+    public Set<Cliente> clientes = new HashSet<Cliente>();
 }

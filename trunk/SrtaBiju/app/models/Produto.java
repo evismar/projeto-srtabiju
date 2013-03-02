@@ -40,13 +40,8 @@ public class Produto extends Model{
     @ManyToOne
     public Categoria categoria;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "produto")
-    public List<Produto> produto;
     
     
-    
-    
-   
     public Produto(String nome, String descricao, File imagem, float valor) {
         this.nome = nome;
         this.descricao = descricao;
