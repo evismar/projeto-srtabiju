@@ -17,5 +17,9 @@ public class Application extends Controller {
 	        render();
 	    }
 	    
+		public static void login(String usuario, String senha){
+			System.out.println(usuario);
+		
+		}
 
 	}
