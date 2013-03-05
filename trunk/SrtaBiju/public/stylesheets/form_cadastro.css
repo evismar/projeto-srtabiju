@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+*{margin:0 auto; padding:0}
+
+form{ font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#000;
+	padding: 10px;
+	width: 800px;
+}
+	
+fieldset {
+	border: 2px solid #600;
+	padding: 0;
+	padding-left: -1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	margin:20px;
+	padding:20px;
+	background:#CCC;
+	
+}
+
+
+#field:hover, #field:focus { 
+	border-color: #C9C9C9; 
+	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+	}
+
+form p {
+    padding: 5px 0;
+	position: relative;
+}
+
+form p:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+#field{
+	border: 1px solid #926262;
+	color: #926262;
+	padding: 10px;
+	vertical-align: text-top;
+	width: 300px;
+	-webkit-box-shadow: #e3d3d3 0.1em 0.1em 0.2em;
+	box-shadow: #e3d3d3 0.1em 0.1em 0.2em;
+	-moz-box-shadow: #e3d3d3 0.1em 0.1em 0.2em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left 25, from(#fff8f8), color-stop(4%, #eee8e8), to(#fff8f8));  
+	background: -moz-linear-gradient(top, #fff8f8, #eee8e8 1px, #fff8f8 25px); 
+	position: absolute;
+	bottom: 0;
+	left: 110px;
+	margin-left:50px;
+}
+
+form p.field {
+    text-align: left;
+    margin: 0 0 5px 0;
+	font-family:Arial, Helvetica, sans-serif;
+	
+}
+
+form strong {
+      width: 300px;
+	text-align: left;
+	display: block;
+	float: left;
+	margin-right: 5px;
+	text-transform: capitalize;
+	line-height: 33px;
+	
+}
+
+
+form p {
+    clear: both;
+    text-align: left;
+    margin: 7px 0;
+    min-height: 15px;
+}
+
+form p.hasError {
+    color: #c00;
+}
+
+form .hasError .error {
+    font-size: 80%;
+}
+
+button, input[type=submit] {
+	border: 1px solid #926262;
+	color: #502020;
+	-webkit-box-shadow: #e3d3d3 0.1em 0.1em 0.2em;
+	box-shadow: #e3d3d3 0.1em 0.1em 0.2em;
+	-moz-box-shadow: #e3d3d3 0.1em 0.1em 0.2em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left 25, from(#fff8f8), color-stop(4%, #eee8e8), to(#fff8f8));  
+	background: -moz-linear-gradient(top, #fff8f8, #eee8e8 1px, #fff8f8 25px); 
+	padding: 10px;
+}
+
+#field:hover, input[type=password]:hover, input[type=submit]:hover, button:hover, input[type=checkbox]:hover:before, {
+	-webkit-box-shadow: #633 0 0 3px;
+	box-shadow: #633 0 0 3px;
+	-moz-box-shadow: #633 0 0 3px;
+	color: #926262;
+}
+
+#field:focus, input[type=password]:focus, input[type=submit]:focus, button:focus, {
+	outline: 0;
+	-webkit-box-shadow: #633 0 0 3px;
+	box-shadow: #633 0 0 3px;
+	-moz-box-shadow: #633 0 0 3px;
+	-webkit-animation-name: pulse;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 9999;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-timing-function: linear;
+}
+
+input[type=submit]:active button:active {
+	position: relative;
+	top: 1px;
+}
+
