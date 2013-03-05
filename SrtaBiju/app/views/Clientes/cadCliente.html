@@ -1,0 +1,144 @@
+#{extends 'main_cliente.html' /}
+#{set title:'Cadastro' /}
+
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/form_cadastro.css'}">
+<script type="text/javascript" src="@{'public/javascripts/jquery-1.2.6.pack.js'}"></script>
+<script type="text/javascript" src="@{'public/javascripts/jquery.maskedinput-1.1.4.pack.js'}"></script>
+#{form @salvarCadastro()}
+<fieldset>
+<h1>Cadastro</h1>
+<fieldset>
+<h2>Dados pessoais</h2>
+
+    #{field 'cliente.nome'}
+        <p class="${field.errorClass}">
+            <strong>Nome: *</strong> <input type="text" id="field" name="${field.name}" size="16" value="${cliente?.nome}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.email'}
+        <p class="${field.errorClass}">
+            <strong>E-mail: *</strong> <input type="text" id="field"  name="${field.name}" size="16" value="${cliente?.email}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.telefone1'}
+        <p class="${field.errorClass}">
+            <strong>Telefone (1): *</strong> <input type="text" class="telefone" id="field"  name="${field.name}" size="16" value="${cliente?.telefone1}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'cliente.telefone2'}
+        <p class="${field.errorClass}">
+            <strong>Telefone (2):</strong> <input type="text" class="telefone" id="field"  name="${field.name}" size="16" value="${cliente?.telefone2}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+     #{field 'cliente.dataNascimento'}
+        <p class="${field.errorClass}">
+            <strong>Data de Nascimento:</strong> <input type="text" class="datanasc" id="field"  name="${field.name}" size="16" value="${cliente?.dataNascimento}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field} 
+    
+    #{field 'cliente.facebook'}
+        <p class="${field.errorClass}">
+            <strong>Facebook:</strong> <input type="text"  id="field" name="${field.name}" size="16" value="${cliente?.facebook}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}   
+</fieldset>    
+ <!--    <h2>Endere�o</h2>
+    
+    #{field 'endereco.cep'}
+        <p class="${field.errorClass}">
+            <strong>Cep:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.cep}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+	#{field 'endereco.estado'}
+        <p class="${field.errorClass}">
+            <strong>Estado:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.estado}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}  
+    
+    #{field 'endereco.cidade'}
+        <p class="${field.errorClass}">
+            <strong>Cidade:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.cidade}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}  
+    
+    #{field 'endereco.bairro'}
+        <p class="${field.errorClass}">
+            <strong>Bairro:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.bairro}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'endereco.rua'}
+        <p class="${field.errorClass}">
+            <strong>Rua:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.rua}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'endereco.numero'}
+        <p class="${field.errorClass}">
+            <strong>N�mero:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.numero}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    
+    #{field 'endereco.complemento'}
+        <p class="${field.errorClass}">
+            <strong>Complemento:</strong> <input type="text" name="${field.name}" size="16" value="${endereco?.complemento}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field} -->
+    
+    
+<fieldset>
+    <h2>Login e Senha</h2>
+    #{field 'cliente.login'}
+        <p class="${field.errorClass}">
+            <strong>Login: *</strong> <input type="text" id="field" name="${field.name}" size="16" value="${cliente?.login}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+
+
+    #{field 'cliente.senha'}
+        <p class="${field.errorClass}">
+            <strong>Senha: *</strong> <input type="senha"  id="field" name="${field.name}" size="16" value="${cliente?.senha}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}
+    #{field 'confirmaSenha'}
+        <p class="${field.errorClass}">
+            <strong>Confirme sua Senha: *</strong> <input type="password"  id="field" name="${field.name}" size="16" value="${confirmaSenha}"> 
+            <span class="error">${field.error}</span>
+        </p>
+    #{/field}  
+    <p class="button">
+        <input type="submit" value="Cadastrar"> <a href="@{index_cliente()}">Cancelar</a>    
+    </p>
+    
+	</fieldset>  
+</fieldset>  
+  
+#{/form}
+    
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".telefone").mask("(99)9999-9999");
+		$(".datanasc").mask("99/99/9999");
+		
+	});
+</script>
