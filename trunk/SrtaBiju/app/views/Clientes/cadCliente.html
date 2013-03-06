@@ -1,0 +1,98 @@
+#{extends 'main_cliente.html' /}
+#{set title:'Cadastro' /}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Cadastro</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/form_style.css'}">
+  <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/form_responsive.css'}">
+  
+<script type="text/javascript" src="@{'public/javascripts/jquery.min.js'}"></script>
+<script type="text/javascript" src="@{'public/javascripts/jquery.maskedinput-1.3.min.js'}"></script>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+<script>
+$(function(){
+$("#data").datepicker({
+    dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    });
+});
+</script>
+
+<style>
+.ui-datepicker {
+font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
+</style>
+   
+</head>
+
+<body>
+
+	<section id="container">
+
+		<h2>Cadastro - Cliente</h2>
+        
+		<form name="form_cadastro" id="form_cadastro" method="post" action="#">
+    
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+            <h3>Dados Pessoais:</h3>
+            
+			<input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" tabindex="1" class="txtinput" required>
+            
+            <input type="text" name="data" id="data" placeholder="Data de Nascimento: dd/mm/aaaa" autocomplete="off" tabindex="2" class="txtinput">
+		
+			<input type="tel" name="telefone1"  id="telefone1" placeholder="Telefone(1): (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
+            
+            <input type="tel" name="telefone2"  id="telefone2" placeholder="Telefone(2)" tabindex="4" class="txtinput">
+            
+            <input type="email" name="email" id="email" placeholder="Endereço de E-Mail: ex. xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
+            
+            <input type="text" name="facebook" id="facebook" placeholder="Nome Facebook" autocomplete="off" tabindex="6" class="txtinput">
+           
+		
+			</section>
+	
+			<section id="aside" class="clearfix">
+				<section id="recipientcase">
+				<h3>Conta de Usuário:</h3>
+                
+                <input type="text" name="login" id="nome" placeholder="Usuário" autocomplete="off" tabindex="7" class="txtinput" required>
+                
+                <input type="text" name="senha" id="senha" placeholder="Senha" autocomplete="off" tabindex="8" class="txtinput" required>
+                
+                <input type="text" name="senha" id="senha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required>
+					
+				</section>
+				
+			</section>
+		</div>
+
+
+		<section id="buttons">
+			<input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Limpar">
+			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Enviar">
+			<br style="clear:both;">
+		</section>
+		</form>
+	</section>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#data").mask("99/99/9999");
+		$("#telefone1").mask("(99)9999-9999");
+		$("#telefone2").mask("(99)9999-9999");
+	});
+</script>
