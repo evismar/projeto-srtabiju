@@ -106,9 +106,9 @@
     
 <fieldset>
     <h2>Login e Senha</h2>
-    #{field 'cliente.login'}
+    #{field 'cliente.usuario'}
         <p class="${field.errorClass}">
-            <strong>Login: *</strong> <input type="text" id="field" name="${field.name}" size="16" value="${cliente?.login}"> 
+            <strong>Login: *</strong> <input type="text" id="field" name="${field.name}" size="16" value="${cliente?.usuario}"> 
             <span class="error">${field.error}</span>
         </p>
     #{/field}
