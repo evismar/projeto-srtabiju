@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
@@ -16,10 +17,8 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name="Pessoa")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="discriminador", discriminatorType=DiscriminatorType.STRING)
-@DiscriminatorValue(value="P")
+@Table(name = "Pessoa")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pessoa extends Model{
     @Required
     @MaxSize(50)
@@ -42,7 +41,8 @@ public class Pessoa extends Model{
     @Required
     public String dataNascimento ;
     
-    
+    @Id
+    @Column(name = "usuario_id")
     @Required
     @MaxSize(15)
     @MinSize(4)
