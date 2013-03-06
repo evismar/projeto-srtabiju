@@ -14,24 +14,33 @@
 			});
 </script>
 
+<script type="text/javascript">
+function envia()
+{
+
+  document.formLogin.submit();
+}
+</script>
 
 <div id="conteudo">
-
+<form name="formLogin" action="@{login()}">
 	<div id="barramenu">
     	<div id="login">
         	<p>Minha Conta</p>
             <br />
+
             <b>Login:</b>
             <input type="text" name="usuario" id="usuario" style="border:none; background-color: none" />
   
             <b>Senha:</b>
             <input type="text" name="senha" id="senha" style="border:none; background-color: none" />        
-            <a href="@{login()}" id="entrar"></a>
-            <a href="" id="novocad">Cadastre-se</a>           	
+            <a onclick="envia()" id="entrar"></a>            
+            
+            <a href="@{Clientes.cadCliente()}" id="novocad">Cadastre-se</a>           	
         </div>
-		
+</form>		
         <h1>Compartilhe</h1>
-        <a href="www.facebook.com" id="curtirpag"><img src="../../../public/images/curta-no-facebook.png" /></a>      
+        <a href="http://www.facebook.com/IaraBijuis?ref=ts" id="curtirpag"><img src="../../../public/images/curta-no-facebook.png" /></a>      
     </div>
     
     <h1>Bem-Vindo!</h1>
