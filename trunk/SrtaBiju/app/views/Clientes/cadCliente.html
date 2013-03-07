@@ -39,7 +39,19 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 
 	<section id="container">
 
+	#{ifErrors}
+	<h1>Ops...Algo errado com o preenchimento.</h1>
+	
+	<ul>	
+	#{errors}
+	<li>${error}</li>
+	#{/errors}	
+	</ul>
+	
+	#{/ifErrors}
+
 		<h2>Cadastro - Cliente</h2>
+			
         
 		<form name="form_cadastro" id="form_cadastro" method="post" action="#">
     
@@ -69,8 +81,8 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
                 <input type="text" name="login" id="nome" placeholder="Usuário" autocomplete="off" tabindex="7" class="txtinput" required>
                 
                 <input type="text" name="senha" id="senha" placeholder="Senha" autocomplete="off" tabindex="8" class="txtinput" required>
-                
-                <input type="text" name="senha" id="senha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required>
+                <span class="error">#{error 'senha' /}</span>
+                <input type="text" name="confirmaSenha" id="confirmaSenha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required>
 					
 				</section>
 				
@@ -85,6 +97,8 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 		</section>
 		</form>
 	</section>
+	
+
 
 </body>
 </html>
