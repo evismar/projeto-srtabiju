@@ -39,8 +39,8 @@ public class Cliente extends Pessoa{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     public List<Pedido> pedido;
    
-    public Cliente(String nome, String email, String telefone1, String telefone2, 
-    		String facebook, String dataNascimento,String usuario,String senha) {
+    public Cliente(String nome, String dataNascimento, String telefone1, String telefone2,
+    		String email, String facebook, String usuario, String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone1 = telefone1;
