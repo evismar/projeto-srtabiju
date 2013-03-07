@@ -17,8 +17,13 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-@Table(name = "Pessoa")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "PESSOA")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+    name="discriminador",
+    discriminatorType=DiscriminatorType.STRING
+)
+@DiscriminatorValue(value="P")
 public class Pessoa extends Model{
     @Required
     @MaxSize(50)
@@ -41,9 +46,7 @@ public class Pessoa extends Model{
     @Required
     public String dataNascimento ;
     
-    @Id
-    @Column(name = "usuario_id")
-    @Required
+
     @MaxSize(15)
     @MinSize(4)
     @Match(value="^\\w*$", message="Nome de usuário inválido!")
