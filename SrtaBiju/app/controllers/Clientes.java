@@ -14,6 +14,9 @@ public class Clientes extends Application{
     public static void cadCliente() {
         render();
     }
+    public static void minhaConta() {
+        render();
+    }
 
 
     public static void salvarCadastro(@Valid String nome, String data, String telefone1, String telefone2,

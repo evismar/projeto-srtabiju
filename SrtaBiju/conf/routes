@@ -8,6 +8,10 @@
 GET     /                                       Application.index_cliente
 GET     /cadastro/cliente                       Clientes.cadCliente
 POST    /cadastro/cliente                       Clientes.salvarCadastro
+GET     /contato								Application.contato
+GET     /minha_conta                            Clientes.minhaConta
+GET     /empresa								Application.empresa
+GET     /produto   								Produtos.produtos
 
 
 
