@@ -18,6 +18,9 @@ public class Produtos extends Application{
         List<Categoria> categorias = Categoria.findAll();
         render(categorias);
     }
+    public static void produtos() {
+        render();
+    }
 
 
     public static void salvarCadastro(Produto produto, Categoria categoria, File imagem){

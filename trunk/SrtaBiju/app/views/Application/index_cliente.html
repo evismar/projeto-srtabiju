@@ -25,6 +25,9 @@ function envia()
 <div id="conteudo">
 <form name="formLogin" action="@{login()}">
 	<div id="barramenu">
+		<div align="center">
+		<h5><span class="error"><FONT COLOR="#FFA500">#{error 'login' /}</FONT></span></h5>
+    	</div>
     	<div id="login">
         	<p>Minha Conta</p>
             <br />
@@ -36,7 +39,8 @@ function envia()
             <input type="text" name="senha" id="senha" style="border:none; background-color: none" />        
             <a onclick="envia()" id="entrar"></a>            
             
-            <a href="@{Clientes.cadCliente()}" id="novocad">Cadastre-se</a>           	
+            <a href="@{Clientes.cadCliente()}" id="novocad">Cadastre-se</a> 
+                      	
         </div>
 </form>		
         <h1>Compartilhe</h1>
@@ -47,16 +51,16 @@ function envia()
     
 	<div class="slide">
 		<ul class="jcarousel-skin" id="slideimg" name="slideimg">
-			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira trançada com pedrinhas.</span></li>
-			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lançamento! Pulseiras com cores variadas</span></li>
-			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conheça nossos pordutos!</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira tranï¿½ada com pedrinhas.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lanï¿½amento! Pulseiras com cores variadas</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conheï¿½a nossos pordutos!</span></li>
 			<li><a href=""><img src="../../../public/images/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
 			<li><a href=""><img src="../../../public/images/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
 		</ul>
 	</div>
      
     <h6>___________________________________________________________________________________________________________________</h6> 
-	<h4>Conheça nossa</h4>
+	<h4>Conheï¿½a nossa</h4>
 	<h2>Vitrine !</h2>
 
 	<div id="barra">

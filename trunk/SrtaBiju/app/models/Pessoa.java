@@ -29,6 +29,8 @@ public class Pessoa extends Model{
     @MaxSize(50)
     public String email;
     
+    
+    
     @Required
     @MaxSize(100)
     public String nome;
@@ -57,5 +59,6 @@ public class Pessoa extends Model{
     @MinSize(5)
     @Match(value="^\\w*$", message="Senha Inválida!")
     public String senha;
+			    
 
 }
