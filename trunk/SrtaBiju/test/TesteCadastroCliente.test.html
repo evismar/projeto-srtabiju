@@ -1,0 +1,20 @@
+#{selenium 'TesteCadastro'}
+	// Try to enter an empty value
+	open('/cadastro/cliente')
+	waitForPageToLoad(1000)
+
+
+	type('nome', 'Genoveva Maria Leite')
+	type('data', '01/01/1967')	
+	type('telefone1', '8133554466')	
+	type('telefone2', '8188776655')	
+	type('email', 'vevinh@gmail.com')
+	type('facebook', 'veva2000')					
+	type('usuario', 'vevinha')
+	type('senha', 'veva')
+	type('confirmaSenha','viva')
+	clickAndWait('submit')
+	
+	// Verify welcome message
+	assertTextPresent('Bem vindo, Genoveva Maria Leite')
+#{/selenium}
