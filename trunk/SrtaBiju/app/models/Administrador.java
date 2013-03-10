@@ -16,13 +16,13 @@ public class Administrador extends Pessoa{
 
 
 	  
-    @Required
+
     public String cpf;
     
-    @Required
+
     public String tipo;
     
-    @Required
+
     public String facebook;
     
     
