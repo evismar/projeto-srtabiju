@@ -36,11 +36,11 @@ public class Pessoa extends Model{
     public String nome;
     
     @Required
-    @MaxSize(10)
+    @MaxSize(13)
     @MinSize(10)
     public String telefone1;
     
-    @MaxSize(10)
+    @MaxSize(13)
     @MinSize(10)
     public String telefone2;
     

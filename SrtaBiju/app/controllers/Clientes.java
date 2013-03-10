@@ -19,24 +19,23 @@ public class Clientes extends Application{
     }
 
 
-    public static void salvarCadastro(@Valid String nome, String data, String telefone1, String telefone2,
-    		String email, String facebook, String usuario, String senha, String confirmaSenha){
+    public static void salvarCadastro(@Valid Cliente cliente, String confirmaSenha){
 
     	//Verifica se as senhas estão combinado
-        validation.required(senha);
+        validation.required(cliente.senha);
         validation.required(confirmaSenha);
-        validation.equals(confirmaSenha, senha).message("Suas senhas não estão combinando");   	
+        validation.equals(cliente.senha, confirmaSenha).message("Suas senhas não estão combinando");   	
     	
         //Verifica Mínimo e Maximo de caracteres das senhas
-        validation.minSize(senha, 4);
-        validation.maxSize(senha, 12);
+        validation.minSize(cliente.senha, 4);
+        validation.maxSize(cliente.senha, 12);
         
         //Verifica se o email é válido
-        validation.email(email);
+        validation.email(cliente.email);
         
         
     	//Verifica se há Logins iguais
-	    Pessoa pessoa = Pessoa.find("usuario", usuario).first();
+	    Pessoa pessoa = Pessoa.find("usuario", cliente.usuario).first();
 	    if(pessoa != null) {
 	    	System.out.println(pessoa.nome);
 	    	
@@ -58,7 +57,7 @@ public class Clientes extends Application{
     	
     	//Cadastra
     	
-    	Cliente cliente = new Cliente(nome, data, telefone1, telefone2, email, facebook, usuario, senha);    	
+ 	
     	Date dataCadastro = new Date();
         cliente.dataCadastro = dataCadastro;
         cliente.create();

@@ -28,24 +28,55 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 		<h2>Cadastro - Cliente</h2>
 			
         
-		<form name="form_cadastro" id="form_cadastro" method="post" action="#">
+		#{form @salvarCadastro(), name:'form_cadastro', id:'form_cadastro'}
     
 		<div id="wrapping" class="clearfix">
 			<section id="aligned">
             <h3>Dados Pessoais:</h3>
        
-			<input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" tabindex="1" class="txtinput" required>
-         
-            <input type="text" name="data" id="data" placeholder="Data de Nascimento: dd/mm/aaaa" autocomplete="off" tabindex="2" class="txtinput">
-		
-			<input type="tel" name="telefone1"  id="telefone1" placeholder="Telefone(1): (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
+			
+		    #{field 'cliente.nome'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${cliente?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="1" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}   
+		          
             
-            <input type="tel" name="telefone2"  id="telefone2" placeholder="Telefone(2)" tabindex="4" class="txtinput">
+		     #{field 'cliente.dataNascimento'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${cliente?.dataNascimento}" id="data" placeholder="Data de Nascimento: dd/mm/aaaa" autocomplete="off" tabindex="2" class="txtinput">
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field} 		
+			
+		    #{field 'cliente.telefone1'}
+		        <p class="${field.errorClass}">
+		            <input type="tel" name="${field.name}" value="${cliente?.telefone1}"  id="telefone1" placeholder="Telefone(1): (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}            
             
-            <input type="email" name="email" id="email" placeholder="Endereço de E-Mail: (ex.)xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
+		    #{field 'cliente.telefone2'}
+		        <p class="${field.errorClass}">
+		            <input type="tel" name="${field.name}" value="${cliente?.telefone2}"  id="telefone2" placeholder="Telefone(2)" tabindex="4" class="txtinput"> 
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}            
             
-            <input type="text" name="facebook" id="facebook" placeholder="Nome Facebook" autocomplete="off" tabindex="6" class="txtinput">
-           
+		    #{field 'cliente.email'}
+		        <p class="${field.errorClass}">
+		            <input type="email" name="${field.name}" value="${cliente?.email}" id="email" placeholder="Endereço de E-Mail: (ex.)xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}            
+            
+		    #{field 'cliente.facebook'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${cliente?.facebook}" id="facebook" placeholder="Nome Facebook" autocomplete="off" tabindex="6" class="txtinput">
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}           
 		
 			</section>
 	
@@ -53,13 +84,28 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 				<section id="recipientcase">
 				<h3>Conta de Usuário:</h3>
                 
-                <input type="text" name="usuario" id="usuario" placeholder="Usuário" autocomplete="off" tabindex="7" class="txtinput" required>
-             
-                <input type="password" name="senha" id="senha" placeholder="Senha" autocomplete="off" tabindex="8" class="txtinput" required>
                 
+			    #{field 'cliente.usuario'}
+			        <p class="${field.errorClass}">
+			            <input type="text" name="${field.name}" value="${cliente?.usuario}" id="usuario" placeholder="Usuário" autocomplete="off" tabindex="7" class="txtinput" required>
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}             
+                
+			    #{field 'cliente.senha'}
+			        <p class="${field.errorClass}">
+			            <input type="password" name="${field.name}" value="${cliente?.senha}" id="senha" placeholder="Senha" autocomplete="off" tabindex="8" class="txtinput" required>
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}                
               
-                <input type="password" name="confirmaSenha" id="senha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required oninput="check(this)">
-					
+                
+			    #{field 'confirmaSenha'}
+			        <p class="${field.errorClass}">
+			            <input type="password" name="${field.name}" value="${confirmaSenha}" id="senha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required oninput="check(this)">
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}					
 				</section>
 				
 			</section>
@@ -79,7 +125,7 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Enviar">
 			<br style="clear:both;">
 		</section>
-		</form>
+		#{/form}
 	</section>
 	
 

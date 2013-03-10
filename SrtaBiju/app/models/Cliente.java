@@ -23,10 +23,10 @@ public class Cliente extends Pessoa{
     @MaxSize(50)
     public String facebook;
       
-    @Required
+
     public Date dataCadastro;
     
-    @Required
+
     public int quantidadeDeAcessos;
     
 
