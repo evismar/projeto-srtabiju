@@ -1,6 +1,12 @@
 #{extends 'main_adm.html' /}
 #{set title:'Cadastro' /}
 
+#{form @salvarCadastro(), enctype:'multipart/form-data'}
+
+
+#{/form}
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,39 +31,69 @@
 
 		<h2>Cadastro - Produto</h2>
         
-		<form name="form_cadProduto" id="form_cadProduto" method="post" action="#">
+		#{form @salvarCadastro(), enctype:'multipart/form-data', name:'form_cadProduto', id:'form_cadProduto'}
     
 		<div id="wrapping" class="clearfix">
 			<section id="aligned">
             <h3>Dados do Produto:</h3>
             
-			<input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
+			
+																																														
+			#{field 'produto.nome'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${produto?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}
             
-            <textarea cols="40" id="descricao" rows="8" name="descricao" maxlength="400" placeholder="Descrição do Produto" required></textarea>
-          
+            
+		    #{field 'produto.descricao'}
+		        <p class="${field.errorClass}">
+		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${produto?.descricao}" maxlength="400" placeholder="Descrição do Produto" required></textarea>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}          
 			</section>
 	
 			<section id="aside" class="clearfix">
 				<section id="recipientcase">
+                                
                 
-                <input type="text" name="valor"  id="valor" placeholder="Valor R$:" tabindex="11" class="txtinput" onKeyUp="moeda(this)" required>
+			    #{field 'produto.valor'}
+			        <p class="${field.errorClass}">
+			            <input type="text" name="${field.name}" value="${produto?.valor}"  id="valor" placeholder="Valor R$:" tabindex="11" class="txtinput" onKeyUp="moeda(this)" required>
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}
                 
 				<h4>Categoria:</h4>
                 
-                <select id="listaCat" name="listaCat" tabindex="6" class="selmenu">  
-            		<option value="pulseiras">Pulseiras</option>  
-            		<option value="colares">Colares</option>  
-            		<option value="outros">Outros...</option>   
-        		</select>
+
+			    #{select 'categoria.id', value:categoria?.nome, id:'listaCat', name:'listaCat', tabindex:'6', class:'selmenu'}
+			        #{list categorias, as:'categoria'}
+						#{option value="${categoria.id}"} ${categoria.nome} #{/option}
+			        #{/list}
+			    #{/select} 
                 
                  <h4>Quantidade:</h4>
                 
-                <input type="number" name="quant" id="quant" autocomplete="off" tabindex="12" min="0" required>
+                
+			    #{field 'produto.quantidadeEmEstoque'}
+			        <p class="${field.errorClass}">
+			            <input type="number" name="${field.name}" value="${produto?.quantidadeEmEstoque}" id="quant" autocomplete="off" tabindex="12" min="0" required>
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}
      			
                 <h4>Imagem:</h4>
                 <div id="imagem">
                 <span class="thumb">             
+
+    			
+			    #{field 'produto.imagem'}
     			<input class="upload-file" id="upload-file" type="file" name="myPhoto" onChange="PreviewImage();" />
+			
+			    #{/field}    			
                 <img class="upload-button" alt=" title=" src="@{'public/images/Image_Upload.png'}" />  
 				</span>
                 <img class="upload-img" id="uploadPreview" style="width: 160px; height: 130px;" />
@@ -74,7 +110,7 @@
 			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="13" value="Enviar">
 			<br style="clear:both;">
 		</section>
-		</form>
+	#{/form}
 	</section>
 
 </body>
