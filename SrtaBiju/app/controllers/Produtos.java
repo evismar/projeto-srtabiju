@@ -23,9 +23,9 @@ public class Produtos extends Application{
     }
 
 
-    public static void salvarCadastro(Produto produto, Categoria categoria, File imagem){
+    public static void salvarCadastro(Produto produto, Categoria categoria, File uploadFile){
     		
-    	produto.imagem = imagem;
+    	produto.imagem = uploadFile;
     	Date data = new Date();
     	produto.dataCadastro = data;
     	produto.categoria = categoria;
