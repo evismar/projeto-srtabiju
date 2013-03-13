@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -29,7 +31,7 @@ public class Pessoa extends Model{
     @MaxSize(50)
     public String email;
     
-    
+    public Date dataCadastro;    
     
     @Required
     @MaxSize(100)
