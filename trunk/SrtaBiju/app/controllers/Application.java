@@ -8,6 +8,26 @@ import java.util.*;
 import models.*;
 
 public class Application extends Controller {
+	
+    @Before
+    static void addUsuario() {
+        Pessoa usuario = connected();
+        if(usuario != null) {
+            renderArgs.put("usuario", usuario);
+            System.out.println("Usuario não nulo 1 " + usuario.nome);
+        }
+    }
+    
+    static Pessoa connected() {
+        if(renderArgs.get("usuario") != null) {
+            return renderArgs.get("usuario", Pessoa.class);
+        }
+        String username = session.get("usuario");
+        if(username != null) {
+            return Pessoa.find("byUsuario", username).first();
+        } 
+        return null;
+    }
 
 	    public static void index_cliente() {
 	        render();
@@ -27,7 +47,7 @@ public class Application extends Controller {
 			
 			Administrador adm = Administrador.find("byUsuarioAndSenha", usuario, senha).first();
 			if(adm != null) {
-				session.put("Administrado", adm.usuario);
+				session.put("usuario", adm.usuario);
 			    flash.success("Bem-vindo, " + adm.usuario);
 		        Application.index_adm();
 			}
@@ -35,9 +55,11 @@ public class Application extends Controller {
 				Cliente pessoa = Cliente.find("byUsuarioAndSenha", usuario, senha).first();
 				if(pessoa != null) {
 				    	
-					session.put("CLiente", pessoa.usuario);
+			        pessoa.quantidadeDeAcessos = pessoa.quantidadeDeAcessos + 1;
+			        pessoa.save();
+					session.put("usuario", pessoa.usuario);
 				    flash.success("Bem-vindo, " + pessoa.usuario);
-			        Application.index_cliente();         
+			        Clientes.clienteLogado();         
 				    }
 		        // Oops
 				else{
@@ -50,5 +72,9 @@ public class Application extends Controller {
 				
 		}
 		
+	    public static void logout() {
+	        session.clear();
+	        index_cliente();
+	    }
 
 	}

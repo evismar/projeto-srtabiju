@@ -6,15 +6,22 @@ import play.data.validation.*;
 
 import java.util.*;
 
-import javax.servlet.http.HttpServletRequest;
 
 import models.*;
 public class Clientes extends Application{
+	
+    @Before
+    static void checaCliente() {
+        if(connected() == null) {
+            flash.error("Por favor, realize o Login primeiro.");
+            Application.index_cliente();
+        }
+    }
 
     public static void cadCliente() {
         render();
     }
-    public static void minhaConta() {
+    public static void clienteLogado() {
         render();
     }
 
@@ -60,6 +67,7 @@ public class Clientes extends Application{
  	
     	Date dataCadastro = new Date();
         cliente.dataCadastro = dataCadastro;
+        cliente.quantidadeDeAcessos = cliente.quantidadeDeAcessos + 1;
         cliente.create();
 
         session.put("cliente", cliente.nome);
