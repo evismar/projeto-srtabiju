@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import play.data.validation.*;
+import play.db.jpa.Blob;
 import play.db.jpa.GenericModel.JPAQuery;
 
 import java.io.File;
@@ -18,12 +19,28 @@ public class Produtos extends Application{
         List<Categoria> categorias = Categoria.findAll();
         render(categorias);
     }
-    public static void produtos() {
-        render();
+    public static void mostraProdutos() {   
+    	
+        List<Produto> produtos = Produto.findAll();
+        render(produtos);
+
+
     }
+    
+    public static void imagemProduto(Long id) {       
+
+        final Produto produto = Produto.findById(id);
+    	renderBinary(produto.imagem.get());
+        notFoundIfNull(produto);
+        response.setContentTypeIfNotSet(produto.imagem.type());
+        renderBinary(produto.imagem.get());
+
+    }
+    
+    
 
 
-    public static void salvarCadastro(Produto produto, Categoria categoria, File uploadFile){
+    public static void salvarCadastro(Produto produto, Categoria categoria, Blob uploadFile){
     		
     	produto.imagem = uploadFile;
     	Date data = new Date();
@@ -32,7 +49,7 @@ public class Produtos extends Application{
    	
         produto.create();
         flash.success("Produto cadastrado!");
-        Application.index_adm();
+        Produtos.cadProduto();
     }
 
     public static void index() {

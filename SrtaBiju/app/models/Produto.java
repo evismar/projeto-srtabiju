@@ -23,7 +23,7 @@ public class Produto extends Model{
     public String descricao;
     
     @Required
-    public File imagem;
+    public Blob imagem;
     
     @Required
     public Date dataCadastro;
@@ -47,7 +47,7 @@ public class Produto extends Model{
     
     
    
-    public Produto(String nome, String descricao, File imagem, float valor) {
+    public Produto(String nome, String descricao, Blob imagem, float valor) {
         this.nome = nome;
         this.descricao = descricao;
         this.imagem = imagem;

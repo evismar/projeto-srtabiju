@@ -1,0 +1,29 @@
+#{extends 'main_cliente.html' /} #{set title:'Produtos' /}
+
+
+
+
+
+
+<div align="center">
+    <style type="text/css">
+    .imagens
+    {
+        color: red;
+        background-color: #FFFFFF;
+        float: inherit;
+        width: 820px;
+		margin:20px;
+    }
+
+    </style>
+
+    <div class="imagens" align="center">
+
+	#{list produtos, as:'produto'} 
+
+    	<img src="@{imagemProduto(produto.id)}" style="width: 200px; height: 165px; margin:20px;">
+
+	#{/list} 
+    </div>
+</div>

@@ -10,13 +10,13 @@ import java.util.*;
 import models.*;
 public class Clientes extends Application{
 	
-    @Before
+/*    @Before
     static void checaCliente() {
         if(connected() == null) {
             flash.error("Por favor, realize o Login primeiro.");
             Application.index_cliente();
         }
-    }
+    }*/
 
     public static void cadCliente() {
         render();
@@ -44,7 +44,6 @@ public class Clientes extends Application{
     	//Verifica se há Logins iguais
 	    Pessoa pessoa = Pessoa.find("usuario", cliente.usuario).first();
 	    if(pessoa != null) {
-	    	System.out.println(pessoa.nome);
 	    	
 	        validation.addError("usuario", "Nome de usuário já cadastrado!"); 
 	    }
