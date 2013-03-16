@@ -1,0 +1,24 @@
+#{extends 'main_cliente.html' /} #{set title:'Produtos' /}
+
+<link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/layout_produto.css'}">
+
+
+
+
+
+<div align="center">
+
+    <div class="imagens">
+
+	#{list produtos, as:'produto'} 
+		
+        <table align="left">
+        	<tr>
+    			<td><a href=""><img id="prod_img" src="@{imagemProduto(produto.id)}"/><br /><span>${produto.nome}</span></a><br /><a href="" id="visualizar"></a></td>
+            </tr>
+        </table>
+
+	#{/list} 
+    </div>
+    
+</div>

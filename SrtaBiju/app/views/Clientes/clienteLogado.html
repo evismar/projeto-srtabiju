@@ -1,0 +1,85 @@
+#{extends 'main_cliente.html' /}
+#{set title:'Minha conta' /}
+<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/layout_cliente.css'}" />
+<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/right.css'}" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+<script src="@{'/public/javascripts/jquery.jcarousel.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/jquery.slide.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script language="javascript">
+	$(document).ready(function (){
+				$("#slideimg").PikaChoose({carousel:true, carouselVertical:true});
+			});
+</script>
+
+<script type="text/javascript">
+function envia()
+{
+
+  document.formLogin.submit();
+}
+</script>
+
+<div id="conteudo">
+<form name="formLogin" action="@{login()}">
+	<div id="barramenu">
+    
+    	<div id="login">
+        	<b>15/03/2013</b>
+    		<br />
+        	<p>Olá, Nome.</p>     
+            <br />
+            <a href="" id="img"><img src="../../../public/images/caixinhaDesejos.png" /></a>
+            <a href="" id="pedidos">(0) Pedidos</a>
+            <ul id="logado">
+				<li><a href="">Editar Cadastro</a></li>
+				<li><a href="@{Application.logout()}" >Sair da conta</a></li>
+			</ul>
+            <br /> 
+            <h7><span class="error">#{error 'login' /}</span></h7>
+                     	
+        </div>
+</form>		
+        <h1>Compartilhe</h1>
+        <a href="http://www.facebook.com/IaraBijuis?ref=ts" id="curtirpag"><img src="../../../public/images/curta-no-facebook.png" /></a>      
+    </div>
+    
+    <h1>Bem-Vindo!</h1>
+    
+	<div class="slide">
+		<ul class="jcarousel-skin" id="slideimg" name="slideimg">
+			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira tran�ada com pedrinhas.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lan�amento! Pulseiras com cores variadas</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conhe�a nossos pordutos!</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
+		</ul>
+	</div>
+     
+    <h6>___________________________________________________________________________________________________________________</h6> 
+	<h4>Conhe�a nossa</h4>
+	<h2>Vitrine !</h2>
+
+	<div id="barra">
+    </div>
+    
+    <div id="vitrine">
+        
+        <table align="left">
+   			<tr>
+      			<td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Colar 1.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
+                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Colar 3.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
+                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Colar 4.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
+   			</tr>
+            
+            <tr>
+      			<td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Pulseira1.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
+                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Pulseira2.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
+                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Pulseira3.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
+   			</tr>
+           
+		</table>
+
+    </div>
+       
+</div>
