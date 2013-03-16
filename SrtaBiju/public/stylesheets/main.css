@@ -1,0 +1,36 @@
+
+
+/** Main **/
+
+.fError, .fSuccess {
+	text-align:center;
+    position: relative;
+    top: -10px;
+}
+
+.fError {
+    color: red;
+}
+
+.fSuccess {
+    color: red;
+}
+
+
+/** Forms **/
+
+
+form p.field {
+    text-align: right;
+    margin: 0 0 5px 0;
+    color:red;
+}
+
+
+form p.hasError {
+    color: red;
+}
+
+form .hasError .error {
+    font-size: 120%;
+}
