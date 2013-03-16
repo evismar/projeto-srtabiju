@@ -1,0 +1,39 @@
+#{extends 'main_adm.html' /}
+#{set title:'ListaAdministradores' /}
+
+<h1>Administradores cadastrados</h1>
+
+#{form @listaAdministradores()}
+
+#{ifnot clientes}
+    <p>
+        N�o h� administradores cadastrados
+    </p>
+#{/ifnot}
+#{else}
+   <table>
+       <thead>
+           <tr>
+               <th>Nome</th>
+               <th>N�mero de acessos</th>
+               <th>Data de Cadastro</th>
+               <th>Telefones</th>
+               <th>Email</th>
+           </tr>
+       </thead>
+       <tbody>
+           #{list administradores, as:'administrador'}
+               <tr>
+                   <td>${admnistrador.nome}</td>
+                   <td>${admnistrador.qtdAcessos}</td>
+                   <td>${admnistrador.dataCadastro.format('dd-MM-yyyy')}</td>
+                   <td>${admnistrador.telefone1}, ${admnistrador.telefone2}</td>
+                   <td>${admnistrador.email}</td>
+                   <td>
+                   </td>
+               </tr>
+           #{/list}
+       </tbody>
+   </table> 
+#{/else}
+#{/form}
