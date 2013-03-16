@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+
+/**---PRODUTOS---**/
+
+.imagens { width:900px; height:900px;}
+
+.imagens table{ text-align:center;}
+
+#prod_img{ width:240px; height:200px; border: 2px solid #000; padding:8px; margin:10px 15px;}
+
+#visualizar{ background-image:url(../images/botaovisualizar.png); background-repeat:no-repeat; display:block; width: 74px; height: 30px; margin:10px auto;}
+
+#visualizar{ width:74px; background-position:0 0;}
+
+#visualizar:hover{ width:74px; background-position:0 -40px;}
+
+
