@@ -5,6 +5,8 @@
 <link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/layout_cliente.css'}" />
 <link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/right.css'}" />
 
+
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
 <script src="@{'/public/javascripts/jquery.jcarousel.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
 <script src="@{'/public/javascripts/jquery.slide.js'}" type="text/javascript" charset="${_response_encoding}"></script>
@@ -71,17 +73,15 @@ function envia()
     <div id="vitrine">
         
         <table align="left">
-   			<tr>
-      			<td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Colar 1.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
-                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Colar 3.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
-                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Colar 4.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
-   			</tr>
-            
-            <tr>
-      			<td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Pulseira1.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
-                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Pulseira2.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
-                <td><a href="#"><img class="imagemvit" src="../../../public/images/fotos/Pulseira3.jpg"/></a></br><span>Texto da imagem</span><br /><span>R$ 15,00</span><br /><a href="" id="ver"></a></td>
-   			</tr>
+	#{list produtos, as:'produto'} 
+		
+        <table align="left">
+        	<tr>
+    			<td><a href="#"><img class="imagemvit" src="@{Produtos.imagemProduto(produto.id)}"/></a></br><span>${produto.nome}</span><br /><span>R$ ${produto.valor}</span><br /><a href="" id="ver"></a></td>
+            </tr>
+        </table>
+
+	#{/list} 
            
 		</table>
 

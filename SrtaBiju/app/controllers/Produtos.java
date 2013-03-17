@@ -40,8 +40,11 @@ public class Produtos extends Application{
     
 
 
-    public static void salvarCadastro(Produto produto, Categoria categoria, Blob uploadFile){
-    		
+    public static void salvarCadastro(Produto produto, String valor, Categoria categoria, Blob uploadFile){
+    	
+    	valor = valor.replaceAll(",", ".");
+    	float valorFloat = Float.parseFloat(valor);
+    	produto.valor = valorFloat;
     	produto.imagem = uploadFile;
     	Date data = new Date();
     	produto.dataCadastro = data;
@@ -66,6 +69,26 @@ public class Produtos extends Application{
             produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
         }
         render(produtos, search, size, page);
+    }
+    
+    public static void listaProdutosClienteLoop(String search,Integer size, Integer page) {
+
+
+        List<Produto> produtos = null;
+        page = page != null ? page : 1;
+        if(search.trim().length() == 0) {
+        	produtos = Produto.all().fetch(page, size);
+        } else {
+            search = search.toLowerCase();
+            produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
+        }
+
+        render(produtos, search, size, page);
+    }
+    
+    public static void listaProdutosCliente(){
+        List<Produto> produtos = Produto.findAll();
+        render(produtos);
     }
 
 }

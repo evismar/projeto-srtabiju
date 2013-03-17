@@ -1,11 +1,13 @@
-#{extends 'main_cliente.html' /} #{set title:'Produtos' /}
-
 <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/layout_produto.css'}">
 
 
 
-
-
+#{ifnot produtos}
+    <p>
+        Por enquanto só temos essas novidades...Aguarde, traremos muito mais!!!
+    </p>
+#{/ifnot}
+#{else}
 <div align="center">
 
     <div class="imagens">
@@ -22,3 +24,5 @@
     </div>
     
 </div>
+<a id="nextPage" href="${page+1}">Próxima Página</a>
+#{/else}
