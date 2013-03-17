@@ -60,9 +60,9 @@
 				<section id="recipientcase">
                                 
                 
-			    #{field 'produto.valor'}
+			    #{field 'valor'}
 			        <p class="${field.errorClass}">
-			            <input type="text" name="${field.name}" value="${produto?.valor}"  id="valor" placeholder="Valor R$:" tabindex="11" class="txtinput" onKeyUp="moeda(this)" required>
+			            <input type="text" name="${field.name}" value="${valor}"  id="valor" placeholder="Valor R$:" tabindex="11" class="txtinput" onKeyUp="moeda(this)" required>
 			            <span class="error">${field.error}</span>
 			        </p>
 			    #{/field}

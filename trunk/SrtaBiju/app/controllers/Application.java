@@ -30,7 +30,10 @@ public class Application extends Controller {
     }
 
 	    public static void index_cliente() {
-	        render();
+	    	Integer size = 6;
+	    	List<Produto> produtos = null;
+	    	produtos = Produto.all().fetch(size);
+	        render(produtos);
 	    }
 	    
 	    public static void index_adm() {
