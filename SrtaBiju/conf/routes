@@ -26,6 +26,8 @@ POST    /adm/cadastro/categoria                Categorias.salvarCadastro
 
 GET		/adm/relatorio/cliente				   Clientes.listaClientes
 
+GET     /adm/cadastro/administrador            Administradores.cadAdministrador
+
 
 
 

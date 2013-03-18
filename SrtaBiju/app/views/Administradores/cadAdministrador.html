@@ -1,11 +1,13 @@
 #{extends 'main_adm.html' /}
-#{set title:'Cadastro' /}
+#{set title:'Cadastro Adm' /}
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Cadastro</title>
   <meta name="author" content="Jake Rocheleau">
+  
+  <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/main.css'}">
   <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/form_style.css'}">
   <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/form_responsive.css'}">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
@@ -25,27 +27,69 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 
 	<section id="container">
 
-		<h2>Cadastro - Administrador</h2>
+		<h2>Cadastro - administrador</h2>
+        
+        	#{ifErrors}
+			<h1>Ops...Alguns erros foram encontrados</h1>
+			#{/ifErrors}
 			
         
-		<form name="form_cadastro" id="form_cadastro" method="post" action="#">
+		#{form @salvarCadastro(), name:'form_cadastro', id:'form_cadastro'}
     
 		<div id="wrapping" class="clearfix">
 			<section id="aligned">
             <h3>Dados Pessoais:</h3>
        
-			<input type="text" name="nome" id="nome" placeholder="Nome" autocomplete="off" tabindex="1" class="txtinput" required>
-         
-            <input type="text" name="data" id="data" placeholder="Data de Nascimento: dd/mm/aaaa" autocomplete="off" tabindex="2" class="txtinput">
-		
-			<input type="tel" name="telefone1"  id="telefone1" placeholder="Telefone(1): (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
+			
+		    #{field 'administrador.nome'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${administrador?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="1" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}   
+		          
             
-            <input type="tel" name="telefone2"  id="telefone2" placeholder="Telefone(2)" tabindex="4" class="txtinput">
+		     #{field 'administrador.dataNascimento'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${administrador?.dataNascimento}" id="data" placeholder="Data de Nascimento: dd/mm/aaaa" autocomplete="off" tabindex="2" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field} 		
+			
+		    #{field 'administrador.telefone1'}
+		        <p class="${field.errorClass}">
+		            <input type="tel" name="${field.name}" value="${administrador?.telefone1}"  id="telefone1" placeholder="Telefone(1): (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}            
             
-            <input type="email" name="email" id="email" placeholder="Endereço de E-Mail: (ex.)xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
+		    #{field 'administrador.telefone2'}
+		        <p class="${field.errorClass}">
+		            <input type="tel" name="${field.name}" value="${administrador?.telefone2}"  id="telefone2" placeholder="Telefone(2)" tabindex="4" class="txtinput"> 
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}            
             
-            <input type="text" name="facebook" id="facebook" placeholder="Nome Facebook" autocomplete="off" tabindex="6" class="txtinput">
-           
+		    #{field 'administrador.email'}
+		        <p class="${field.errorClass}">
+		            <input type="email" name="${field.name}" value="${administrador?.email}" id="email" placeholder="Endereço de E-Mail: (ex.)xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}     
+		    
+		    #{field 'administrador.cpf'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${administrador?.cpf}" id="cpf" placeholder="CPF: (ex) 000.000.000-00" autocomplete="off" tabindex="5" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}         
+            
+		    #{field 'administrador.tipo'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${administrador?.tipo}" id="facebook" placeholder="Função: (ex)Dona, venderora, etc." autocomplete="off" tabindex="6" class="txtinput">
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}           
 		
 			</section>
 	
@@ -53,24 +97,31 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 				<section id="recipientcase">
 				<h3>Conta de Usuário:</h3>
                 
-                <input type="text" name="usuario" id="usuario" placeholder="Usuário" autocomplete="off" tabindex="7" class="txtinput" required>
-             
-                <input type="password" name="senha" id="senha" placeholder="Senha" autocomplete="off" tabindex="8" class="txtinput" required>
                 
+			    #{field 'administrador.usuario'}
+			        <p class="${field.errorClass}">
+			            <input type="text" name="${field.name}" value="${administrador?.usuario}" id="usuario" placeholder="Usuário" autocomplete="off" tabindex="7" class="txtinput" required>
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}             
+                
+			    #{field 'administrador.senha'}
+			        <p class="${field.errorClass}">
+			            <input type="password" name="${field.name}" value="${administrador?.senha}" id="senha" placeholder="Senha" autocomplete="off" tabindex="8" class="txtinput" required>
+			            <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}                
               
-                <input type="password" name="confirmaSenha" id="senha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required oninput="check(this)">
-					
+                
+			    #{field 'confirmaSenha'}
+			        <p class="${field.errorClass}">
+			            <input type="password" name="${field.name}" value="${confirmaSenha}" id="senha" placeholder="Confirmar Senha" autocomplete="off" tabindex="9" class="txtinput" required oninput="check(this)">
+                        <span class="error">${field.error}</span>
+			        </p>
+			    #{/field}					
 				</section>
 				
 			</section>
-			#{ifErrors}
-			<h1>Ops...Alguns erros foram encontrados</h1>
-			<ul>
-			#{errors}
-			<li>${error}</li>
-			#{/errors}
-			</ul>
-			#{/ifErrors}
 		</div>
 
 
@@ -79,7 +130,7 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Enviar">
 			<br style="clear:both;">
 		</section>
-		</form>
+		#{/form}
 	</section>
 	
 

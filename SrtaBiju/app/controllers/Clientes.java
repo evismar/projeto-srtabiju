@@ -27,6 +27,8 @@ public class Clientes extends Application{
 
 
     public static void salvarCadastro(@Valid Cliente cliente, String confirmaSenha){
+    	
+    	
 
     	//Verifica se as senhas estão combinado
         validation.required(cliente.senha);
@@ -38,10 +40,11 @@ public class Clientes extends Application{
         validation.maxSize(cliente.senha, 12);
         
         //Verifica se o email é válido
-        validation.email(cliente.email);
+        validation.email(cliente.email).message("Email inválido, por favor, verifique seu email!");
         
         
     	//Verifica se há Logins iguais
+        
 	    Pessoa pessoa = Pessoa.find("usuario", cliente.usuario).first();
 	    if(pessoa != null) {
 	    	
