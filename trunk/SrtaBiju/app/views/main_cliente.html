@@ -11,13 +11,22 @@
         <script src="@{'/public/javascripts/sessvars.js'}" type="text/javascript" charset="${_response_encoding}"></script>
         #{get 'moreScripts' /}
     </head>
+    <script type="text/javascript">
+ 		function enviaPesquisa()
+		{
+		
+		  document.formPesquisa.submit();
+		} 
+	</script>
     <body>
         
         <div id="topo">
 			<div id="dentrotopo">
+				<form name="formPesquisa" action="@{Produtos.listaProdutosCliente}">
     			<img src="@{'/public/images/Logo.png'}" alt="Logo" />
-        		<input type="image" src="@{'/public/images/botaopesq.png'}" alt="Buscar..." id="botaoBusca"/>
-        		<input type="text" name="pesquisa" placeholder="Digite sua pesquisa..." style="border:none; background-color: none" />
+        		<input type="image" src="@{'/public/images/botaopesq.png'}" alt="Buscar..." id="botaoBusca" onclick="enviaPesquisa()"/>
+        		<input type="text" id="search" name="pesquisa" placeholder="Digite sua pesquisa..." style="border:none; background-color: none" />
+				</form>	
 			</div>
 		</div>
             
@@ -54,3 +63,37 @@
         
     </body>
 </html>
+<script type="text/javascript" charset="${_response_encoding}">
+
+    // Rebuild state
+    $('#search').val(sessvars.search)    
+    if(sessvars.page == undefined) {
+        sessvars.page = 1
+    }
+
+
+    $('#size option[value='+sessvars.size+']').attr('selected', 'true')
+    
+    // Search function
+    var search = function() {
+        sessvars.search = $('#search').val()
+         sessvars.size = $('#size').val() 
+        var listAction = #{jsAction @Produtos.listaProdutosClienteLoop(':search', 6, ':page') /} 
+        $('#result').load(listAction({search: sessvars.search, size: sessvars.size, page: sessvars.page}), function() {
+            $('#content').css('visibility', 'visible')
+        })
+    }
+    
+    // Events handler
+    $('#submit').click(function() { 
+
+        sessvars.page = 1
+        search()
+    })
+    $('#search').keyup(function() {
+        sessvars.page = 1
+        search()
+    })
+
+    
+</script>	
