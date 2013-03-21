@@ -18,11 +18,11 @@
 
     <div class="imagens">
 
-	#{list produtos, as:'produto'} 
+	#{list contador, as:'contador'} 
 		
         <table align="left">
         	<tr>
-    			<td><a href=""><img id="prod_img" src="@{imagemProduto(produto.id)}"/></br><span>${produto.nome}</span><br /><span>R$ ${produto.valor}</span><br /><a href="" id="visualizar"></a></td>
+    			<td><a href=""><img id="prod_img" src="@{imagemProduto(produtos[contador].id)}"/></br><span>${produtos[contador].nome}</span><br /><span>R$ ${valores[contador]}</span><br /><a href="" id="visualizar"></a></td>
             </tr>
         </table>
 

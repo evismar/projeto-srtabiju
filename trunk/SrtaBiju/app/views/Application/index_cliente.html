@@ -73,13 +73,17 @@ function envia()
     <div id="vitrine">
         
         <table align="left">
-	#{list produtos, as:'produto'} 
-		
-        <table align="left">
-        	<tr>
-    			<td><a href="#"><img class="imagemvit" src="@{Produtos.imagemProduto(produto.id)}"/></a></br><span>${produto.nome}</span><br /><span>R$ ${produto.valor}</span><br /><a href="" id="ver"></a></td>
-            </tr>
-        </table>
+		#{list contador, as:'contador'}
+
+		<table align="left">
+
+			<tr>
+				<td><a href="#"><img class="imagemvit"
+						src="@{Produtos.imagemProduto(produtos[contador].id)}" /></a></br>
+				<span>${produtos[contador].nome}</span><br /><span>R$ ${valores[contador]}</span><br />
+				<a href="" id="ver"></a></td>
+			</tr>
+		</table>
 
 	#{/list} 
            

@@ -28,17 +28,17 @@
             
 			
 																																														
-			#{field 'produto.nome'}
+			#{field 'categoria.nome'}
 		        <p class="${field.errorClass}">
-		            <input type="text" name="${field.name}" value="${produto?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
+		            <input type="text" name="${field.name}" value="${categoria?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
 		            <span class="error">${field.error}</span>
 		        </p>
 		    #{/field}
             
             
-		    #{field 'produto.descricao'}
+		    #{field 'categoria.descricao'}
 		        <p class="${field.errorClass}">
-		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${produto?.descricao}" maxlength="400" placeholder="Descrição do Produto" required></textarea>
+		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${categoria?.descricao}" maxlength="400" placeholder="Descrição do Produto" required></textarea>
 		            <span class="error">${field.error}</span>
 		        </p>
 		    #{/field}          
