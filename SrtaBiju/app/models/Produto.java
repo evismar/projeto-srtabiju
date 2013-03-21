@@ -37,6 +37,8 @@ public class Produto extends Model{
     @Required
     public int numVisualizacoes;
     
+    public Boolean ativo;
+    
     @ManyToOne
     public Categoria categoria;
     

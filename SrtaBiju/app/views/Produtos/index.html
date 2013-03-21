@@ -36,7 +36,7 @@
     var search = function() {
         sessvars.search = $('#search').val()
         sessvars.size = $('#size').val()
-        var listAction = #{jsAction @pesquisa(':search', ':size', ':page') /} 
+        var listAction = #{jsAction @listaProdutosAdm(':search', ':size', ':page') /} 
         $('#result').load(listAction({search: sessvars.search, size: sessvars.size, page: sessvars.page}), function() {
             $('#content').css('visibility', 'visible')
         })

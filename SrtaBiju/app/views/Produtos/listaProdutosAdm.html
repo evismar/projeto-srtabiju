@@ -8,6 +8,12 @@
 
 <body>
 <div id="listaProd" align="center">
+#{ifnot produtos}
+    <p>
+        Não há produtos cadastrados
+    </p>
+#{/ifnot}
+#{else}
 
     <table id="tab">
         <thead>
@@ -19,35 +25,24 @@
             </tr>
         </thead>     
         <tbody>
+            #{list produtos, as:'produto'}
             <tr>
-                <td>001</td>
-                <td>Feijão</td>
-                <td>Cereais</td>
+                <td>${produto.id}</td>
+                <td>${produto.nome}</td>
+                <td>${produto.categoria.nome}</td>
                 <td><a id="editar" href=""><img src="../../../public/images/editar.png"/></a>
-                <a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
+                <a id="remover" href="@{exclui(produto.id)}"><img src="../../../public/images/remover.png"/></a></td>
                 
             </tr>
-             <tr>
-                <td>002</td>
-                <td>Arroz</td>
-                <td>Cereais</td>
-                <td><a id="editar" href=""><img src="../../../public/images/editar.png"/></a>
-                <a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
-                
-            </tr>
-            <tr>
-                <td>003</td>
-                <td>Farinha</td>
-                <td>Cereais</td>
-                <td><a id="editar" href=""><img src="../../../public/images/editar.png"/></a>
-                <a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
-                
-            </tr>
+            #{/list}
+ 
         </tbody>
         <tfoot>
         </tfoot>
+
     </table>
-    
+
+  #{/else}  
 </div>
 </body>
 </html>

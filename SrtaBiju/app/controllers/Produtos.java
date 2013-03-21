@@ -10,6 +10,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.sun.org.apache.xpath.internal.operations.And;
+
 import models.*;
 
 public class Produtos extends Application{
@@ -59,15 +61,18 @@ public class Produtos extends Application{
         List<Produto> produtos = Produto.findAll();
         render(produtos);
     }
-    public static void pesquisa(String search, Integer size, Integer page) {
+    public static void listaProdutosAdm(String search, Integer size, Integer page) {
         List<Produto> produtos = null;
         page = page != null ? page : 1;
         if(search.trim().length() == 0) {
-        	produtos = Produto.all().fetch(page, size);
+        	produtos = Produto.find("byAtivo", true).fetch(page, size);
+        	
         } else {
             search = search.toLowerCase();
-            produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
+            produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%" ).fetch(page, size);
+
         }
+       
         render(produtos, search, size, page);
     }
     
@@ -82,13 +87,38 @@ public class Produtos extends Application{
             search = search.toLowerCase();
             produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
         }
+    	List valores = new ArrayList<>();
+    	List contador = new ArrayList<>();
+		Integer i = 0;
+    	for(Produto produto : produtos ){
 
-        render(produtos, search, size, page);
+    		String valor = Float.toString(produto.valor);
+
+    		valor = valor.replace(".", ",");
+    		String[] split = valor.split(",");
+    		String centavos = split[1];
+    		if (centavos.length() < 2){
+    			valor = valor + "0";
+    		}
+    		valores.add(valor);
+    		contador.add(i);
+    		i = i + 1; 
+    		System.out.println(produtos.size());
+    		System.out.println(valores.size());
+    		System.out.println(contador.size());
+    	    }
+        render(produtos, valores, contador, search, size, page);
     }
     
     public static void listaProdutosCliente(){
         List<Produto> produtos = Produto.findAll();
         render(produtos);
+    }
+    
+    public static void exclui(Long id){    	
+    	Produto produto = Produto.findById(id);
+    	produto.ativo = false;
+    	produto.save();
     }
 
 }
