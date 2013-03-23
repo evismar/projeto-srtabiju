@@ -19,6 +19,7 @@ public class Administradores extends Application{
     }
 
 
+
     public static void salvarCadastro(@Valid Administrador administrador, String confirmaSenha){
 
     	//Verifica se as senhas estão combinado

@@ -24,10 +24,10 @@
         <div id="menu">
 			<div id="dentromenu">
     			<ul>
-    			<li><a href="" class="links"> Administrador</a></li>
-				<li><a href="" class="links"> Produtos</a></li>
-        		<li><a href="" class="links"> Fornecedores</a></li>
-        		<li><a href="" class="links"> Relatórios</a></li>
+    			<li><a href="@{Application.index_adm()}" class="links"> Administrador</a></li>
+				<li><a href="@{Produtos.index()}" class="links"> Produtos</a></li>
+        		<li><a href="@{Fornecedores.cadFornecedor()}" class="links"> Fornecedores</a></li>
+        		<li><a href="@{Application.relatorios()}" class="links"> Relatórios</a></li>
 				</ul>
     		</div>
 		</div>
@@ -38,6 +38,7 @@
                     <strong>${flash.error}</strong>
                 </p>
             #{/if}
+            
             #{if flash.success}
                 <p class="fSuccess">
                     <strong>${flash.success}</strong>

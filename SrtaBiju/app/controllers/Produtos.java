@@ -10,6 +10,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import javax.management.Query;
+
 import com.sun.org.apache.xpath.internal.operations.And;
 
 import models.*;
@@ -66,11 +68,14 @@ public class Produtos extends Application{
         page = page != null ? page : 1;
         if(search.trim().length() == 0) {
         	produtos = Produto.find("byAtivo", true).fetch(page, size);
+/*        	produtos = Produto.find("not ativo").fetch(page, size);*/
         	
         } else {
             search = search.toLowerCase();
-            produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%" ).fetch(page, size);
-
+            /*produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2 where ativo like ?3", 
+              "%"+search+"%", "%"+search+"%", true).fetch(page, size);*/
+            /*produtos = Produto.find("lower(nome) like ?1 AND lower(descricao) like ?2" + "where ativo = 'true'", "%"+search+"%", "%"+search+"%").fetch(page, size);*/
+            produtos = Produto.find("where ativo = true").fetch(page, size);
         }
        
         render(produtos, search, size, page);
@@ -85,7 +90,7 @@ public class Produtos extends Application{
         	produtos = Produto.all().fetch(page, size);
         } else {
             search = search.toLowerCase();
-            produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
+            produtos = Produto.find("lower(nome) like ?1 AND lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
         }
     	List valores = new ArrayList<>();
     	List contador = new ArrayList<>();

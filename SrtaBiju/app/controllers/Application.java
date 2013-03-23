@@ -18,6 +18,10 @@ public class Application extends Controller {
         }
     }
     
+    public static void relatorios() {
+        render();
+    }
+    
     static Pessoa connected() {
         if(renderArgs.get("usuario") != null) {
             return renderArgs.get("usuario", Pessoa.class);
@@ -34,7 +38,7 @@ public class Application extends Controller {
     	List<Produto> produtos = null;
     	List valores = new ArrayList<>();
     	List contador = new ArrayList<>();
-    	produtos = Produto.all().fetch(size);
+    	produtos = Produto.find("order by id desc, id").fetch(size);
 		Integer i = 0;
     	for(Produto produto : produtos ){
 
