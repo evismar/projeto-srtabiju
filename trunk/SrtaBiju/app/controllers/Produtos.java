@@ -30,6 +30,13 @@ public class Produtos extends Application{
 
 
     }
+    public static void modalProduto() {   
+    	
+        List<Produto> produtos = Produto.findAll();
+        render(produtos);
+
+
+    }
     
     public static void imagemProduto(Long id) {       
 
@@ -53,6 +60,7 @@ public class Produtos extends Application{
     	Date data = new Date();
     	produto.dataCadastro = data;
     	produto.categoria = categoria;
+    	produto.ativo = true;
    	
         produto.create();
         flash.success("Produto cadastrado!");
@@ -68,29 +76,27 @@ public class Produtos extends Application{
         page = page != null ? page : 1;
         if(search.trim().length() == 0) {
         	produtos = Produto.find("byAtivo", true).fetch(page, size);
-/*        	produtos = Produto.find("not ativo").fetch(page, size);*/
+
         	
         } else {
             search = search.toLowerCase();
-            /*produtos = Produto.find("lower(nome) like ?1 OR lower(descricao) like ?2 where ativo like ?3", 
-              "%"+search+"%", "%"+search+"%", true).fetch(page, size);*/
-            /*produtos = Produto.find("lower(nome) like ?1 AND lower(descricao) like ?2" + "where ativo = 'true'", "%"+search+"%", "%"+search+"%").fetch(page, size);*/
-            produtos = Produto.find("where ativo = true").fetch(page, size);
+         	produtos = Produto.find("ativo = ? and lower(nome) like ?",true,  "%"+search+"%").fetch(page, size);
         }
        
         render(produtos, search, size, page);
     }
     
-    public static void listaProdutosClienteLoop(String search,Integer size, Integer page) {
+    public static void listaProdutosClienteLoop(String search,Integer size, Integer page, Integer selecionado) {
 
+        List<Categoria> categorias = Categoria.findAll();
 
         List<Produto> produtos = null;
         page = page != null ? page : 1;
         if(search.trim().length() == 0) {
-        	produtos = Produto.all().fetch(page, size);
+        	produtos = Produto.find("byAtivo", true).fetch(page, size);
         } else {
             search = search.toLowerCase();
-            produtos = Produto.find("lower(nome) like ?1 AND lower(descricao) like ?2", "%"+search+"%", "%"+search+"%").fetch(page, size);
+            produtos = Produto.find("ativo = ? and lower(nome) like ?",true,  "%"+search+"%").fetch(page, size);
         }
     	List valores = new ArrayList<>();
     	List contador = new ArrayList<>();
@@ -112,7 +118,7 @@ public class Produtos extends Application{
     		System.out.println(valores.size());
     		System.out.println(contador.size());
     	    }
-        render(produtos, valores, contador, search, size, page);
+        render(selecionado, categorias, produtos, valores, contador, search, size, page);
     }
     
     public static void listaProdutosCliente(){
@@ -124,6 +130,45 @@ public class Produtos extends Application{
     	Produto produto = Produto.findById(id);
     	produto.ativo = false;
     	produto.save();
+
+        flash.success("Produto excluido!");
+        Produtos.index();
+    }
+    public static void editProduto(Long id){  
+    	List<Categoria> categorias = Categoria.findAll();
+    	Produto produto = Produto.findById(id);
+    	
+		String valor = Float.toString(produto.valor);
+
+		valor = valor.replace(".", ",");
+		String[] split = valor.split(",");
+		String centavos = split[1];
+		if (centavos.length() < 2){
+			valor = valor + "0";
+		}
+    	render(produto, valor, categorias, id);
+    	
+    }
+    
+    public static void edita(Produto produto, String valor, Categoria categoria, Blob uploadFile, String descricao){
+    	
+    	valor = valor.replaceAll(",", ".");
+    	float valorFloat = Float.parseFloat(valor);
+    	produto.valor = valorFloat;
+    	produto.categoria = categoria;
+    	produto.ativo = true;
+    	
+    	if(uploadFile != null){
+        	produto.imagem = uploadFile;   		
+    	}
+   	
+        produto.save();
+        flash.success("Produto editado!");
+        
+        
+
+        Produtos.index();
+    	
     }
 
 }
