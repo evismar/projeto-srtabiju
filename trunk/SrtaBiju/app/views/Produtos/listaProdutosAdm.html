@@ -5,6 +5,8 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
 <title>Test</title>
 
+
+
 </head>
 
 <body>
@@ -34,7 +36,7 @@
                 <td><a id="editar" name= "editar"href="@{editProduto(produto.id)}"><img src="../../../public/images/editar.png"/></a>
                 
 
-                <a id="remover" name = "remover" href="@{exclui(produto.id)}" onclick="exclui()"><img src="../../../public/images/remover.png"/></a></td>
+                <a id="remover" onclick="return confirm('Deseja realmente deletar este produto?')" name = "remover" href="@{exclui(produto.id)}" ><img src="../../../public/images/remover.png"/></a></td>
 
                 
                 

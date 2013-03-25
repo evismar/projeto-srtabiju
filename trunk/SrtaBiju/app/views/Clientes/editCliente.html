@@ -127,7 +127,7 @@ font-size: 120%; color:#FFF; width:16%; margin-left:500px; background:#363636;}
 
 		<section id="buttons">
 			<input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Limpar">
-			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Enviar">
+			<input type="submit" name="submit" onclick="return confirm('Deseja realmente alterar os dados?')" id="submitbtn" class="submitbtn" tabindex="7" value="Enviar">
 			<br style="clear:both;">
 		</section>
 		#{/form}
