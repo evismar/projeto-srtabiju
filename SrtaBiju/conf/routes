@@ -22,6 +22,8 @@ GET     /adm/cadastro/produto                  Produtos.cadProduto
 POST    /adm/cadastro/produto                  Produtos.salvarCadastro
 GET     /adm/relatorio/produto                 Produtos.index
 
+
+
 GET     /adm/cadastro/categoria                Categorias.cadCategoria
 POST    /adm/cadastro/categoria                Categorias.salvarCadastro
 
