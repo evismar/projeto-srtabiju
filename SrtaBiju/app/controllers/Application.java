@@ -70,7 +70,7 @@ public class Application extends Controller {
 	    }
 	    
 		public static void login(String usuario, String senha){
-			
+						
 			Administrador adm = Administrador.find("byUsuarioAndSenha", usuario, senha).first();
 			if(adm != null) {
 				session.put("usuario", adm.usuario);
@@ -85,6 +85,7 @@ public class Application extends Controller {
 			        pessoa.save();
 					session.put("usuario", pessoa.usuario);
 				    flash.success("Bem-vindo, " + pessoa.usuario);
+				    
 			        Clientes.clienteLogado();         
 				    }
 		        // Oops

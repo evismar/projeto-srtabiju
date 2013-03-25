@@ -4,25 +4,32 @@ import play.*;
 import play.mvc.*;
 import play.data.validation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
 import models.*;
 public class Clientes extends Application{
 	
-/*    @Before
+    @Before
     static void checaCliente() {
         if(connected() == null) {
             flash.error("Por favor, realize o Login primeiro.");
             Application.index_cliente();
         }
-    }*/
+    }
 
     public static void cadCliente() {
         render();
     }
     public static void clienteLogado() {
-        render();
+    	Pessoa cliente = connected();
+    	DateFormat dateFormat = new SimpleDateFormat("dd//MM/yyyy");
+    	Date date = new Date();
+    	String data = dateFormat.format(date);
+    	
+            render(cliente, data);
     }
 
 
@@ -79,6 +86,22 @@ public class Clientes extends Application{
         
     }
     
+    public static void editCliente(Long id){
+    	
+    	Cliente cliente = Cliente.findById(id);
+    	render(cliente);
+    	
+        
+    }
+    
+    public static void edita(Cliente cliente){
+    	
+    	cliente.save();
+    	flash.success("Cadastro atualizado com sucesso!");
+    	Clientes.clienteLogado();
+    	
+        
+    }
     public static void listaClientes() {
         List<Cliente> clientes = Cliente.findAll();
         render(clientes);

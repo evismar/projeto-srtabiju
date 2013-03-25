@@ -73,14 +73,14 @@ $(document).ready(function() {
 	<div id="barramenu">
     
     	<div id="login">
-        	<b>15/03/2013</b>
+        	<b>${data}</b>
     		<br />
-        	<p>Olá, Nome.</p>     
+        	<p>Olá, ${cliente.usuario}.</p>     
             <br />
             <a href="#dialog" name="modal"><img id="img" src="../../../public/images/caixinhaDesejos.png" /></a>
             <a href="#dialog" name="modal" id="pedidos">(0) Pedidos</a>
             <ul id="logado">
-				<li><a href="">Editar Cadastro</a></li>
+				<li><a href="@{Clientes.editCliente(cliente.id)}">Editar Cadastro</a></li>
 				<li><a href="@{Application.logout()}" >Sair da conta</a></li>
 			</ul>
             <br /> 
@@ -96,9 +96,9 @@ $(document).ready(function() {
     
 	<div class="slide">
 		<ul class="jcarousel-skin" id="slideimg" name="slideimg">
-			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira tran�ada com pedrinhas.</span></li>
-			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lan�amento! Pulseiras com cores variadas</span></li>
-			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conhe�a nossos pordutos!</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira trançada com pedrinhas.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lançamento! Pulseiras com cores variadas</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conheça nossos pordutos!</span></li>
 			<li><a href=""><img src="../../../public/images/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
 			<li><a href=""><img src="../../../public/images/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
 		</ul>
