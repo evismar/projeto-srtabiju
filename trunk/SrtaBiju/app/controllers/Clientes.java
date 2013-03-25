@@ -80,10 +80,11 @@ public class Clientes extends Application{
         cliente.dataCadastro = dataCadastro;
         cliente.quantidadeDeAcessos = cliente.quantidadeDeAcessos + 1;
         cliente.create();
-
-        session.put("cliente", cliente.nome);
+        
         flash.success("Bem vindo, " + cliente.nome);
-        Application.index_cliente();
+        Application.login(cliente.usuario, cliente.senha);
+
+
         
         
     }
