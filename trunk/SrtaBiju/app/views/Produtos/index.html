@@ -57,6 +57,11 @@
         e.preventDefault()
         search()        
     })
+    $('#downPage').live('click', function(e) {
+        sessvars.page = $(this).attr('href')
+        e.preventDefault()
+        search()        
+    })    
     
     // Init
 
