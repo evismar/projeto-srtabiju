@@ -12,17 +12,19 @@ import java.util.*;
 import models.*;
 public class Clientes extends Application{
 	
-    @Before
+    public static void cadCliente() {
+        render();
+    }
+	
+/*    @Before
     static void checaCliente() {
         if(connected() == null) {
             flash.error("Por favor, realize o Login primeiro.");
             Application.index_cliente();
         }
-    }
+    }*/
 
-    public static void cadCliente() {
-        render();
-    }
+
     public static void clienteLogado() {
     	Pessoa cliente = connected();
     	DateFormat dateFormat = new SimpleDateFormat("dd//MM/yyyy");
