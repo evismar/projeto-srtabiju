@@ -1,0 +1,54 @@
+#{extends 'main_adm.html' /}
+#{set title:'Cadastro' /}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Cadastro</title>
+  <meta name="author" content="Jake Rocheleau">
+  
+  <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/main.css'}">
+  <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/form_style.css'}">
+  <link rel="stylesheet" type="text/css" media="all" href="@{'public/stylesheets/form_responsive.css'}">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+   
+  <script type="text/javascript" src="@{'public/javascripts/jquery.min.js'}"></script>
+  <script type="text/javascript" src="@{'public/javascripts/jquery.maskedinput-1.3.min.js'}"></script>
+  <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script> 
+
+	
+ <section id="container">   
+    
+    <h2>Cadastro de Categoria</h2>
+
+	#{form @salvarCadastro()}
+    
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+            <h3>Dados da Categoria:</h3>
+            
+			
+																																														
+			#{field 'categoria.nome'}
+		        <p class="${field.errorClass}">
+		            <input type="text" name="${field.name}" value="${categoria?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}
+            
+            
+		    #{field 'categoria.descricao'}
+		        <p class="${field.errorClass}">
+		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${categoria?.descricao}" maxlength="400" placeholder="Descrição do Produto" required></textarea>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field}          
+			</section>
+    
+<section id="buttons">
+			<input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Limpar">
+			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="13" value="Enviar">
+			<br style="clear:both;">
+		</section>
+	
+	</section>
+#{/form}

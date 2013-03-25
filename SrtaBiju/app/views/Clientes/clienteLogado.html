@@ -1,0 +1,195 @@
+#{extends 'main_cliente.html' /}
+#{set title:'Minha conta' /}
+<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/layout_cliente.css'}" />
+<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/right.css'}" />
+<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/layout_caixinha.css'}" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script> 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+<script src="@{'/public/javascripts/jquery.jcarousel.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/jquery.slide.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
+<script language="javascript">
+	$(document).ready(function (){
+				$("#slideimg").PikaChoose({carousel:true, carouselVertical:true});
+			});
+</script>
+
+<script type="text/javascript">
+function envia()
+{
+
+  document.formLogin.submit();
+}
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {	
+
+	$('a[name=modal]').click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).attr('href');
+	
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+	
+	});
+	
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+	
+});
+
+</script>
+
+<div id="conteudo">
+<form name="formLogin" action="@{login()}">
+	<div id="barramenu">
+    
+    	<div id="login">
+        	<b>${data}</b>
+    		<br />
+        	<p>Olá, ${cliente.usuario}.</p>     
+            <br />
+            <a href="#dialog" name="modal"><img id="img" src="../../../public/images/caixinhaDesejos.png" /></a>
+            <a href="#dialog" name="modal" id="pedidos">(0) Pedidos</a>
+            <ul id="logado">
+				<li><a href="@{Clientes.editCliente(cliente.id)}">Editar Cadastro</a></li>
+				<li><a href="@{Application.logout()}" >Sair da conta</a></li>
+			</ul>
+            <br /> 
+            <h7><span class="error">#{error 'login' /}</span></h7>
+                     	
+        </div>
+</form>		
+        <h1>Compartilhe</h1>
+        <a href="http://www.facebook.com/IaraBijuis?ref=ts" id="curtirpag"><img src="../../../public/images/curta-no-facebook.png" /></a>      
+    </div>
+    
+    <h1>Bem-Vindo!</h1>
+    
+	<div class="slide">
+		<ul class="jcarousel-skin" id="slideimg" name="slideimg">
+			<li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira trançada com pedrinhas.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lançamento! Pulseiras com cores variadas</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conheça nossos pordutos!</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
+			<li><a href=""><img src="../../../public/images/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
+		</ul>
+	</div>
+     
+    <h6>___________________________________________________________________________________________________________________</h6> 
+	<h4>Conhe�a nossa</h4>
+	<h2>Vitrine !</h2>
+
+	<div id="barra">
+    </div>
+    
+    <div id="vitrine">
+        
+        <table align="left">
+	#{list produtos, as:'produto'} 
+		
+        <table align="left">
+        	<tr>
+    			<td><a href="#"><img class="imagemvit" src="@{Produtos.imagemProduto(produto.id)}"/></a></br><span>${produto.nome}</span><br /><span>R$ ${produto.valor}</span><br /><a href="" id="ver"></a></td>
+            </tr>
+        </table>
+
+	#{/list} 
+           
+		</table>
+
+    </div>
+    
+          <div id="boxes">
+
+          <div id="dialog" class="window">
+              <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
+              <h3><img src="../../../public/images/caixinhaDesejos.png"/>Caixinha de Desejos</h3>
+              <br />
+                      <table id="tab">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Qtd.</th>
+                        <th>Preço</th>
+                        <th>Total</th>
+                        <th>Opção</th>
+                        
+                    </tr>
+                </thead>     
+                <tbody>
+                    <tr>
+                        <td>Pulseria Azul</td>
+                        <td>2</td>
+                        <td>R$ 27,90</td>
+                        <td>R$ 27,90</td>
+                        <td><a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
+                        
+                    </tr>
+                     <tr>
+                        <td>Pulseria Preta</td>
+                        <td>1</td>
+                        <td>R$ 20,00</td>
+                        <td>R$ 20,00</td>
+                        <td><a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Pulseria Colorida</td>
+                        <td>1</td>
+                        <td>R$ 20,00</td>
+                        <td>R$ 20,00</td>
+                        <td><a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
+                        
+                    </tr>
+         
+                </tbody>
+                <tfoot>
+                </tfoot>
+        
+            </table>
+            <h4>Preço Total do Pedido: R$ 67,90</h4>
+            <br />
+    		<a href="#" class="enviar"></a><br />
+          </div>
+          
+      
+          <!-- Máscara para cobrir a tela -->
+          <div id="mask">
+          </div>
+    
+    </div>
+
+</div>
+
+       
+
+
