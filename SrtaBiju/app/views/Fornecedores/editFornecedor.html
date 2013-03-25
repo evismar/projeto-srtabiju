@@ -124,7 +124,7 @@
 
     <section id="buttons">
         <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Limpar">
-        <input type="submit" name="submit" id="submitbtn" class="submitbtn" value="Enviar">
+        <input type="submit" name="submit" onclick="return confirm('Deseja realmente alterar os dados deste fornecedor?')" id="submitbtn" class="submitbtn" value="Enviar">
         <br style="clear:both;">
     </section>
     #{/form}
