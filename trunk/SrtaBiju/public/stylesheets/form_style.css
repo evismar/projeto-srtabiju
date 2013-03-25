@@ -89,6 +89,48 @@ transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s line
 -o-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
 }
 
+.caixaPequena { 
+display: block;
+font-family: "Helvetica Neue", Arial, sans-serif;
+border-style: solid;
+border-width: 1px;
+border-color: #dedede;
+margin-top: 20px;
+font-size: 1.55em;
+padding: 11px 25px;
+padding-left: 10px;
+width: 10%;
+color: #777;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset; 
+transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+-webkit-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+-moz-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+-o-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+}
+
+.caixaMedia { 
+display: block;
+font-family: "Helvetica Neue", Arial, sans-serif;
+border-style: solid;
+border-width: 1px;
+border-color: #dedede;
+margin-top: 30px;
+font-size: 1.55em;
+padding: 11px 25px;
+padding-left: 10px;
+width: 40%;
+color: #777;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset; 
+transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+-webkit-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+-moz-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+-o-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+}
+
 .txtinput:focus { 
 color: #333;
 border-color: rgba(41, 92, 161, 0.4);

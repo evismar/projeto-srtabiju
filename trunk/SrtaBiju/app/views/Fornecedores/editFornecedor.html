@@ -1,5 +1,5 @@
 #{extends 'main_adm.html' /}
-#{set title:'Cadastro de Fornecedor' /}
+#{set title:'Edição de Fornecedor' /}
 <html>
 <head>
   <meta charset="utf-8">
@@ -29,12 +29,18 @@
         #{/ifErrors}
         
     
-    #{form @salvarCadastro(), name:'form_cadFornecedor', id:'form_cadFornecedor'}
+    #{form @edita(), name:'form_cadFornecedor', id:'form_cadFornecedor'}
 
     <div id="wrapping" class="clearfix">
         <section id="aligned">
         <h3>Dados Pessoais:</h3>
    
+        #{field 'fornecedor.id'}
+            <p class="${field.errorClass}">
+                <input type="hidden" name="${field.name}" value="${fornecedor?.id}" id="id" placeholder="id" autocomplete="off" class="txtinput" required>
+                <span class="error">${field.error}</span>
+            </p>
+        #{/field}  
         
         #{field 'fornecedor.nome'}
             <p class="${field.errorClass}">
@@ -71,7 +77,8 @@
                 <span class="error">${field.error}</span>
             </p>
         #{/field}         
-         
+                 
+                  
          
         #{field 'endereco.bairro'}
             <p class="${field.errorClass}">
@@ -137,3 +144,14 @@
 	});
 </script>
 
+<script>
+function check(senha) {
+  if (senha.value != document.getElementById('senha').value) {
+    senha.setCustomValidity('As senhas não estão combinando.');
+  } else {
+    // input is valid -- reset the error message
+    senha.setCustomValidity('');
+  }
+}
+
+</script>

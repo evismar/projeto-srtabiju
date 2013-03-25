@@ -22,73 +22,68 @@ public class Fornecedores extends Application{
         render();
     }
     
-    public static void salvarCadastro(){
-    	
+    public static void index() {
+        List<Fornecedor> fornecedores = Fornecedor.findAll();
+        render(fornecedores);
     }
     
-    
-/*    public static void clienteLogado() {
-        render();
-    }
-
-
-    public static void salvarCadastro(@Valid Cliente cliente, String confirmaSenha){
+    public static void salvarCadastro(Fornecedor fornecedor, Endereco endereco){
     	
+    	endereco.create();
+    	fornecedor.endereco = endereco;
+    	fornecedor.ativo = true;
     	
-
-    	//Verifica se as senhas estão combinado
-        validation.required(cliente.senha);
-        validation.required(confirmaSenha);
-        validation.equals(cliente.senha, confirmaSenha).message("Suas senhas não estão combinando");   	
-    	
-        //Verifica Mínimo e Maximo de caracteres das senhas
-        validation.minSize(cliente.senha, 4);
-        validation.maxSize(cliente.senha, 12);
-        
-        //Verifica se o email é válido
-        validation.email(cliente.email).message("Email inválido, por favor, verifique seu email!");
-        
-        
-    	//Verifica se há Logins iguais
-        
-	    Pessoa pessoa = Pessoa.find("usuario", cliente.usuario).first();
-	    if(pessoa != null) {
-	    	
-	        validation.addError("usuario", "Nome de usuário já cadastrado!"); 
-	    }
-	    
-	    if(pessoa != null) {
-	    	System.out.println(pessoa.email);
-	    	
-	        validation.addError("email", "Email já cadastrado!"); 
-	    }
-        
-        //envia de volta ao formulario se houver erros..
     	if(validation.hasErrors()) {
     	params.flash();
     	validation.keep();
-    	cadCliente();
-    	}    	
+    	cadFornecedor();
+    	} 
     	
-    	//Cadastra
+    	fornecedor.create();
+    	cadFornecedor();
     	
- 	
-    	Date dataCadastro = new Date();
-        cliente.dataCadastro = dataCadastro;
-        cliente.quantidadeDeAcessos = cliente.quantidadeDeAcessos + 1;
-        cliente.create();
+    }
+    
+    public static void listaFornecedoresAdm(String search, Integer size, Integer page) {
+        List<Fornecedor> fornecedores = null;
+        page = page != null ? page : 1;
 
-        session.put("cliente", cliente.nome);
-        flash.success("Bem vindo, " + cliente.nome);
-        Application.index_cliente();
-        
+        if(search.trim().length() == 0) {
+        	fornecedores = Fornecedor.find("byAtivo", true).fetch(page, size);
+
+        	
+        } else {
+            search = search.toLowerCase();
+         	fornecedores = Fornecedor.find("ativo = ? and lower(nome) like ?",true,  "%"+search+"%").fetch(page, size);
+        }
+
+        render(fornecedores, search, size, page);
+    }
+    
+    public static void exclui(Long id){    	
+    	Fornecedor fornecedor = Fornecedor.findById(id);
+    	fornecedor.ativo = false;
+    	fornecedor.save();
+
+        flash.success("Fornecedor excluido!");
+        Fornecedores.index();
+    }
+    public static void editFornecedor(Long id){  
+    	Fornecedor fornecedor = Fornecedor.findById(id);
+    	Endereco endereco = fornecedor.endereco;
+    	
+    	render(fornecedor, endereco);
+    	
+    }
+    
+    public static void edita(Fornecedor fornecedor, Endereco endereco){
+    	
+    	endereco.save();
+    	fornecedor.save();
+    	flash.success("Cadastro atualizado com sucesso!");
+    	Fornecedores.index();
+    	
         
     }
     
-    public static void listaClientes() {
-        List<Cliente> clientes = Cliente.findAll();
-        render(clientes);
-  
-	
-}*/
 }

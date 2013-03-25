@@ -14,7 +14,7 @@ public class Fornecedor extends Model{
 
 
     
-    @Required
+
     @MaxSize(50)
     public String email;
     
@@ -22,15 +22,17 @@ public class Fornecedor extends Model{
     @MaxSize(100)
     public String nome;
     
-    @Required
+
     @MaxSize(10)
     @MinSize(10)
     public String telefone1;
     
-    @Required
+
     @MaxSize(10)
     @MinSize(10)
     public String telefone2;
+    
+    public boolean ativo;
     
     
     @MaxSize(50)
