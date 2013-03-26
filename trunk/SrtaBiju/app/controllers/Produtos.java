@@ -30,13 +30,7 @@ public class Produtos extends Application{
 
 
     }
-    public static void modalProduto() {   
-    	
-        List<Produto> produtos = Produto.findAll();
-        render(produtos);
 
-
-    }
     
     public static void imagemProduto(Long id) {       
 
@@ -114,17 +108,17 @@ public class Produtos extends Application{
     		valores.add(valor);
     		contador.add(i);
     		i = i + 1; 
-    		System.out.println(produtos.size());
-    		System.out.println(valores.size());
-    		System.out.println(contador.size());
     	    }
         render(selecionado, categorias, produtos, valores, contador, search, size, page);
     }
     
     public static void listaProdutosCliente(){
+
         List<Produto> produtos = Produto.findAll();
         render(produtos);
     }
+    
+
     
     public static void exclui(Long id){    	
     	Produto produto = Produto.findById(id);

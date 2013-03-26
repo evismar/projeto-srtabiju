@@ -6,53 +6,80 @@
 
 <script type="text/javascript">
 
-$(document).ready(function() {	
+function open_modal( id ){  
+    var maskHeight = $(document).height();  
+    var maskWidth = $(window).width();  
+      
+    $('#mask').css({'width':maskWidth,'height':maskHeight});  
+  
+    $('#mask').fadeIn(1000);      
+    $('#mask').fadeTo("slow",0.8);    
+      
+    //Get the window height and width  
+    var winH = $(window).height();  
+    var winW = $(window).width();  
+                
+    $(id).css('top',  winH/2-$(id).height()/2);  
+    $(id).css('left', winW/2-$(id).width()/2);  
+    $(id).fadeIn(2000);   
+};  
+$(document).ready(function() {    
+      
+    $('a[name=modal]').click(function(e) {  
+        e.preventDefault();  
+        open_modal( $(this).attr('href') );   
+    });  
 
-	$('a[name=modal]').click(function(e) {
-		e.preventDefault();
-		
-		var id = $(this).attr('href');
-	
-		var maskHeight = $(document).height();
-		var maskWidth = $(window).width();
-	
-		$('#mask').css({'width':maskWidth,'height':maskHeight});
+/*        //abrindo o div#modal ao carregar a página   
+       setTimeout(function() { open_modal('#dialog'); }, 500); */
+    $('.window .close').click(function (e) {  
+        e.preventDefault();  
+          
+        $('#mask').hide();  
+        $('.window').hide();
 
-		$('#mask').fadeIn(1000);	
-		$('#mask').fadeTo("slow",0.8);	
-	
-		//Get the window height and width
-		var winH = $(window).height();
-		var winW = $(window).width();
-              
-		$(id).css('top',  winH/2-$(id).height()/2);
-		$(id).css('left', winW/2-$(id).width()/2);
-	
-		$(id).fadeIn(2000); 
-	
-	});
-	
-	$('.window .close').click(function (e) {
-		e.preventDefault();
-		
-		$('#mask').hide();
-		$('.window').hide();
-	});		
-	
-	$('#mask').click(function () {
-		$(this).hide();
-		$('.window').hide();
-	});			
-	
-});
+        
+    });       
+      
+    $('#mask').click(function () {  
+        $(this).hide();  
+        $('.window').hide();  
+    });  
+}); 
+
+function escolhe_modal( id ){
+	if (id == 0){
+		open_modal('#dialog');
+	}	
+	if (id == 1){
+		open_modal('#dialog1');
+	}
+	if (id == 2){
+		open_modal('#dialog');
+	}
+	if (id == 3){
+		open_modal('#dialog');
+	}
+	if (id == 4){
+		open_modal('#dialog');
+	}
+	if (id == 5){
+		open_modal('#dialog');
+	}
+}
+
 
 </script>
 
 <div id="mensagem">
 #{ifnot produtos}
+
+<a id="nextPage" href="${page+1}"></a>
+<a id="downPage" href="${page-1}"></a> 
     <p>
         Por enquanto só temos essas novidades...Aguarde, traremos muito mais!!!
     </p>
+    
 #{/ifnot}
 #{else}
 
@@ -83,33 +110,97 @@ $(document).ready(function() {
 <a id="downPage" href="${page-1}"></a> 
 
 
+ 
+ 
     <div class="imagens">
 
 	#{list contador, as:'contador'} 
 		
         <table align="left">
         	<tr>
-    			<td><a id="prod" name="modal" href="#dialog"><img id="prod_img" src="@{imagemProduto(produtos[contador].id)}"/></br><span>${produtos[contador].nome}</span><br /><span>R$ ${valores[contador]}</span><br /><a href="#dialog" name="modal" id="visualizar"></a></td>
+    			<td><a id="prod" name="modal"  onClick = "escolhe_modal(${contador})" href=""><img id="prod_img" src="@{imagemProduto(produtos[contador].id)}"/></br><span>${produtos[contador].nome}</span><br /><span>R$ ${valores[contador]}</span><br /><a href="#dialog" name="modal" id="visualizar"></a></td>
             </tr>
         </table>
 
 	#{/list}
    
     </div>
-    
+   
+   <div class="exibicao">
       <div id="boxes">
+      
 
           <div id="dialog" class="window">
               <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
-              <img id="prod_exibir" src="@{imagemProduto(produtos[contador].id)}"/>
-              <h4>${produtos[contador].nome}</h4>
-              <h6>${produtos[contador].descricao}</h6>
-              <h4>R$ ${valores[contador]}</h4>
-              <h5>Quantidade</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              <img id="prod_exibir" src="@{imagemProduto(produtos[0].id)}"/>
+              <h4>${produtos[0].nome}</h4>
+              <h6>${produtos[0].descricao}</h6>
+              <h4>R$ ${valores[0]}</h4>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
               
              
           </div>
-          
+		#{if produtos.size()>1}
+          <div id="dialog1" class="window">
+              <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
+              <img id="prod_exibir" src="@{imagemProduto(produtos[1].id)}"/>
+              <h4>${produtos[1].nome}</h4>
+              <h6>${produtos[1].descricao}</h6>
+              <h4>R$ ${valores[1]}</h4>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              
+             
+          </div>
+		#{/if} 
+		#{if produtos.size()>2}
+          <div id="dialog" class="window">
+              <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
+              <img id="prod_exibir" src="@{imagemProduto(produtos[2].id)}"/>
+              <h4>${produtos[2].nome}</h4>
+              <h6>${produtos[2].descricao}</h6>
+              <h4>R$ ${valores[2]}</h4>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              
+             
+          </div>
+		#{/if} 
+		#{if produtos.size()>3}
+          <div id="dialog" class="window">
+              <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
+              <img id="prod_exibir" src="@{imagemProduto(produtos[3].id)}"/>
+              <h4>${produtos[3].nome}</h4>
+              <h6>${produtos[3].descricao}</h6>
+              <h4>R$ ${valores[3]}</h4>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              
+             
+          </div>
+		#{/if} 
+		#{if produtos.size()>4}
+          <div id="dialog" class="window">
+              <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
+              <img id="prod_exibir" src="@{imagemProduto(produtos[4].id)}"/>
+              <h4>${produtos[4].nome}</h4>
+              <h6>${produtos[4].descricao}</h6>
+              <h4>R$ ${valores[4]}</h4>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              
+             
+          </div>
+		#{/if} 
+		#{if produtos.size()>5}
+          <div id="dialog" class="window">
+              <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
+              <img id="prod_exibir" src="@{imagemProduto(produtos[5].id)}"/>
+              <h4>${produtos[5].nome}</h4>
+              <h6>${produtos[5].descricao}</h6>
+              <h4>R$ ${valores[5]}</h4>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              
+             
+          </div>
+		#{/if}           
+           
       
           <!-- Máscara para cobrir a tela -->
           <div id="mask">
@@ -117,8 +208,10 @@ $(document).ready(function() {
    
 </div>
 
+</div>
+
+
 #{/else}
 
-<a id="nextPage" href="${page+1}"></a>
-<a id="downPage" href="${page-1}"></a> 
+
 
