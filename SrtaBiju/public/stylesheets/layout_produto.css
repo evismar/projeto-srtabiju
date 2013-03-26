@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/**---MENU PRODUTOS---**/
+
+#menu_prod{ background:#000; float:left; width:150px; height:300px;  border:none; border-radius:6px; -webkit-border-radius:0 6px 6px 0; 			    -moz-border-radius:0 6px 6px 0; -o-border-radius:0 6px 6px 0; position:fixed;}
+
+h3{ color:#FFF; padding:15px; font-family:Arial, Helvetica, sans-serif; font-size:16px;}
+
+.link_prod{ text-decoration:none; font-family:Arial, Helvetica, sans-serif; font-size:15px; text-align:center; color:#FFF; display:block; padding:10px;}
+
+.link_prod:hover{ background-color:#760325; padding:10px;}
+
+select{ height:25px;}
+
+#botaofiltro { float:right; margin:15px 5px;}
+
+
+
+/**--- LISTA PRODUTOS---**/
+
+#centro{ width:1000px; margin:0 auto;}
+
+.imagens { width:900px; height:1200px; margin:40px;}
+
+.imagens table{ text-align:center;}
+
+#prod_img{ width:240px; height:200px; border: 2px solid #000; padding:8px; margin:10px 18px;}
+
+#prod { font-family:Arial, Helvetica, sans-serif; font-size:16px; text-decoration:none; color:#000; font-weight:bold;}
+
+#visualizar{ background-image:url(../images/botaovisualizar.png); background-repeat:no-repeat; display:block; width: 74px; height: 30px; margin:10px auto;}
+
+#visualizar{ width:74px; background-position:0 0;}
+
+#visualizar:hover{ width:74px; background-position:0 -40px;}
+
+#nextPage { background-image:url(../images/nextPage.png); background-repeat:no-repeat; display:block; width: 50px; height: 50px; float:right;}
+
+#downPage { background-image:url(../images/nextPage.png); background-position:0 -55px; background-repeat:no-repeat; display:block; width: 50px; height: 50px; float:left;}
+
+
+/**---MENSAGENS--**/
+
+#mensagem {  width:1000px; margin:0 auto;}
+
+p { font-family:Arial, Helvetica, sans-serif; font-size:20px; text-align:center; margin-top:10%;}
+
+
+
+/**--- EXIBIÇÃO PRODUTOS---**/
+
+
+#prod_exibir { width:380px; height:320px; float:left; border: 2px solid #000; padding:8px; }
+
+.window h4 { font-family:Arial, Helvetica, sans-serif; font-size:22px;}
+
+.window h5 { font-family:Arial, Helvetica, sans-serif; font-size:16px;} 
+
+.window h6 { font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:100;}
+
+.window #adicionar { background-image:url(../images/botaoadicionar.png); background-repeat:no-repeat; display:block; width:110px; height:30px; margin-left:50%;}
+
+.window #quantid { width:50px; height:25px; margin-bottom:15px;}
