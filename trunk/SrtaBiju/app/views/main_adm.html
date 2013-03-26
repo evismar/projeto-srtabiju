@@ -35,13 +35,17 @@
         <div id="content">
             #{if flash.error}
                 <p class="fError">
-                    <strong>${flash.error}</strong>
+                    <script type="text/javascript">
+                    	alert('${flash.error}');
+                    </script>
                 </p>
             #{/if}
             
             #{if flash.success}
                 <p class="fSuccess">
-                    <strong>${flash.success}</strong>
+                    <script type="text/javascript">
+                    	alert('${flash.success}');
+                    </script>
                 </p>
             #{/if}
             
