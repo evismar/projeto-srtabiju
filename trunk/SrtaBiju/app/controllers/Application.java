@@ -1,9 +1,14 @@
 package controllers;
 
 import play.*;
+import play.libs.Mail;
 import play.mvc.*;
 import play.data.validation.*;
 import java.util.*;
+
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+import org.apache.commons.mail.SimpleEmail;
 
 import models.*;
 
@@ -103,5 +108,36 @@ public class Application extends Controller {
 	        session.clear();
 	        index_cliente();
 	    }
+	    
+	    public static void enviaEmail(String nome, String emailRemetente, String telefone, String descricao ) {
+	    	
+
+	    	
+	    	SimpleEmail email = new SimpleEmail();
+	    	try {
+				email.setFrom(emailRemetente);
+			} catch (EmailException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	try {
+				email.addTo("evismar.almeida@gmail.com");
+			} catch (EmailException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	email.setSubject(nome);
+	    	try {
+				email.setMsg(descricao);
+			} catch (EmailException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	    	Mail.send(email);
+		    flash.success("Email enviado com sucesso!");
+	    	
+	    	
+	    }	    
 
 	}
