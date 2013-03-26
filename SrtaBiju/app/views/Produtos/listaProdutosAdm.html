@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
+<title>Test</title>
+
+
+
+</head>
+
+<body>
+
+<div id="novo_cad" align="left">
+	<a href="" id="botao_cad"></a>
+</div>
+
+<div id="listaProd" align="center">
+#{ifnot produtos}
+    <p>
+        Não há produtos cadastrados
+    </p>
+#{/ifnot}
+#{else}
+
+    <table id="tab">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Categoria<a id="cad_categ" href=""><img src="../../../public/images/botaoadd.png"/></a></th>
+                <th>Opção</th>
+            </tr>
+        </thead>     
+        <tbody>
+            #{list produtos, as:'produto'}
+            <tr>
+                <td>${produto.id}</td>
+                <td>${produto.nome}</td>
+                <td>${produto.categoria.nome}</td>
+                <td><a id="editar" name= "editar"href="@{editProduto(produto.id)}"><img src="../../../public/images/editar.png"/></a>
+                
+
+                <a id="remover" onclick="return confirm('Deseja realmente deletar este produto?')" name = "remover" href="@{exclui(produto.id)}" ><img src="../../../public/images/remover.png"/></a></td>
+
+                
+                
+            </tr>
+            #{/list}
+ 
+        </tbody>
+        <tfoot>
+        </tfoot>
+
+    </table>
+
+  #{/else}  
+</div>
+</body>
+</html>
