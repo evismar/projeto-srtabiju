@@ -15,7 +15,7 @@
 
 <div id="info">
     <h3>Entre em contato conosco...</h3>
-    <p>Telefone<br />(81)3432-4569<br />Rua Pedro Marfim, número 436 - Boa Viagem</p>
+    <p>Telefone<br />(81)3447-4144 / 8853-8159<br />Rua Carlos Rios, número 62 - Imbiribeira</p>
     <br />
     <h3>Ou</h3>
 </div>
@@ -24,37 +24,38 @@
         
         <h2>Contato</h2>
         
-<form id="form_contato">
+
+		#{form @Application.enviaEmail(), id:'form_contato'}
         
             <div id="wrapping" class="clearfix">
                 <section id="aligned">
                 <h3>Contato</h3>
                                                                                                                                                                                             
-                #{field 'contato.nome'}
+                #{field 'nome'}
                     <p class="${field.errorClass}">
-                        <input type="text" name="${field.name}" value="${contato?.nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
+                        <input type="text" name="${field.name}" value="${nome}" id="nome" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
                         <span class="error">${field.error}</span>
                     </p>
                 #{/field}
                 
-                #{field 'contato.email'}
+                #{field 'emailRemetente'}
 		        <p class="${field.errorClass}">
-		            <input type="email" name="${field.name}" value="${contato?.email}" id="email" placeholder="Endereço de E-Mail: (ex.)xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
+		            <input type="email" name="${field.name}" value="${emailRemetente}" id="email" placeholder="Endereço de E-Mail: (ex.)xxx@xxx.com" autocomplete="off" tabindex="5" class="txtinput" required>
 		            <span class="error">${field.error}</span>
 		        </p>
 		   		#{/field}
                 
-                #{field 'contato.telefone1'}
+                #{field 'telefone'}
 		        <p class="${field.errorClass}">
-		            <input type="tel" name="${field.name}" value="${contato?.telefone1}"  id="telefone1" placeholder="Telefone: (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
+		            <input type="tel" name="${field.name}" value="${telefone}"  id="telefone" placeholder="Telefone: (ddd)xxxx-xxxx" tabindex="3" class="txtinput" required>
 		            <span class="error">${field.error}</span>
 		        </p>
 		    	#{/field}
                 
                 
-                #{field 'contato.descricao'}
+                #{field 'descricao'}
                     <p class="${field.errorClass}">
-                         <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${contato?.descricao}" maxlength="400" placeholder="Mensagem" required></textarea>
+                         <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${descricao}" maxlength="400" placeholder="Mensagem" required></textarea>
                         <span class="error">${field.error}</span>
                     </p>
                 #{/field}          
@@ -66,14 +67,14 @@
                 <br style="clear:both;">
                 </section>
             </div> 
-</form>        	
+		#{/form}        	
     </section>
 
 </div>
 
 <script>
 	$(document).ready(function(){
-		$("#telefone1s").mask("(99)9999-9999");
+		$("#telefone").mask("(99)9999-9999");
 	});
 </script>
 
