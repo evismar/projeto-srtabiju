@@ -20,7 +20,7 @@ public class ItemDesejado extends Model{
     
     @Required
     @MaxSize(10)
-    public Double valorNaHoraPedido;
+    public float valorNaHoraPedido;
     
     
        
@@ -31,9 +31,9 @@ public class ItemDesejado extends Model{
     public Produto produto;
     
    
-    public ItemDesejado(Integer quantidade, Double valorNaHoraPedido) {
+    public ItemDesejado(Integer quantidade, float valor) {
         this.quantidade = quantidade;
-        this.valorNaHoraPedido = valorNaHoraPedido;
+        this.valorNaHoraPedido = valor;
     }
 
 }

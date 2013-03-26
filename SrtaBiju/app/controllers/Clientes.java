@@ -51,7 +51,7 @@ public class Clientes extends Application{
     		i = i + 1;   			    		
     	    }
     	
-    	List<Pedido> pedidos = Pedido.find("byCliente_id", cliente.id).fetch();
+    	List<Pedido> pedidos = Pedido.find("byCliente_idAndStatus", cliente.id, "aberto").fetch();
     	Integer numPedidos = pedidos.size();
 
         render(produtos, valores, contador, cliente, data, numPedidos);
@@ -136,9 +136,27 @@ public class Clientes extends Application{
 	
     }
 
-    public static void realizaPedido(Long idProduto, Long idCliente) {
+    public static void addProduto(Long idProduto, Integer quantidade) {
     	Produto produto = Produto.findById(idProduto);
-    	Cliente cliente = Cliente.findById(idCliente);
+    	Cliente cliente = (Cliente) connected();
+    	Pedido pedido = Pedido.find("byCliente_idAndStatus", cliente.id, "aberto").first();
+    	if (pedido == null){
+        	Date dataCadastro = new Date();
+        	double valorTotal = quantidade*produto.valor;
+    		pedido = new Pedido(dataCadastro, "aberto", valorTotal);
+    		pedido.cliente = cliente;
+    		pedido.create();
+    		
+    	}
+    	else{
+    		pedido.valorTotal = pedido.valorTotal + quantidade*produto.valor;
+    		
+    	}
+    	
+    	ItemDesejado itemDesejado = new ItemDesejado(quantidade, produto.valor);
+    	itemDesejado.pedido = pedido;
+    	itemDesejado.produto = produto;
+    	itemDesejado.create();
     	
     }
 }
