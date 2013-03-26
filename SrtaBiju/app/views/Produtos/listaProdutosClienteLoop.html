@@ -30,8 +30,6 @@ $(document).ready(function() {
         open_modal( $(this).attr('href') );   
     });  
 
-/*        //abrindo o div#modal ao carregar a página   
-       setTimeout(function() { open_modal('#dialog'); }, 500); */
     $('.window .close').click(function (e) {  
         e.preventDefault();  
           
@@ -136,7 +134,7 @@ function escolhe_modal( id ){
               <h4>${produtos[0].nome}</h4>
               <h6>${produtos[0].descricao}</h6>
               <h4>R$ ${valores[0]}</h4>
-              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="" id="adicionar"></a>
+              <h5>Quantidade desejada</h5><input type="number" name="" value="1" id="quantid" min="1"><a href="@{Clientes.addProduto(produtos[0].id)}" id="adicionar"></a>
               
              
           </div>
