@@ -44,19 +44,23 @@
         </div>
     </div>
     
-    <div id="content">
-        #{if flash.error}
-            <p class="fError">
-                <strong>${flash.error}</strong>
-            </p>
-        #{/if}
-        #{if flash.success}
-            <p class="fSuccess">
-                <strong>${flash.success}</strong>
-            </p>
-        #{/if}
-        
-        #{doLayout /}
+        <div id="content">
+            #{if flash.error}
+                <p class="fError">
+                    <script type="text/javascript">
+                    	alert('${flash.error}');
+                    </script>
+                </p>
+            #{/if}
+            
+            #{if flash.success}
+                <p class="fSuccess">
+                    <script type="text/javascript">
+                    	alert('${flash.success}');
+                    </script>
+                </p>
+            #{/if}
+              #{doLayout /}
     </div>
     
     <div id="clear">

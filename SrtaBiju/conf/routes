@@ -20,7 +20,7 @@ GET     /adm                                   Application.index_adm
 GET     /adm/relatorios                        Application.relatorios
 GET     /adm/cadastro/produto                  Produtos.cadProduto
 POST    /adm/cadastro/produto                  Produtos.salvarCadastro
-GET     /adm/relatorio/produto                 Produtos.index
+GET     /adm/lista/produto                     Produtos.index
 
 
 
@@ -32,6 +32,7 @@ GET		/adm/relatorio/cliente				   Clientes.listaClientes
 GET     /adm/cadastro/administrador            Administradores.cadAdministrador
 
 GET     /adm/cadastro/fornecedor/              Fornecedores.cadFornecedor
+GET     /adm/lista/fornecedor                  Fornecedores.index
 
 
 

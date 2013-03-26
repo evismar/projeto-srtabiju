@@ -30,8 +30,29 @@ public class Clientes extends Application{
     	DateFormat dateFormat = new SimpleDateFormat("dd//MM/yyyy");
     	Date date = new Date();
     	String data = dateFormat.format(date);
+    	Integer size = 6;
+    	List<Produto> produtos = null;
+    	List valores = new ArrayList<>();
+    	List contador = new ArrayList<>();
+    	produtos = Produto.find("order by id desc, id").fetch(size);
+		Integer i = 0;
+    	for(Produto produto : produtos ){
+
+    		String valor = Float.toString(produto.valor);
+
+    		valor = valor.replace(".", ",");
+    		String[] split = valor.split(",");
+    		String centavos = split[1];
+    		if (centavos.length() < 2){
+    			valor = valor + "0";
+    		}
+    		valores.add(valor);
+    		contador.add(i);
+    		i = i + 1;   			    		
+    	    }
+
+        render(produtos, valores, contador, cliente, data);
     	
-            render(cliente, data);
     }
 
 
