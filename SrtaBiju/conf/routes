@@ -13,6 +13,8 @@ GET     /minha_conta/{id}                       Clientes.clienteLogado
 GET     /empresa								Application.empresa
 GET     /produtos   							Produtos.listaProdutosCliente
 
+GET     /produtoModal    					    Produtos.produtoModal
+
 
 
 # Adminstration

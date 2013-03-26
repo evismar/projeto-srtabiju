@@ -50,8 +50,11 @@ public class Clientes extends Application{
     		contador.add(i);
     		i = i + 1;   			    		
     	    }
+    	
+    	List<Pedido> pedidos = Pedido.find("byCliente_id", cliente.id).fetch();
+    	Integer numPedidos = pedidos.size();
 
-        render(produtos, valores, contador, cliente, data);
+        render(produtos, valores, contador, cliente, data, numPedidos);
     	
     }
 
@@ -102,7 +105,7 @@ public class Clientes extends Application{
         cliente.quantidadeDeAcessos = cliente.quantidadeDeAcessos + 1;
         cliente.create();
         
-        flash.success("Bem vindo, " + cliente.nome);
+        flash.success("Bem vindo, " + cliente.usuario);
         Application.login(cliente.usuario, cliente.senha);
 
 
@@ -131,5 +134,11 @@ public class Clientes extends Application{
         render(clientes);
   
 	
-}
+    }
+
+    public static void realizaPedido(Long idProduto, Long idCliente) {
+    	Produto produto = Produto.findById(idProduto);
+    	Cliente cliente = Cliente.findById(idCliente);
+    	
+    }
 }

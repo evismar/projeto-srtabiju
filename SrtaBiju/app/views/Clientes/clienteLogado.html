@@ -78,7 +78,7 @@ $(document).ready(function() {
         	<p>Olá, ${cliente.usuario}.</p>     
             <br />
             <a href="#dialog" name="modal"><img id="img" src="../../../public/images/caixinhaDesejos.png" /></a>
-            <a href="#dialog" name="modal" id="pedidos">(0) Pedidos</a>
+            <a href="#dialog" name="modal" id="pedidos">(${numPedidos}) Pedidos</a>
             <ul id="logado">
 				<li><a href="@{Clientes.editCliente(cliente.id)}">Editar Cadastro</a></li>
 				<li><a href="@{Application.logout()}" >Sair da conta</a></li>
