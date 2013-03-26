@@ -17,6 +17,16 @@
 
 <div id="listaProd" align="center">
 #{ifnot produtos}
+    <table id="tab">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Categoria<a id="cad_categ" href="@{Categorias.cadCategoria()}"><img src="../../../public/images/botaoadd.png"/></a></th>
+                <th>Opção</th>
+            </tr>
+        </thead>     
+        <tbody>
     <p>
         Não há produtos cadastrados
     </p>
@@ -28,7 +38,7 @@
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
-                <th>Categoria<a id="cad_categ" href=""><img src="../../../public/images/botaoadd.png"/></a></th>
+                <th>Categoria<a id="cad_categ" href="@{Categorias.cadCategoria()}"><img src="../../../public/images/botaoadd.png"/></a></th>
                 <th>Opção</th>
             </tr>
         </thead>     
