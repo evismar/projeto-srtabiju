@@ -1,0 +1,107 @@
+#{extends 'main_cliente.html' /}
+#{set title:'Home' /}
+
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/layout_cliente.css'}" />
+<link type="text/css" rel="stylesheet" href="@{'/public/stylesheets/right.css'}" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+<script src="@{'/public/javascripts/jquery.jcarousel.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/jquery.slide.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+<script language="javascript">
+	$(document).ready(function (){
+				$("#slideimg").PikaChoose({carousel:true, carouselVertical:true});
+			});
+</script>
+
+<script type="text/javascript">
+function envia()
+{
+
+  document.formLogin.submit();
+}
+</script>
+
+</head>
+
+<body>
+
+<div id="conteudo">
+
+    <div id="barramenu">
+      
+        <div id="login">
+            <form name="formLogin" action="@{login()}">
+            <p>Minha Conta</p>
+             
+              <br />
+          
+            <b>Login:</b>
+              <input type="text" name="usuario" id="login_usu" style="border:none; background-color: none" />
+          
+            <b>Senha:</b>
+              <input type="password" name="senha" id="login_senha" style="border:none; background-color: none" />        
+              <a onClick="envia()" id="entrar"></a>            
+              
+              <a href="@{Clientes.cadCliente()}" id="novocad">Cadastre-se</a>
+              <br /> 
+              <h7><span class="error">#{error 'login' /}</span></h7>
+              </form>     
+        </div>
+      
+        <h1>Compartilhe</h1>
+        <a href="http://www.facebook.com/IaraBijuis?ref=ts" id="curtirpag"><img src="../../../public/images/curta-no-facebook.png" /></a> 
+                
+    </div>
+    
+    <h1>Bem-Vindo!</h1>
+    
+    <div class="slide">
+        <ul class="jcarousel-skin" id="slideimg" name="slideimg">
+            <li><a href=""><img src="../../../public/images/Slide/1.jpg"/></a><span>Pulseira tran�ada com pedrinhas.</span></li>
+            <li><a href=""><img src="../../../public/images/Slide/2.jpg"></a><span>Lan�amento! Pulseiras com cores variadas</span></li>
+            <li><a href=""><img src="../../../public/images/Slide/3.jpg"/></a><span>Conhe�a nossos pordutos!</span></li>
+            <li><a href=""><img src="../../../public/images/Slide/4.jpg"/></a><span>Pulseira elegante.</span></li>
+            <li><a href=""><img src="../../../public/images/Slide/5.jpg"/></a><span>Pulseira banhada a ouro.</span></li>
+        </ul>
+    </div>
+    
+    <div> 
+    <h6>___________________________________________________________________________________________________________________</h6> 
+    <h4>Conheça nossa</h4>
+    <h2>Vitrine !</h2>   
+    </div>
+    
+    <div id="barra">
+    </div>
+
+    <div id="vitrine">
+        
+        <table align="left">
+        
+            #{list contador, as:'contador'}
+
+            <table align="left">
+    
+                <tr>
+                    <td>
+                    <a href="#"><img class="imagemvit" src="@{Produtos.imagemProduto(produtos[contador].id)}" /></a></br>
+                    <span>${produtos[contador].nome}</span><br /><span>R$ ${valores[contador]}</span><br />
+                    <a href="" id="ver"></a>
+                    </td>
+                </tr>
+            </table> 
+          #{/list}
+                        
+        </table>
+        
+    </div>
+    
+</div>
+
+
+
+</body>
+</html>
