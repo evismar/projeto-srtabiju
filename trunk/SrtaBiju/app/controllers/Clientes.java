@@ -12,17 +12,15 @@ import java.util.*;
 import models.*;
 public class Clientes extends Application{
 	
-    public static void cadCliente() {
-        render();
-    }
+
 	
-/*    @Before
+    @Before
     static void checaCliente() {
         if(connected() == null) {
             flash.error("Por favor, realize o Login primeiro.");
             Application.index_cliente();
         }
-    }*/
+    }
 
 
     public static void clienteLogado() {
@@ -94,7 +92,7 @@ public class Clientes extends Application{
     	if(validation.hasErrors()) {
     	params.flash();
     	validation.keep();
-    	cadCliente();
+    	Application.cadCliente();
     	}    	
     	
     	//Cadastra
@@ -138,7 +136,7 @@ public class Clientes extends Application{
 
     public static void addProduto(Long idProduto, Integer quantidade) {
     	Produto produto = Produto.findById(idProduto);
-    	Cliente cliente = (Cliente) connected();
+      	Cliente cliente = (Cliente) connected();
     	Pedido pedido = Pedido.find("byCliente_idAndStatus", cliente.id, "aberto").first();
     	if (pedido == null){
         	Date dataCadastro = new Date();
@@ -146,17 +144,25 @@ public class Clientes extends Application{
     		pedido = new Pedido(dataCadastro, "aberto", valorTotal);
     		pedido.cliente = cliente;
     		pedido.create();
-    		
+    		System.out.println("-------------------------------------------------------Sem pedido");
     	}
     	else{
     		pedido.valorTotal = pedido.valorTotal + quantidade*produto.valor;
-    		
+    		pedido.save();
+    		System.out.println("-------------------------------------------------------Com pedido");
     	}
     	
     	ItemDesejado itemDesejado = new ItemDesejado(quantidade, produto.valor);
     	itemDesejado.pedido = pedido;
     	itemDesejado.produto = produto;
     	itemDesejado.create();
+    	
+    	System.out.println("Nome: " + produto.nome);
+    	System.out.println("QUantidade: " + quantidade);
+    	System.out.println("Valor do produto: "+ produto.valor);
+    	System.out.println("Valor todtal pedido: "+pedido.valorTotal);
+    	
+    	Produtos.listaProdutosCliente();
     	
     }
 }

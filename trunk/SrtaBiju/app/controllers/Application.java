@@ -136,8 +136,12 @@ public class Application extends Controller {
 
 	    	Mail.send(email);
 		    flash.success("Email enviado com sucesso!");
+		    Clientes.clienteLogado();
 	    	
 	    	
-	    }	    
+	    }	
+	    public static void cadCliente() {
+	        render();
+	    }
 
 	}
