@@ -78,7 +78,7 @@ $(document).ready(function() {
         	<p>Olá, ${cliente.usuario}.</p>     
             <br />
             <a href="#dialog" name="modal"><img id="img" src="../../../public/images/caixinhaDesejos.png" /></a>
-            <a href="#dialog" name="modal" id="pedidos">(${numPedidos}) Pedidos</a>
+            <a href="#dialog" name="modal" id="pedidos">#{ifnot pedidoEmAberto}Nenhuma caixinha em aberto!#{/ifnot} #{else}Uma caixinha em Aberto!#{/else}</a>
             <ul id="logado">
 				<li><a href="@{Clientes.editCliente(cliente.id)}">Editar Cadastro</a></li>
 				<li><a href="@{Application.logout()}" >Sair da conta</a></li>
@@ -114,15 +114,19 @@ $(document).ready(function() {
     <div id="vitrine">
         
         <table align="left">
-	#{list produtos, as:'produto'} 
-		
-        <table align="left">
-        	<tr>
-    			<td><a href="#"><img class="imagemvit" src="@{Produtos.imagemProduto(produto.id)}"/></a></br><span>${produto.nome}</span><br /><span>R$ ${produto.valor}</span><br /><a href="" id="ver"></a></td>
-            </tr>
-        </table>
+            #{list contador, as:'contador'}
 
-	#{/list} 
+            <table align="left">
+    
+                <tr>
+                    <td>
+                    <a href="#"><img class="imagemvit" src="@{Produtos.imagemProduto(produtos[contador].id)}" /></a></br>
+                    <span>${produtos[contador].nome}</span><br /><span>R$ ${valores[contador]}</span><br />
+                    <a href="" id="ver"></a>
+                    </td>
+                </tr>
+            </table> 
+          #{/list} 
            
 		</table>
 
@@ -134,6 +138,7 @@ $(document).ready(function() {
               <a href="#" class="close"><img src="../../../public/images/close.png"/></a><br />
               <h3><img src="../../../public/images/caixinhaDesejos.png"/>Caixinha de Desejos</h3>
               <br />
+
                       <table id="tab">
                 <thead>
                     <tr>
@@ -146,39 +151,24 @@ $(document).ready(function() {
                     </tr>
                 </thead>     
                 <tbody>
+                #{list contadorPedidos, as:'contador'}
                     <tr>
-                        <td>Pulseria Azul</td>
-                        <td>2</td>
-                        <td>R$ 27,90</td>
-                        <td>R$ 27,90</td>
-                        <td><a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
+                        <td>${nomesProdutos[contador]}</td>
+                        <td>${quantidades[contador]}</td>
+                        <td>R$ ${valoresUnitarios[contador]}</td>
+                        <td>R$ ${valoresItens[contador]}</td>
+                        <td><a onclick="return confirm('Deseja realmente excluir este produto da sua caixinha?')" id="remover" href="@{excluiProduto(idsProdutos[contador])}"><img src="../../../public/images/remover.png"/></a></td>
                         
                     </tr>
-                     <tr>
-                        <td>Pulseria Preta</td>
-                        <td>1</td>
-                        <td>R$ 20,00</td>
-                        <td>R$ 20,00</td>
-                        <td><a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Pulseria Colorida</td>
-                        <td>1</td>
-                        <td>R$ 20,00</td>
-                        <td>R$ 20,00</td>
-                        <td><a id="remover" href=""><img src="../../../public/images/remover.png"/></a></td>
-                        
-                    </tr>
-         
+                #{/list}
                 </tbody>
                 <tfoot>
                 </tfoot>
         
             </table>
-            <h4>Preço Total do Pedido: R$ 67,90</h4>
+            <h4>Preço Total do Pedido: R$ ${valorTotalPedido}</h4>
             <br />
-    		<a href="#" class="enviar"></a><br />
+    		<a href="@{finalizaPedido(idPedido)}"onclick="return confirm('Deseja realmente enviar a sua caixinha de desejos agora? O pedido não poderá ser alterado após o envio!')" class="enviar"></a><br />
           </div>
           
       
@@ -190,6 +180,9 @@ $(document).ready(function() {
 
 </div>
 
+
+ 
        
+
 
 

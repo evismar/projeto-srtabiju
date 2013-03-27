@@ -21,7 +21,7 @@ public class Pedido extends Model{
     public String status;
     
     @Required
-    public Double valorTotal ;
+    public float valorTotal ;
     
        
     @ManyToOne
@@ -33,8 +33,9 @@ public class Pedido extends Model{
     @OneToOne
     public Endereco endereco;
     
+    
    
-    public Pedido(Date data, String status, Double valorTotal) {
+    public Pedido(Date data, String status, float valorTotal) {
         this.data = data;
         this.status = status;
         this.valorTotal = valorTotal;
