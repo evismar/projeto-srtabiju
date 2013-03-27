@@ -39,6 +39,12 @@ public class Application extends Controller {
     }
 
     public static void index_cliente() {
+    	Pessoa pessoa = connected();
+    	if (pessoa != null){
+    		Clientes.clienteLogado();
+    	}
+    	
+    	else{
     	Integer size = 6;
     	List<Produto> produtos = null;
     	List valores = new ArrayList<>();
@@ -62,7 +68,7 @@ public class Application extends Controller {
 
         render(produtos, valores, contador);
     }
-    
+    }
 	    
 	    public static void index_adm() {
 	        render();
