@@ -21,8 +21,8 @@ public class Administradores extends Application{
         render();
     }
     public static void index() {
-        List<Administrador> adm = Administrador.findAll();
-        render(adm);
+        List<Administrador> administradores = Administrador.findAll();
+        render(administradores);
 
     }
     

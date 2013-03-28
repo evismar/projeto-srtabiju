@@ -13,10 +13,15 @@
 	<a href="@{Fornecedores.cadFornecedor()}" id="botao_cad"></a>
 </div>
 
+	<div id="listagem" align="center">
+		<a id="downPage" href="${page-1}">Anterior</a> <a id="nextPage"
+			href="${page+1}">Próxima</a>
+	</div>
+
 <div id="listagem" align="center">
 #{ifnot fornecedores}
     <p>
-        Não há fornecedores cadastrados
+        Sem mais resultados.
     </p>
 #{/ifnot}
 #{else}

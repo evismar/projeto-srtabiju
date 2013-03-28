@@ -15,6 +15,11 @@
 	<a href="@{cadAdministrador()}" id="botao_cad"></a>
 </div>
 
+	<div id="listagem" align="center">
+		<a id="downPage" href="${page-1}">Anterior</a> <a id="nextPage"
+			href="${page+1}">Próxima</a>
+	</div>
+
 <div id="listagem" align="center">
 #{ifnot administradores}
     <table id="tab">
@@ -28,7 +33,7 @@
         </thead>     
         <tbody>
     <p>
-        Não há administradores cadastrados
+        Sem mais resultados.
     </p>
 #{/ifnot}
 #{else}

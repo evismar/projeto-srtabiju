@@ -116,11 +116,9 @@ function escolhe_modal( id ){
 			<tr>
 				<td><a id="prod" name="modal"
 					onClick="escolhe_modal(${contador})" href=""><img id="prod_img"
-						src="@{imagemProduto(produtos[contador].id)}" /></br>
-					<span>${produtos[contador].nome}</span><br />
-					<span>R$ ${valores[contador]}</span><br />
-					<a href="" onClick="escolhe_modal(${contador})" name="modal"
-						id="visualizar"></a></td>
+						src="@{imagemProduto(produtos[contador].id)}" /></br> <span>${produtos[contador].nome}</span><br />
+						<span>R$ ${valores[contador]}</span><br /> <a href=""
+						onClick="escolhe_modal(${contador})" name="modal" id="visualizar"></a></td>
 			</tr>
 		</table>
 
@@ -144,7 +142,9 @@ function escolhe_modal( id ){
 				value="${produtos[0].id}" id="quantidade" /> #{/field} #{field
 			'quantidade'} <input type="number" name="${field.name}"
 				value="${quantidade}" id="quantid" min="1" required
-				oninput="check(this)"><input type="image" id="adicionar"
+				oninput="check(this)"><input
+				onclick="return confirm('Deseja realmente adicionar este produto a sua caixinha? Você poderá exclui-lo da sua caixinha antes de enviar o pedido!')"
+				type="image" id="adicionar"
 				src="../../../public/images/botaoadicionar.png" /> #{/field}
 
 		</div>
@@ -163,6 +163,7 @@ function escolhe_modal( id ){
 			'quantidade'} <input type="number" name="${field.name}"
 				value="${quantidade}" id="quantid" min="1" required
 				oninput="check(this)"><input type="image" id="adicionar"
+				onclick="return confirm('Deseja realmente adicionar este produto a sua caixinha? Você poderá exclui-lo da sua caixinha antes de enviar o pedido!')"
 				src="../../../public/images/botaoadicionar.png" /> #{/field}
 
 		</div>
@@ -181,6 +182,7 @@ function escolhe_modal( id ){
 			'quantidade'} <input type="number" name="${field.name}"
 				value="${quantidade}" id="quantid" min="1" required
 				oninput="check(this)"><input type="image" id="adicionar"
+				onclick="return confirm('Deseja realmente adicionar este produto a sua caixinha? Você poderá exclui-lo da sua caixinha antes de enviar o pedido!')"
 				src="../../../public/images/botaoadicionar.png" /> #{/field}
 
 		</div>
@@ -199,6 +201,7 @@ function escolhe_modal( id ){
 			'quantidade'} <input type="number" name="${field.name}"
 				value="${quantidade}" id="quantid" min="1" required
 				oninput="check(this)"><input type="image" id="adicionar"
+				onclick="return confirm('Deseja realmente adicionar este produto a sua caixinha? Você poderá exclui-lo da sua caixinha antes de enviar o pedido!')"
 				src="../../../public/images/botaoadicionar.png" /> #{/field}
 
 		</div>
@@ -217,6 +220,7 @@ function escolhe_modal( id ){
 			'quantidade'} <input type="number" name="${field.name}"
 				value="${quantidade}" id="quantid" min="1" required
 				oninput="check(this)"><input type="image" id="adicionar"
+				onclick="return confirm('Deseja realmente adicionar este produto a sua caixinha? Você poderá exclui-lo da sua caixinha antes de enviar o pedido!')"
 				src="../../../public/images/botaoadicionar.png" /> #{/field}
 
 		</div>
@@ -235,6 +239,7 @@ function escolhe_modal( id ){
 			'quantidade'} <input type="number" name="${field.name}"
 				value="${quantidade}" id="quantid" min="1" required
 				oninput="check(this)"><input type="image" id="adicionar"
+				onclick="return confirm('Deseja realmente adicionar este produto a sua caixinha? Você poderá exclui-lo da sua caixinha antes de enviar o pedido!')"
 				src="../../../public/images/botaoadicionar.png" /> #{/field}
 
 		</div>
