@@ -95,7 +95,7 @@ public class Application extends Controller {
 			        pessoa.quantidadeDeAcessos = pessoa.quantidadeDeAcessos + 1;
 			        pessoa.save();
 					session.put("usuario", pessoa.usuario);
-				    flash.success("Bem-vindo, " + pessoa.usuario);
+
 				    
 			        Clientes.clienteLogado();         
 				    }
