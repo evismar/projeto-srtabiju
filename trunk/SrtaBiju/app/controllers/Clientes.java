@@ -182,6 +182,8 @@ public class Clientes extends Application {
 			float valorTotal = quantidade * produto.valor;
 			pedido = new Pedido(dataCadastro, "aberto", valorTotal);
 			pedido.cliente = cliente;
+			
+
 			pedido.create();
 
 
