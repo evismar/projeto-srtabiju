@@ -20,8 +20,49 @@ public class Administradores extends Application{
     public static void pedidos() {
         render();
     }
+    public static void index() {
+        List<Administrador> adm = Administrador.findAll();
+        render(adm);
 
+    }
+    
+    public static void editAdministrador(Long id){  
+    	Administrador administrador = Administrador.findById(id);
+    	render(administrador, id);
+    	
+    }
+    
+	public static void edita(Administrador administrador) {
 
+		administrador.save();
+		flash.success("Cadastro atualizado com sucesso!");
+		Administradores.index();
+
+	}
+	
+    public static void exclui(Long id){    	
+    	Administrador administrador = Administrador.findById(id);
+    	administrador.ativo = false;
+    	administrador.save();
+
+        flash.success("Administrador excluido!");
+        Administradores.index();
+    }
+    
+    public static void listaAdministradoresAdm(String search, Integer size, Integer page) {
+        List<Administrador> administradores = null;
+        page = page != null ? page : 1;
+        if(search.trim().length() == 0) {
+        	administradores = Administrador.find("byAtivo", true).fetch(page, size);
+
+        	
+        } else {
+            search = search.toLowerCase();
+            administradores = Produto.find("ativo = ? and lower(nome) like ?",true,  "%"+search+"%").fetch(page, size);
+        }
+       
+        render(administradores, search, size, page);
+    }
 
     public static void salvarCadastro(@Valid Administrador administrador, String confirmaSenha){
 
