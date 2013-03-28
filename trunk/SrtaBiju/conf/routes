@@ -36,6 +36,8 @@ GET     /adm/cadastro/administrador            Administradores.cadAdministrador
 GET     /adm/cadastro/fornecedor/              Fornecedores.cadFornecedor
 GET     /adm/lista/fornecedor                  Fornecedores.index
 
+GET     /adm/lista/pedidos                     Administradores.pedidos
+
 
 
 
