@@ -21,6 +21,8 @@ public class Administrador extends Pessoa{
     
 
     public String tipo;
+    
+    public boolean ativo;
 
     
     
