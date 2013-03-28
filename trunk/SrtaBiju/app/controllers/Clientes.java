@@ -22,7 +22,7 @@ public class Clientes extends Application {
 
 	public static void clienteLogado() {
 		Pessoa cliente = connected();
-		DateFormat dateFormat = new SimpleDateFormat("dd//MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
 		String data = dateFormat.format(date);
 		Integer size = 6;
