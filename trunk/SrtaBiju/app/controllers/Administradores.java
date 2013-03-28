@@ -17,6 +17,9 @@ public class Administradores extends Application{
     public static void minhaConta() {
         render();
     }
+    public static void pedidos() {
+        render();
+    }
 
 
 
