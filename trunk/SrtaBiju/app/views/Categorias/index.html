@@ -1,0 +1,78 @@
+#{extends 'main_adm.html' /}
+#{set title:'Lista de Categorias' /}
+
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/layout_listagem.css'}">
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+
+<div id="pesq_adm" align="right">
+    
+<!--     <input type="text" id="search" name="pesquisa" placeholder="Digite sua pesquisa..."/>
+    
+    <input type="submit" value="Pesquisar" id="botaopesq"/> -->	
+        
+    <p>Resultados por Página: 
+    <select id="size">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select></p>
+
+    
+<div id="result">
+</div>
+
+</div>
+
+<script type="text/javascript" charset="${_response_encoding}">
+
+    // Rebuild state
+    $('#search').val(sessvars.search)    
+    if(sessvars.page == undefined) {
+        sessvars.page = 1
+    }
+    if(sessvars.size == undefined) {
+        sessvars.size = 10
+    }
+    $('#size option[value='+sessvars.size+']').attr('selected', 'true')
+    
+    // Search function
+    var search = function() {
+        sessvars.search = $('#search').val()
+        sessvars.size = $('#size').val()
+        var listAction = #{jsAction @listaCategoriasAdm(':search', ':size', ':page') /} 
+        $('#result').load(listAction({search: sessvars.search, size: sessvars.size, page: sessvars.page}), function() {
+            $('#content').css('visibility', 'visible')
+        })
+    }
+    
+    // Events handler
+    $('#botaopesq').click(function() { 
+
+        sessvars.page = 1
+        search()
+    })
+    $('#search').keyup(function() {
+        sessvars.page = 1
+        search()
+    })
+    $('#nextPage').live('click', function(e) {
+        sessvars.page = $(this).attr('href')
+        e.preventDefault()
+        search()        
+    })
+    $('#downPage').live('click', function(e) {
+        sessvars.page = $(this).attr('href')
+        e.preventDefault()
+        search()        
+    })    
+    
+    // Init
+
+        $('#content').css('visibility', 'hidden')
+        search()
+
+    
+</script>	
+	
+
+

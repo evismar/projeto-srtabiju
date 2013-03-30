@@ -19,6 +19,15 @@ public class Pedidos extends Application{
     	List<Pedido> pedidos = Pedido.find("byStatus", "fechado").fetch();
         render(pedidos);
     }
+    
+    public static void visualizaPedido(Long id) {
+    	System.out.println(id);
+    	Pedido pedido = Pedido.findById(id);
+    	pedido.status = "visto";
+    	pedido.save();
+    	index();
+    }
+    
 
 
     
