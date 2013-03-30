@@ -11,7 +11,8 @@ import models.*;
 public class Categorias extends Application{
 	
     public static void index() {
-        render();
+    	List<Categoria> categorias = Categoria.findAll();    	
+        render(categorias);
     }
     public static void listaCategoriasAdm(String search, Integer size, Integer page) {
         List<Categoria> categorias = null;
@@ -30,14 +31,28 @@ public class Categorias extends Application{
     	Categoria categoria = Categoria.findById(id);
         render(categoria);
     }
-    public static void edita(Categoria categoria) {
+    public static void edita(Categoria categoria, String descricao) {
+    	if (categoria.descricao.isEmpty()){
+    		categoria.descricao = descricao;
+    	}
+        flash.success("Categoria editada!");
     	categoria.save();
     	index();
     }
     public static void exclui(Long id) {
     	Categoria categoria = Categoria.findById(id);
     	categoria.ativo = false;
-    	render();
+    	categoria.save();
+    	
+    	List<Produto> produtos = Produto.find("byCategoria_id", categoria.id).fetch();
+    	
+    	for (Produto produto : produtos){
+    		produto.ativo = false;
+    		produto.save();
+    		
+    	}
+    	
+    	index();
     }
 
     public static void salvarCadastro(Categoria categoria){

@@ -52,7 +52,7 @@
 							<td>${datas[contador]}</td>
 							<td>${horas[contador]}</td>
 							<td>R$ ${pedidos[contador].valorTotal}</td>
-							<td><a href="" id="visualizar"></a></td>
+							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
 							<td></td>
 							<style>#fechado {color:#f00; font-weight:bold;}</style>
 
@@ -67,7 +67,7 @@
 							<td>${datas[contador]}</td>
 							<td>${horas[contador]}</td>
 							<td>R$ ${pedidos[contador].valorTotal}</td>
-							<td><a href="" id="visualizar"></a></td>
+							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
 							<td></td>
 							
 
@@ -80,7 +80,7 @@
 							<td>${datas[contador]}</td>
 							<td>${horas[contador]}</td>
 							<td>R$ ${pedidos[contador].valorTotal}</td>
-							<td><a href="" id="visualizar"></a></td>
+							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
 							<td><img id="status_finalizado" src="../../../public/images/finalizado.png"></td>
                             <style>#status_finalizado {	margin-left:25px;}</style>
 						#{/if}
