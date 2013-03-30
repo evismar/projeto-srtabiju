@@ -20,6 +20,11 @@ public class Pedidos extends Application{
         render(pedidos);
     }
     
+    public static void detalhamentoPedido() {
+    	
+        render();
+    }
+    
     public static void visualizaPedido(Long id) {
     	System.out.println(id);
     	Pedido pedido = Pedido.findById(id);

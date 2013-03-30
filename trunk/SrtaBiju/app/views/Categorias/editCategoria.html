@@ -31,7 +31,15 @@
 		            <input type="hidden" name="${field.name}" value="${categoria?.id}" id="id" placeholder="Nome" autocomplete="off" tabindex="10" class="txtinput" required>
 		            <span class="error">${field.error}</span>
 		        </p>
-		    #{/field}			
+		    #{/field}	
+		    
+				#{field 'descricao'}
+				<p class="${field.errorClass}">
+					<input type="hidden" name="${field.name}" value="${categoria?.descricao}"
+						id="nome" autocomplete="off" tabindex="10" class="txtinput"
+						required> <span class="error">${field.error}</span>
+				</p>
+				#{/field}		    		
 																																														
 			#{field 'categoria.nome'}
 		        <p class="${field.errorClass}">
@@ -43,7 +51,7 @@
             
 		    #{field 'categoria.descricao'}
 		        <p class="${field.errorClass}">
-		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${categoria?.descricao}" maxlength="400" placeholder="Descrição do Produto" required></textarea>
+		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${categoria?.descricao}" maxlength="400" placeholder="${categoria?.descricao}"></textarea>
 		            <span class="error">${field.error}</span>
 		        </p>
 		    #{/field}          
