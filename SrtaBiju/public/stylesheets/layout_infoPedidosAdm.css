@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+
+#detalhe_pedido { width:1000px; min-height:345px; margin:0 auto;}
+
+#detalhe_pedido h2 { color:#930;}
+
+#detalhe_pedido h4 { color:#930;}
+
+#detalhe_pedido p { font-size:18px; font-weight:bold;}
+
+#dados_cliente { width:550px; height:180px; margin:40px 0; border-style: solid; padding:20px;}
+
+#dados_produtos { width:1000px; margin:40px 0; border-style: solid; padding:20px;}
+
+#tab { margin:20px 0;}
+
+#finalizar { display:block; float:right; margin:5px;}
