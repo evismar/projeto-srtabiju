@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen"
+	href="../../../public/stylesheets/layout_listagem.css">
+</head>
+
+<body>
+
+	
+	<div id="listagem" align="center">
+	</div>
+
+	
+		#{ifnot pedidos}
+		<table id="tab">
+			<thead>
+				<tr>
+					<th>Cód Pedido</th>
+					<th>Nome Cliente</th>
+					<th>Data</th>
+					<th>Hora</th>
+					<th>Valor Total</th>
+					<th>Visualizar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<p>Sem mais resultados.</p>
+				#{/ifnot} #{else}
+
+				<table id="tab">
+					<thead>
+						<tr>
+							<th>Cód Pedido</th>
+							<th>Nome Cliente</th>
+							<th>Data</th>
+							<th>Hora</th>
+							<th>Valor Total</th>
+							<th>Visualizar</th>
+							<th>Finalizado</th>
+						</tr>
+					</thead>
+					<tbody>
+						#{list contador, as:'contador'}
+						
+						#{if pedidos[contador].status == 'fechado'}
+						#{form @Pedidos.index(), name:'teste', id:'teste'}
+						<tr id="fechado">
+							<td>${pedidos[contador].id}</td>
+							<td>${nomesClientes[contador]}</td>
+							<td>${datas[contador]}</td>
+							<td>${horas[contador]}</td>
+							<td>R$ ${pedidos[contador].valorTotal}</td>
+							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
+							<td></td>
+							<style>#fechado {color:#000; font-weight:bold;}</style>
+
+
+						</tr>
+						#{/form}
+						#{/if}
+						#{if pedidos[contador].status == 'visto'}
+						<tr id="visto">
+							<td>${pedidos[contador].id}</td>
+							<td>${nomesClientes[contador]}</td>
+							<td>${datas[contador]}</td>
+							<td>${horas[contador]}</td>
+							<td>R$ ${pedidos[contador].valorTotal}</td>
+							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
+							<td></td>
+							
+
+						</tr>
+						#{/if}
+						#{if pedidos[contador].status == 'finalizado'}
+						<tr id="finalizado">
+							<td>${pedidos[contador].id}</td>
+							<td>${nomesClientes[contador]}</td>
+							<td>${datas[contador]}</td>
+							<td>${horas[contador]}</td>
+							<td>R$ ${pedidos[contador].valorTotal}</td>
+							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
+							<td><img id="status_finalizado" src="../../../public/images/finalizado.png"></td>
+                            <style>#status_finalizado {	margin-left:25px;}</style>
+						#{/if}
+						
+						#{/list}
+
+					</tbody>
+					<tfoot>
+					</tfoot>
+
+				</table>
+                
+                <a id="downPage" href="${page-1}">Anterior</a> <a id="nextPage"
+			href="${page+1}">Próxima</a>
+            
+				#{/else}
+				
+</body>
+</html>
