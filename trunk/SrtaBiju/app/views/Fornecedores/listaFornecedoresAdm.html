@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
+<title>Test</title>
+
+</head>
+
+<body>
+
+<div id="novo_cad" align="left">
+	<a href="@{Fornecedores.cadFornecedor()}" id="botao_cad"></a>
+</div>
+
+	<div id="listagem" align="center">
+	</div>
+
+<div id="listagem" align="center">
+#{ifnot fornecedores}
+    <p>
+        Sem mais resultados.
+    </p>
+#{/ifnot}
+#{else}
+
+    <table id="tab">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Opção</th>
+            </tr>
+        </thead>     
+        <tbody>
+            #{list fornecedores, as:'fornecedor'}
+            <tr>
+                <td>${fornecedor.id}</td>
+                <td>${fornecedor.nome}</td>
+                <td>${fornecedor.telefone1}</td>
+                <td><a id="editar" name= "editar"href="@{editFornecedor(fornecedor.id)}"><img src="../../../public/images/editar.png"/></a>
+                
+
+                <a id="remover" onclick="return confirm('Deseja realmente deletar este Fornecedor?')" name = "remover" href="@{exclui(fornecedor.id)}" onclick="exclui()"><img src="../../../public/images/remover.png"/></a></td>
+
+                
+                
+            </tr>
+            #{/list}
+ 
+        </tbody>
+        <tfoot>
+        </tfoot>
+
+    </table>
+    <a id="downPage" href="${page-1}">Anterior</a> <a id="nextPage"
+			href="${page+1}">Próxima</a>
+
+  #{/else}
+
+              
+</div>
+</body>
+</html>
