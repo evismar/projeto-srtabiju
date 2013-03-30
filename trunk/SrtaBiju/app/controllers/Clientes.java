@@ -12,7 +12,7 @@ import models.*;
 
 public class Clientes extends Application {
 
-	@Before
+
 	static void checaCliente() {
 		if (connected() == null) {
 			flash.error("Por favor, realize o Login primeiro.");
@@ -21,6 +21,7 @@ public class Clientes extends Application {
 	}
 
 	public static void clienteLogado() {
+		checaCliente();
 		Pessoa cliente = connected();
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
@@ -136,7 +137,7 @@ public class Clientes extends Application {
 		if (validation.hasErrors()) {
 			params.flash();
 			validation.keep();
-			Application.cadCliente();
+			cadCliente();
 		}
 
 		// Cadastra
@@ -152,7 +153,7 @@ public class Clientes extends Application {
 	}
 
 	public static void editCliente(Long id) {
-
+		checaCliente();
 		Cliente cliente = Cliente.findById(id);
 		render(cliente);
 
@@ -213,7 +214,7 @@ public class Clientes extends Application {
 		item._delete();
 		pedido.save();
 		flash.success("Item excluido com sucesso!");
-		clienteLogado();
+		Application.index_cliente();
 		
 	}
 	
@@ -224,7 +225,10 @@ public class Clientes extends Application {
 		pedido.save();
 		
 		flash.success("Caixinha de desejos enviada com sucesso! Aguarde, logo logo entraremos em contato!");
-		clienteLogado();
+		Application.index_cliente();
 		
 	}
+    public static void cadCliente() {
+        render();
+    }
 }
