@@ -10,23 +10,41 @@ import javax.servlet.http.HttpServletRequest;
 
 import models.*;
 public class Administradores extends Application{
+	
+	static void checaAdm() {
+		if (connected() == null) {
+			flash.error("Por favor, realize o Login primeiro.");
+			Application.index_cliente();
+		}
+		Pessoa pessoa = connected();
+		Administrador adm = Administrador.find("byUsuarioAndSenha", pessoa.usuario, pessoa.senha).first();
+		if(adm == null) {
+			flash.error("Por favor, realize o Login de Administrador.");
+			Application.index_cliente();
+		}
+	}
 
     public static void cadAdministrador() {
+    	checaAdm();
         render();
     }
     public static void minhaConta() {
         render();
     }
     public static void pedidos() {
-        render();
+    	checaAdm();
+    	List<Pedido> pedidos = Pedido.find("byStatus", "fechado").fetch();
+        render(pedidos);
     }
     public static void index() {
+    	checaAdm();
         List<Administrador> administradores = Administrador.findAll();
         render(administradores);
 
     }
     
     public static void editAdministrador(Long id){  
+    	checaAdm();
     	Administrador administrador = Administrador.findById(id);
     	render(administrador, id);
     	
@@ -115,6 +133,7 @@ public class Administradores extends Application{
     }
     
     public static void listaAdministradores() {
+    	checaAdm();
         List<Administrador> administradores = Administrador.findAll();
         render(administradores);
   

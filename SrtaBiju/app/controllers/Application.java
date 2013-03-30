@@ -14,16 +14,22 @@ import models.*;
 
 public class Application extends Controller {
 	
-    @Before
-    static void addUsuario() {
-        Pessoa usuario = connected();
-        if(usuario != null) {
-            renderArgs.put("usuario", usuario);
-            System.out.println("Usuario não nulo 1 " + usuario.nome);
-        }
-    }
+	static void checaAdm() {
+		if (connected() == null) {
+			flash.error("Por favor, realize o Login primeiro.");
+			Application.index_cliente();
+		}
+		Pessoa pessoa = connected();
+		Administrador adm = Administrador.find("byUsuarioAndSenha", pessoa.usuario, pessoa.senha).first();
+		if(adm == null) {
+			flash.error("Por favor, realize o Login de Administrador.");
+			Application.index_cliente();
+		}
+	}
+	
     
     public static void relatorios() {
+    	checaAdm();
         render();
     }
     
@@ -71,6 +77,7 @@ public class Application extends Controller {
     }
 	    
 	    public static void index_adm() {
+	    	checaAdm();
 	        render();
 	    }
 	    public static void contato() {
@@ -146,8 +153,6 @@ public class Application extends Controller {
 	    	
 	    	
 	    }	
-	    public static void cadCliente() {
-	        render();
-	    }
+
 
 	}
