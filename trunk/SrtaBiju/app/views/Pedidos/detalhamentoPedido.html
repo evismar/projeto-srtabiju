@@ -1,0 +1,77 @@
+#{extends 'main_adm.html' /}
+#{set title:'Detalhamento da Caixinha' /}
+
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_infoPedidosAdm.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
+</head>
+
+<body>
+<div id="detalhe_pedido">
+
+	<div id="dados_cliente">
+    	<h2>Cliente</h2>
+        <br />
+        <p>Nome: José Alfedro Lima</p>
+        <br />
+        <p>Telefone: 3433 - 4591</p>
+        <br />
+        <p>E-mail: zezinho@gmail.com</p>
+    </div>
+    
+    <div id="dados_produtos">
+    	<h2>Produtos</h2>
+        	<div id="listagem" align="center">
+			</div>
+
+			<table id="tab">
+			<thead>
+				<tr>
+					<th>Produto</th>
+					<th>Qtd.</th>
+					<th>Preço</th>
+					<th>Total</th>
+					
+
+				</tr>
+			</thead>
+			<tbody>
+				
+				<tr>
+					<td>Pulseira Red</td>
+					<td>2</td>
+					<td>R$ 23,00</td>
+					<td>R$ 46,00</td>
+
+				</tr>
+                <tr>
+					<td>Pulseira Red</td>
+					<td>2</td>
+					<td>R$ 23,00</td>
+					<td>R$ 46,00</td>
+
+				</tr>
+                <tr>
+					<td>Pulseira Red</td>
+					<td>2</td>
+					<td>R$ 23,00</td>
+					<td>R$ 46,00</td>
+
+				</tr>
+
+			</tbody>
+			<tfoot>
+			</tfoot>
+
+		</table>
+		<h4>Preço Total do Pedido: R$ 138,00</h4>
+		<br /> <input id="finalizar" type="image" src="../../../public/images/finalizar.png"/><br />
+            
+     		
+    </div>
+</div>
+</body>
+
+</html>
