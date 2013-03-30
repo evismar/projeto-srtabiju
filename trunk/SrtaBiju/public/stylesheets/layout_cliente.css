@@ -1,0 +1,109 @@
+* {padding:0; margin:0;}
+
+body, html{ height:100%;}
+
+#pagina{ min-height:100%; position:relative;}
+
+	
+/** ---TOPO--- **/
+
+#topo {width:100%; height: 150px; background-image:url(../images/topobg.png); background-repeat:repeat-x;}
+
+#dentrotopo {width:1000px; height:130px; margin:0 auto; padding-top:20px;}
+
+	#dentrotopo input[type="text"] {width:210px; height:30px; margin-top:80px; border:none; border-radius:6px; -webkit-border-radius:6px 0 0 6px; 			    -moz-border-radius:6px 0 0 6px; -o-border-radius:6px 0 0 6px; float:right; outline:none; padding-left:4px;}
+
+	#dentrotopo #botaoBusca {float:right; margin-top:80px; background:#FFF; -webkit-border-radius:0 10px 10px 0; moz-border-radius:10px 0 0 10px;     -goog-ms-border-radius:10px 0 0 10px; float:right; padding-left:2px;}
+
+#menu {width:100%; height:42px; background-image:url(../images/menubg.png); background-repeat:repeat-x; border:none; -webkit-border-radius:0 0 10px 10px; moz-border-radius:0 0 10px 10px; -goog-ms-border-radius:0 0 10px 10px;}
+
+#dentromenu {width:1000px; height:34px; padding-top:8px; margin:0 auto;}
+
+	#dentromenu ul{list-style: none; float: left; position: relative; left: 30%;}
+
+	#dentromenu ul li{float: left; position: relative; right: 50%; margin: 0 1px; background-image:url(../images/divisorbg.png); background-position:right; background-repeat: no-repeat;}
+
+	.links { font-family:Arial, Helvetica, sans-serif; color:#FFF; text-decoration:none; font-size:20px; padding:2px 18px; border-right:#FFF}
+
+	.links:hover { color:#9B0000; text-shadow: 2px -2px 14px #FFF;}
+
+/** ---CONTEÚDO--- **/
+
+#conteudo { width:1000px; height:820px; margin:0 auto; background-image:url(../images/conteudobg.png); background-repeat:repeat-x; padding-bottom:90px;}
+
+	#barramenu{width:245px; height:772px; background:#7B0226; float:right; padding:10px; margin-top:25px;}
+
+		#login{width:225px; height:235px; background-image:url(../images/loginbg.png); background-repeat:no-repeat; font-size:18px;margin: 0 auto; 	        padding:5px;}
+		
+			#login p{ text-align:center; font-size:18px; font-weight:bold; margin-top:3px;}
+		
+			#login b{ font-size:15px; margin-left:5px;}
+		
+			#login #login_usu, #login_senha {width:170px; height:30px; border:none; border-radius:6px; -webkit-border-radius:6px; 			    	            -moz-border-radius:6px; -o-border-radius:6px; outline:none; padding-left:4px; margin-bottom:15px; margin-left:25px;}
+		
+			#login #entrar { background-image:url(../images/botaoentrar.png); background-repeat:no-repeat; display:block; width: 56px; height: 30px			            ; float:right; margin-right:25px;}
+		
+			#login #entrar {width:56px; background-position:0 0;}
+		
+			#login #entrar:hover{background-position:0 -40px;}
+			
+			#login #novocad{ text-align:right; font-size:12px; font-style:italic; display:block; margin-top:40px; margin-right:25px;}
+			
+			#login h7{color:#FC0; font-family:Arial, Helvetica, sans-serif; font-size:14px; margin:25px;}
+			
+			/** ---CLIENTE LOGADO--- **/
+			
+			#login #img{ margin-left:78px;}
+			
+			#login #link_pedidos{ display:block;text-align:center; font-size:14px; text-decoration:none;}
+			
+			#logado li{ list-style-type:none; list-style-image:none; font-size:14px; display:block; margin:50px 10px; float:left;}
+			
+			#barramenu #curtirpag{ display:block; position:relative; top:5%;}
+			
+		#barramenu h1{text-align:center; color:#FFF; margin-top:70px;}
+		
+	#conteudo h1 { padding:10px 0;}
+	
+	#conteudo .slide{margin:0; padding-bottom:13px;}
+	
+	#barra{width:120px; height:382px; background:#7B0226; float:left;}
+	
+	/** ---VITRINE--- **/
+	
+	#vitrine{ width:730px; height:200px;}
+	
+	#vitrine table{ text-align:center;}
+	
+	#vitrine .imagemvit{ width:120px; height:110px; float:left; margin-left:56px;  border: 4px solid #000;}
+	
+	#vitrine span{ font-family:Arial, Helvetica, sans-serif; font-size:14px; margin-left:56px; font-weight:bold;}
+	
+	#vitrine #ver { margin-left:98px; margin-bottom:12px; background-image:url(../images/botaover.png); background-repeat:no-repeat; display:block; width: 46px; height: 20px;}
+	
+	
+	
+/** ---RODAPÉ--- **/	
+
+#rodape {width:100%; height:90px; background-image:url(../images/topobg.png); background-repeat:repeat-x; text-align:center; position:absolute; bottom:0;}
+
+	#rodape b{font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#FFF; padding-top:30px; display:block;}
+	
+	
+/** ---CONTATO--- **/
+
+#info { width: 500px; height:200px; margin: auto; text-align:center; margin-top:40px;}
+
+#info h3 { font-family:Arial, Helvetica, sans-serif; margin:10px;}
+	
+#info p{ font-family:Arial, Helvetica, sans-serif; font-size:16px; padding:15px; background:#7B0226; color:#FFF; border-radius:8px; -webkit-border-radius:8px; 		-moz-border-radius:8px; -o-border-radius:8px; display:block;}
+
+
+	
+	
+	
+
+
+
+
+
