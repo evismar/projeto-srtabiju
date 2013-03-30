@@ -13,6 +13,8 @@ public class Categoria extends Model{
     @Required
     @MaxSize(20)
 	public String nome;
+    
+    public boolean ativo;
 	
     @Required
     @MaxSize(150)
