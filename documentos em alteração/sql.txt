@@ -1,0 +1,69 @@
+Lista pedido e quantidade de itens de cada pedido 
+SELECT pedido.id as 'idpedido',(sum(itemdesejado.quantidade) ) as  'qtd de itens',pedido.data
+FROM pessoa inner join pedido inner join itemdesejado
+WHERE pedido.id=itemdesejado.pedido_id and pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY pedido.id desc;
+
+Lista pedidos em ordem decrescente pela quantidade de produtos
+SELECT 
+pedido.id as 'código do pedido',pessoa.nome,pessoa.telefone1,pedido.data,(sum(itemdesejado.quantidade) ) as  'qtd de itens',pedido.valorTotal
+FROM pessoa inner join pedido inner join itemdesejado
+WHERE pedido.id=itemdesejado.pedido_id and pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY (sum(itemdesejado.quantidade) ) desc;
+
+Lista pedidos em ordem crescente pela quantidade de produtos
+SELECT 
+pedido.id as 'código do pedido',pessoa.nome,pessoa.telefone1,pedido.data,(sum(itemdesejado.quantidade) ) as  'qtd de itens',pedido.valorTotal
+FROM pessoa inner join pedido inner join itemdesejado
+WHERE pedido.id=itemdesejado.pedido_id and pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY (sum(itemdesejado.quantidade) );
+
+Nome das pessoas que fizeram pedidos em ordem descendente de valores de pedidos em tal data
+
+SELECT pessoa.nome,pessoa.id,pessoa.telefone1,(sum(pedido.valorTotal) ) as  'Valor das compras'
+FROM pessoa,pedido 
+WHERE pessoa.id=pedido.cliente_id and pedido.data='2013-03-30 11:12:04'
+GROUP BY pessoa.nome
+ORDER BY SUM(pedido.valorTotal) desc;
+
+Nome das pessoas que fizeram pedidos em ordem de crescente valores
+
+SELECT pessoa.nome,pessoa.id,pessoa.telefone1,(sum(pedido.valorTotal) ) as  'Valor das compras'
+FROM pessoa,pedido 
+WHERE pessoa.id=pedido.cliente_id and pedido.data='2013-03-30 11:12:04'
+GROUP BY pessoa.nome
+ORDER BY SUM(pedido.valorTotal);
+
+Lista de pedidos em ordem por data
+SELECT pedido.id,pessoa.nome,(sum(pedido.valorTotal) ) as  'Valor das compras',pedido.data
+FROM pessoa,pedido 
+WHERE pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY pedido.data;
+
+Lista de pedidos com nomes dos compradores em ordem de pedido que estao fechados
+SELECT pedido.id,pessoa.nome,(sum(pedido.valorTotal) ) as  'Valor das compras',pedido.data
+FROM pessoa,pedido 
+WHERE pedido.status='fechado' and pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY pedido.data;
+
+Lista de pedidos com nomes dos compradores em ordem de pedido que estao visualizado
+SELECT pedido.id,pessoa.nome,(sum(pedido.valorTotal) ) as  'Valor das compras',pedido.data
+FROM pessoa,pedido 
+WHERE pedido.status='visualizado' and pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY pedido.data;
+
+Lista de pedidos com nomes dos compradores em ordem de pedido que estao finalizado
+SELECT pedido.id,pessoa.nome,(sum(pedido.valorTotal) ) as  'Valor das compras',pedido.data
+FROM pessoa,pedido 
+WHERE pedido.status='finalizado' and pessoa.id=pedido.cliente_id
+GROUP BY pedido.id
+ORDER BY pedido.data;
+
+
+
