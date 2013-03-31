@@ -1,0 +1,64 @@
+#{extends 'main_adm.html' /}
+#{set title:'Detalhamento da Caixinha' /}
+
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_infoPedidosAdm.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
+</head>
+
+<body>
+<div id="detalhe_pedido">
+
+	<div id="dados_cliente">
+    	<h2>Cliente</h2>
+        <br />
+        <p>Nome: ${cliente.nome}</p>
+        <br />
+        <p>Telefone: ${cliente.telefone1} / ${cliente.telefone2}</p>
+        <br />
+        <p>E-mail: ${cliente.email}</p>
+    </div>
+    
+    <div id="dados_produtos">
+    	<h2>Produtos</h2>
+        	<div id="listagem" align="center">
+			</div>
+
+			<table id="tab">
+			<thead>
+				<tr>
+					<th>Produto</th>
+					<th>Qtd.</th>
+					<th>Preço</th>
+					<th>Total</th>
+					
+
+				</tr>
+			</thead>
+			<tbody>
+				#{list contador, as:'contador'}
+				<tr>
+					<td>${nomesProdutos[contador]}</td>
+					<td>${itens[contador].quantidade}</td>
+					<td>R$ ${valores[contador]}</td>
+					<td>R$ ${valoresItens[contador]}</td>
+
+				</tr>
+				#{/list}
+
+			</tbody>
+			<tfoot>
+			</tfoot>
+
+		</table>
+		<h4>Preço Total do Pedido: R$ ${valorTotal}</h4>
+		<br /><a href="" id="finalizar"></a><br />
+            
+     		
+    </div>
+</div>
+</body>
+
+</html>
