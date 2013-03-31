@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/**---PRINCIPAL---**/
+
+#relatorio { width:900px; height:385px; margin:40px auto; text-align:center;}
+
+#relatorio h1 { font-family:Arial, Helvetica, sans-serif; font-size:32px; color:#930;}
+
+#rel_cliente { float:left; font-family:Arial, Helvetica, sans-serif;}
+
+#img_cliente { width:128px; height:128px; background-image:url(../images/usuario.png); margin:60px; display:block;}
+
+#rel_produto { float:left;font-family:Arial, Helvetica, sans-serif;}
+
+#img_produto {	width:128px; height:128px; background-image:url(../images/produto.png); margin:60px 125px; display:block;}
+
+#rel_pedido { float:right; font-family:Arial, Helvetica, sans-serif;}
+
+#img_pedido {	width:128px; height:128px; background-image:url(../images/pedidos.png); margin:60px; display:block;}
+
+
+/**---RELATÓRIO---**/
+
+#geral { width:980px; min-height:550px; margin:80px auto; display:block;}
+
+#lista_relatorio { width:800px;}
+
+#consulta { width:150px; height:480px; background:#333; text-align:left; padding:10px; font-family:Arial, Helvetica, sans-serif; color:#FFF;}
+
+#consulta h3 { color:#930;}
+
+#escolha { margin:8px; padding:2px;}
+
+#botaoConsultar { float:right;}
+
+
+
+
+
+
