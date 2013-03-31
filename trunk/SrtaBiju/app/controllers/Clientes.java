@@ -18,6 +18,15 @@ public class Clientes extends Application {
 			flash.error("Por favor, realize o Login primeiro.");
 			Application.index_cliente();
 		}
+		else{
+			Pessoa conectado = connected();
+			Administrador pessoa = Administrador.find("byUsuarioAndSenha", conectado.usuario, conectado.senha).first();
+			if(pessoa != null) {
+			    	
+				flash.error("Por favor administrador, realize o Login como cliente primeiro para acessa a área de clientes, você será redirecionado a área de administrador!");
+				Application.index_adm();        
+			    }
+		}
 	}
 
 	public static void clienteLogado() {

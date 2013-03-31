@@ -92,7 +92,6 @@ public class Application extends Controller {
 			Administrador adm = Administrador.find("byUsuarioAndSenha", usuario, senha).first();
 			if(adm != null) {
 				session.put("usuario", adm.usuario);
-			    flash.success("Bem-vindo, " + adm.usuario);
 		        Application.index_adm();
 			}
 			else{
