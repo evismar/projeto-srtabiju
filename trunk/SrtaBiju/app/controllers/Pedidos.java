@@ -23,6 +23,7 @@ public class Pedidos extends Application{
     public static void detalhamentoPedido(Long id) {
     	List nomesProdutos = new ArrayList<>();
     	Pedido pedido = Pedido.findById(id);
+    	System.out.println(pedido.status);
     	List contador = new ArrayList<>();
     	List valores = new ArrayList<>();
     	List valoresItens = new ArrayList<>();
@@ -39,11 +40,9 @@ public class Pedidos extends Application{
     		i = i +1;
     	}
     	valorTotal = floatToString(pedido.valorTotal);
-    	if (pedido.status == "fechado"){
+    	if (pedido.status.equalsIgnoreCase("fechado")){
     		pedido.status = "visto";
     		pedido.save();
-        	System.out.println("-------------------------------------");
-        	System.out.println(pedido.status);
     	}
     	
     	
