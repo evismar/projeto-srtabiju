@@ -30,6 +30,11 @@ public class Produtos extends Application{
 
 
     }
+    
+	public static void relatorioProdutos() {
+
+		render();
+	}
 
     
     public static void imagemProduto(Long id) {       

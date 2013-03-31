@@ -172,6 +172,11 @@ public class Clientes extends Application {
 		render(clientes);
 
 	}
+	
+	public static void relatorioClientes() {
+
+		render();
+	}
 
 	public static void addProduto(Long idProduto, Integer quantidade) {
 		Produto produto = Produto.findById(idProduto);

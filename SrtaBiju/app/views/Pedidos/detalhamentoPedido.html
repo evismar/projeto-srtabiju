@@ -14,11 +14,11 @@
 	<div id="dados_cliente">
     	<h2>Cliente</h2>
         <br />
-        <p>Nome: José Alfedro Lima</p>
+        <p>Nome: ${cliente.nome}</p>
         <br />
-        <p>Telefone: 3433 - 4591</p>
+        <p>Telefone: ${cliente.telefone1} / ${cliente.telefone2}</p>
         <br />
-        <p>E-mail: zezinho@gmail.com</p>
+        <p>E-mail: ${cliente.email}</p>
     </div>
     
     <div id="dados_produtos">
@@ -38,36 +38,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				
+				#{list contador, as:'contador'}
 				<tr>
-					<td>Pulseira Red</td>
-					<td>2</td>
-					<td>R$ 23,00</td>
-					<td>R$ 46,00</td>
+					<td>${nomesProdutos[contador]}</td>
+					<td>${itens[contador].quantidade}</td>
+					<td>R$ ${valores[contador]}</td>
+					<td>R$ ${valoresItens[contador]}</td>
 
 				</tr>
-                <tr>
-					<td>Pulseira Red</td>
-					<td>2</td>
-					<td>R$ 23,00</td>
-					<td>R$ 46,00</td>
-
-				</tr>
-                <tr>
-					<td>Pulseira Red</td>
-					<td>2</td>
-					<td>R$ 23,00</td>
-					<td>R$ 46,00</td>
-
-				</tr>
+				#{/list}
 
 			</tbody>
 			<tfoot>
 			</tfoot>
 
 		</table>
-		<h4>Preço Total do Pedido: R$ 138,00</h4>
-		<br /> <input id="finalizar" type="image" src="../../../public/images/finalizar.png"/><br />
+		<h4>Preço Total do Pedido: R$ ${valorTotal}</h4>
+		<br /> <input href="@{Pedidos.finalizaPedido(pedido.id)}" id="finalizar" type="image" src="../../../public/images/finalizar.png"/><br />
             
      		
     </div>

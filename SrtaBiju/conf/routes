@@ -38,6 +38,10 @@ GET     /adm/lista/fornecedor                  Fornecedores.index
 
 GET     /adm/lista/pedidos                     Administradores.pedidos
 
+GET     /adm/relatorio/pedidos                 Pedidos.relatorioPedidos
+GET     /adm/relatorio/produtos                Produtos.relatorioProdutos
+GET     /adm/relatorio/clientes                Clientes.relatorioClientes
+
 
 
 
