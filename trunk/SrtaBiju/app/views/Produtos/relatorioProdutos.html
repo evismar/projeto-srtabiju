@@ -1,0 +1,126 @@
+#{extends 'main_adm.html' /}
+#{set title:'Relatório de Produtos' /}
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_relatorio.css">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../public/stylesheets/layout_listagem.css">
+</head>
+
+<body>  
+ 
+<div id="geral" align="center">
+
+    <div id="lista_relatorio" style="float:right" >
+    
+                <table  id="tab" align="center">
+                    <thead>
+                        <tr>
+                            <th width="50">Código</th>
+                            <th width="200">Nome</th>
+                            <th width="129">Categoria</th>
+                            <th width="122">Valor</th>
+                            <th width="120">Data de Cadastro</th>
+                            <th width="102">Pedidos</th>
+                            <th width="72">Visualizações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>1</td>
+                            <td>Pulseira Bigode</td>
+                            <td>Pulseira</td>
+                            <td>R$ 23,90</td>
+                            <td>13/03/2013</td>
+                            <td>3</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Pulseira Bigode</td>
+                            <td>Pulseira</td>
+                            <td>R$ 23,90</td>
+                            <td>13/03/2013</td>
+                            <td>3</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Pulseira Bigode</td>
+                            <td>Pulseira</td>
+                            <td>R$ 23,90</td>
+                            <td>13/03/2013</td>
+                            <td>3</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Pulseira Bigode</td>
+                            <td>Pulseira</td>
+                            <td>R$ 23,90</td>
+                            <td>13/03/2013</td>
+                            <td>3</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Pulseira Bigode</td>
+                            <td>Pulseira</td>
+                            <td>R$ 23,90</td>
+                            <td>13/03/2013</td>
+                            <td>3</td>
+                            <td>23</td>
+                        </tr>
+    
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+    
+                </table>
+                
+    </div>
+       
+    <div id="consulta" style="float:left">
+            <h3>Consultar por...</h3>
+            <br />
+            <p>Opção:</p>
+            <select id="escolha">
+            <option value=""></option>
+            <option value="Valor">Valor</option>
+            <option value="N° Pedidos">N° Pedidos</option>
+            <option value="N° Pedidos">N° Visualizações</option>      
+            </select>
+            
+            <p>Categoria:</p>
+            <select id="escolha">
+            <option value=""></option>
+            <option value="Colar">Colar</option>
+            <option value="Pulseira">Pulseira</option>
+            </select>
+            
+            <p>Ordem:</p>
+            <select id="escolha">
+            <option value=""></option>
+            <option value="Crescente">Crescente</option>
+            <option value="Decrescente">Decrescente</option>
+            </select>
+            
+            <br />
+            <br />
+            <p>Data de Cadastro</p>
+            <br />
+            <p>De:</p><input id="escolha" type="date" />
+            <p>Até:</p><input id="escolha" type="date" />
+            <br />
+            <br />
+            <br />
+            <input type="image" id="botaoConsultar" src="../../../public/images/botaofiltro.png"/>
+            
+    </div>
+</div>
+	<div id="clear" style="clear:both">
+    </div>
+  
+</body>
+</html>
