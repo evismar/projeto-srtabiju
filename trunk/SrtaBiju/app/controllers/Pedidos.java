@@ -20,20 +20,48 @@ public class Pedidos extends Application{
         render(pedidos);
     }
     
-    public static void detalhamentoPedido() {
+    public static void detalhamentoPedido(Long id) {
+    	List nomesProdutos = new ArrayList<>();
+    	Pedido pedido = Pedido.findById(id);
+    	List contador = new ArrayList<>();
+    	List valores = new ArrayList<>();
+    	List valoresItens = new ArrayList<>();
+    	String valorTotal = null;
+    	Cliente cliente = Cliente.findById(pedido.cliente.id);
+    	List<ItemDesejado> itens = ItemDesejado.find("byPedido_id", pedido.id).fetch();
+    	Integer i = 0;
+    	for (ItemDesejado item: itens){
+    		Produto produto = Produto.findById(item.produto.id);
+    		nomesProdutos.add(produto.nome);
+    		valores.add(floatToString(item.valorNaHoraPedido));
+    		valoresItens.add(floatToString(item.valorNaHoraPedido*item.quantidade));
+    		contador.add(i);
+    		i = i +1;
+    	}
+    	valorTotal = floatToString(pedido.valorTotal);
+    	if (pedido.status == "fechado"){
+    		pedido.status = "visto";
+    		pedido.save();
+        	System.out.println("-------------------------------------");
+        	System.out.println(pedido.status);
+    	}
     	
-        render();
+    	
+        render(nomesProdutos, valores, valoresItens, itens, cliente, pedido, contador, valorTotal);
     }
     
-    public static void visualizaPedido(Long id) {
+    public static void finalizaPedido(Long id) {
     	System.out.println(id);
     	Pedido pedido = Pedido.findById(id);
-    	pedido.status = "visto";
+    	pedido.status = "finalizado";
     	pedido.save();
     	index();
     }
     
+	public static void relatorioPedidos() {
 
+		render();
+	}
 
     
     public static void listaPedidosAdm(String search, Integer size, Integer page) {
@@ -79,5 +107,19 @@ public class Pedidos extends Application{
         render(pedidos, contador, datas, horas, status, nomesClientes, search, size, page);
     }
 
- 
+	public static String floatToString(float valorFloat) {
+		String valor = Float.toString(valorFloat);
+
+		valor = valor.replace(".", ",");
+		String[] split = valor.split(",");
+		String centavos = split[1];
+		if (centavos.length() < 2) {
+			valor = valor + "0";
+		}
+
+		if (centavos.length() > 2) {
+			valor = split[0] + "," + centavos.substring(0, 2);
+		}
+		return valor;
+	}
 }

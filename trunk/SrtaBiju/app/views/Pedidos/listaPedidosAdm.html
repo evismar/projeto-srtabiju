@@ -52,7 +52,7 @@
 							<td>${datas[contador]}</td>
 							<td>${horas[contador]}</td>
 							<td>R$ ${pedidos[contador].valorTotal}</td>
-							<td><a href="@{Pedidos.detalhamentoPedido()}" id="visualizar"></a></td>
+							<td><a href="@{Pedidos.detalhamentoPedido(pedidos[contador].id)}" id="visualizar"></a></td>
 							<td></td>
 							<style>#fechado {color:#000; font-weight:bold;}</style>
 
