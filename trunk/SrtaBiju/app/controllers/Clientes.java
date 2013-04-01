@@ -22,8 +22,6 @@ public class Clientes extends Application {
 			Pessoa conectado = connected();
 			Administrador pessoa = Administrador.find("byUsuarioAndSenha", conectado.usuario, conectado.senha).first();
 			if(pessoa != null) {
-			    	
-				flash.error("Por favor administrador, realize o Login como cliente primeiro para acessa a área de clientes, você será redirecionado a área de administrador!");
 				Application.index_adm();        
 			    }
 		}

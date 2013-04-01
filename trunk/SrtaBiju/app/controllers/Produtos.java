@@ -1,20 +1,24 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
-import play.data.validation.*;
-import play.db.jpa.Blob;
-import play.db.jpa.GenericModel.JPAQuery;
-
-import java.io.File;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.management.Query;
 
-import com.sun.org.apache.xpath.internal.operations.And;
+import models.Categoria;
+import models.ItemDesejado;
+import models.Pessoa;
+import models.Produto;
 
-import models.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import play.db.jpa.Blob;
+import play.db.jpa.JPA;
 
 public class Produtos extends Application{
 	
@@ -31,10 +35,65 @@ public class Produtos extends Application{
 
     }
     
-	public static void relatorioProdutos() {
+    public static void teste(String consulta, String categoria, String ordem) {   
+    	
+    	System.out.println(consulta + categoria + ordem);
 
-		render();
+
+    }
+    
+	public static String floatToString(float valorFloat) {
+		String valor = Float.toString(valorFloat);
+
+		valor = valor.replace(".", ",");
+		String[] split = valor.split(",");
+		String centavos = split[1];
+		if (centavos.length() < 2) {
+			valor = valor + "0";
+		}
+
+		if (centavos.length() > 2) {
+			valor = split[0] + "," + centavos.substring(0, 2);
+		}
+		return valor;
 	}
+    
+	public static void relatorioProdutos(String[] args) {
+			System.out.println("Size ------------------------+++++++++++++++-----------------------");
+			List codigos = new ArrayList<>();
+			List nomes = new ArrayList<>();
+			List valores = new ArrayList<>();
+			List categorias = new ArrayList<>();
+			List datas = new ArrayList<>();
+			List quantPedidos = new ArrayList<>();
+			List visualizacoes = new ArrayList<>();
+			List contador = new ArrayList<>();
+		    javax.persistence.Query query = JPA.em().createQuery("select produto.id from Produto produto where produto.ativo = 1");
+		    List produtos = query.getResultList();
+		    
+			for (int i = 0; i < produtos.size(); i++) {
+				Produto produto = Produto.findById(produtos.get(i));
+				codigos.add(produto.id);
+				nomes.add(produto.nome);
+				valores.add(floatToString(produto.valor));
+				Categoria categoria = Categoria.findById(produto.categoria.id);
+				categorias.add(categoria.nome);
+	    		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+	    		Date date = produto.dataCadastro;
+	    		String data = dateFormat.format(date);
+	    		datas.add(data);
+	    		visualizacoes.add(produto.numVisualizacoes);    		
+	    		List item =  ItemDesejado.find("select sum(i.quantidade) from ItemDesejado i where i.produto = ?", produto).fetch();	    		
+	    		quantPedidos.add(item.get(0));
+	    		contador.add(i);
+
+			}
+
+		    	render(codigos, nomes, valores, categorias, datas, quantPedidos, visualizacoes, contador);
+
+		  }
+
+	
 
     
     public static void imagemProduto(Long id) {       

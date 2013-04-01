@@ -18,13 +18,14 @@ import play.data.validation.MinSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
-@Entity
+@javax.persistence.Entity
 @Table(name = "PESSOA")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(
     name="discriminador",
     discriminatorType=DiscriminatorType.STRING
 )
+
 @DiscriminatorValue(value="P")
 public class Pessoa extends Model{
     @Required
