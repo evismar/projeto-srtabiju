@@ -23,7 +23,6 @@ public class Pedidos extends Application{
     public static void detalhamentoPedido(Long id) {
     	List nomesProdutos = new ArrayList<>();
     	Pedido pedido = Pedido.findById(id);
-    	System.out.println(pedido.status);
     	List contador = new ArrayList<>();
     	List valores = new ArrayList<>();
     	List valoresItens = new ArrayList<>();
@@ -50,9 +49,12 @@ public class Pedidos extends Application{
     }
     
     public static void finalizaPedido(Long id) {
-    	System.out.println(id);
+    	Pessoa pessoa = connected();
+    	Administrador adm = Administrador.findById(pessoa.id);
+    	
     	Pedido pedido = Pedido.findById(id);
     	pedido.status = "finalizado";
+    	pedido.administrador = adm;
     	pedido.save();
     	index();
     }
