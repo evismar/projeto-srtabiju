@@ -72,12 +72,11 @@
 						required> <span class="error">${field.error}</span>
 				</p>
 				#{/field} #{field 'produto.descricao'}
-				<p class="${field.errorClass}">
-					<textarea cols="40" id="descricao" rows="8" name="${field.descricao}"
-						placeholder="${produto?.descricao}" value="${produto?.descricao}" maxlength="300"></textarea>
-					<span class="error">${field.error}</span>
-				</p>
-				#{/field}
+		        <p class="${field.errorClass}">
+		             <textarea cols="40" id="descricao" rows="8" name="${field.name}" value="${produto?.descricao}" maxlength="300" placeholder="Descrição do Produto"></textarea>
+		            <span class="error">${field.error}</span>
+		        </p>
+		    #{/field} 
 			</section>
 
 			<section id="aside" class="clearfix">

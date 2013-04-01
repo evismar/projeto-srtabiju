@@ -55,7 +55,7 @@ public class Application extends Controller {
     	List<Produto> produtos = null;
     	List valores = new ArrayList<>();
     	List contador = new ArrayList<>();
-    	produtos = Produto.find("order by id desc, id").fetch(size);
+    	produtos = Produto.find("select produto from Produto produto where ativo = 1 order by id desc, id").fetch(size);
 		Integer i = 0;
     	for(Produto produto : produtos ){
 
