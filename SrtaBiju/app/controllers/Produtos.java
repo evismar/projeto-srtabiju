@@ -59,7 +59,6 @@ public class Produtos extends Application{
 	}
     
 	public static void relatorioProdutos(String[] args) {
-			System.out.println("Size ------------------------+++++++++++++++-----------------------");
 			List codigos = new ArrayList<>();
 			List nomes = new ArrayList<>();
 			List valores = new ArrayList<>();
@@ -219,11 +218,15 @@ public class Produtos extends Application{
     	if(uploadFile != null){
         	produto.imagem = uploadFile;   		
     	}
+    	
+    	if(produto.descricao == null){
+        	produto.descricao = descricao;   		
+    	}
    	
         produto.save();
         flash.success("Produto editado!");
         
-        
+
 
         Produtos.index();
     	

@@ -123,6 +123,7 @@ public class Administradores extends Application{
  	
     	Date dataCadastro = new Date();
     	administrador.dataCadastro = dataCadastro;
+    	administrador.ativo = true;
     	administrador.create();
 
         session.put("administrador", administrador.nome);

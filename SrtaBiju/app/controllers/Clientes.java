@@ -49,7 +49,7 @@ public class Clientes extends Application {
 		List valoresItens = new ArrayList<>();
 		List contador = new ArrayList<>();
 		List contadorPedidos = new ArrayList<>();
-		produtos = Produto.find("order by id desc, id").fetch(size);
+    	produtos = Produto.find("select produto from Produto produto where ativo = 1 order by id desc, id").fetch(size);
 		Integer i = 0;
 		for (Produto produto : produtos) {
 
